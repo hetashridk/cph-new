@@ -2,27 +2,20 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
-  // Framer Motion Variants for staggered children
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // Delay between each child animation
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50, damping: 15 } },
-  };
-
-  const floatVariants = {
-    animate: {
-      y: [0, -15, 0],
-      transition: { duration: 6, ease: "easeInOut", repeat: Infinity },
-    }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.4, 0.25, 1] } },
   };
 
   return (
@@ -38,12 +31,12 @@ const Hero = () => {
         animate="visible"
       >
         {/* Subheadline */}
-        <motion.p variants={itemVariants} className="text-[15px] font-medium text-black/60 mb-6 tracking-wide text-center max-w-lg mx-auto">
-          We guide founders and teams on how to use AI in real workflows.
+        <motion.p variants={itemVariants} className="text-[18px] font-normal text-[#14242D] mb-6 text-center max-w-3xl lg:max-w-none mx-auto px-4" style={{ letterSpacing: '-0.18px' }}>
+          We guide founders and teams on how to use AI in real workflows, not just experiments.
         </motion.p>
 
         {/* Massive Headline */}
-        <motion.h1 variants={itemVariants} className="text-[2.5rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[5.5rem] font-semibold tracking-tight mb-8 md:mb-10 leading-[1.05] text-center text-black px-4 lg:px-0">
+        <motion.h1 variants={itemVariants} className="text-[2.5rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[85px] font-semibold mb-8 md:mb-10 leading-[1] text-center text-[#14242D] px-4 lg:px-0" style={{ letterSpacing: '-1.7px' }}>
           Integrate AI Into Your <br className="hidden md:block" />
           Business the Right Way
         </motion.h1>
@@ -54,7 +47,7 @@ const Hero = () => {
             href="#contact"
             whileHover={{ y: -4, boxShadow: "0 10px 30px rgba(255,185,80,0.6)" }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 rounded-full bg-[#ffb950] text-black font-semibold text-[15px] shadow-[0_4px_14px_0_rgba(255,185,80,0.4)] flex items-center gap-2 group"
+            className="px-8 py-4 rounded-full bg-[#ffb950] text-[#14242D] font-normal text-[18px] shadow-[0_4px_14px_0_rgba(255,185,80,0.4)] flex items-center gap-2 group"
           >
             Get Started
             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
@@ -62,31 +55,31 @@ const Hero = () => {
         </motion.div>
 
         {/* Scrolling Text Bar (Marquee) */}
-        <motion.div variants={itemVariants} className="w-full bg-white overflow-hidden py-5 border-y border-black/5 mt-auto mb-16 relative">
+        <motion.div variants={itemVariants} className="w-full bg-white overflow-hidden py-5 border-y border-[#14242D]/5 mt-auto mb-16 relative">
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
           <div className="flex whitespace-nowrap animate-marquee items-center opacity-80">
             {/* Repeated text block for infinite scrolling effect */}
-            <div className="flex items-center space-x-8 md:space-x-12 px-6 text-[11px] md:text-[13px] tracking-[0.2em] font-semibold text-black uppercase">
-              <span>Artificial Intelligence</span>
+            <div className="flex items-center space-x-8 md:space-x-12 px-6 text-[11px] md:text-[13px] tracking-[0.2em] font-semibold text-[#14242D] uppercase">
+              <span>AI Consultion</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
-              <span>Machine Learning</span>
+              <span>AI Team Training</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
-              <span>Process Automation</span>
+              <span>1:1 AI Coaching</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
-              <span>Custom Development</span>
+              <span>GenAI Workshop</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
             </div>
             {/* Duplicate for seamless loop */}
-            <div className="flex items-center space-x-8 md:space-x-12 px-6 text-[11px] md:text-[13px] tracking-[0.2em] font-semibold text-black uppercase">
-              <span>Artificial Intelligence</span>
+            <div className="flex items-center space-x-8 md:space-x-12 px-6 text-[11px] md:text-[13px] tracking-[0.2em] font-semibold text-[#14242D] uppercase">
+              <span>AI Consultion</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
-              <span>Machine Learning</span>
+              <span>AI Team Training</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
-              <span>Process Automation</span>
+              <span>1:1 AI Coaching</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
-              <span>Custom Development</span>
+              <span>GenAI Workshop</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
             </div>
           </div>
@@ -94,10 +87,12 @@ const Hero = () => {
 
         {/* Hero Speaker Image Section - Floats continuously */}
         <div className="w-full px-6 md:px-12 flex justify-center mt-8 md:mt-0">
-          <motion.div 
-            variants={floatVariants}
-            animate="animate"
-            className="w-full max-w-[1000px] aspect-[4/3] md:aspect-[21/9] bg-black/5 relative overflow-hidden rounded-2xl shadow-2xl shadow-black/5 mb-20 md:mb-10"
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+            className="w-full max-w-[1000px] aspect-[4/3] md:aspect-[21/9] bg-[#14242D]/5 relative overflow-hidden rounded-2xl shadow-2xl shadow-[#14242D]/5 mb-20 md:mb-10"
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent mix-blend-overlay"></div>
             <div className="absolute inset-0 flex items-center justify-center text-black/40 font-medium tracking-widest text-sm uppercase">

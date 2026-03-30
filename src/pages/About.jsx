@@ -10,171 +10,149 @@ const About = () => {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.1 } }
+    visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.1 } }
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50, damping: 15 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.4, 0.25, 1] } }
   };
 
   return (
     <section id="about" className="flex flex-col w-full bg-white relative">
-      
+
       {/* 1. About Hero Section */}
       <div className="py-24 max-w-[1400px] mx-auto px-6 sm:px-12 w-full">
         <div className="flex flex-col lg:grid lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-24 items-center">
-          
+
           {/* Left Column - Text */}
-          <motion.div 
+          <motion.div
             className="flex flex-col text-center lg:text-left items-center lg:items-start w-full max-w-3xl mx-auto lg:mx-0"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-            <motion.h2 variants={itemVariants} className="text-[14px] font-semibold tracking-wider text-black/50 uppercase mb-4">About Us</motion.h2>
-            <motion.h3 variants={itemVariants} className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-semibold leading-[1.08] text-black tracking-tight mb-8">
+            <motion.h2 variants={itemVariants} className="text-[14px] font-semibold tracking-wider text-[#14242D]/50 uppercase mb-4">About Us</motion.h2>
+            <motion.h3 variants={itemVariants} className="text-[2.5rem] md:text-[3rem] lg:text-[70px] font-semibold leading-[1.1] text-[#14242D] mb-8" style={{ letterSpacing: '-1.4px' }}>
               Demystifying <br className="hidden lg:block" /> AI for Every <br className="hidden lg:block" /> Business
             </motion.h3>
             <motion.div variants={containerVariants} className="pt-4 md:pt-8 flex flex-col items-center lg:items-start">
-              <motion.p variants={itemVariants} className="text-[18px] md:text-[20px] lg:text-[18px] text-black/80 leading-relaxed font-medium mb-6 max-w-2xl">
+              <motion.p variants={itemVariants} className="text-[16px] md:text-[18px] text-[#14242D] leading-relaxed font-normal mb-6 max-w-2xl" style={{ letterSpacing: '-0.16px' }}>
                 At Crosslinks AI, we strive to simplify artificial intelligence for everyone. Our mission is to simplify AI for a normal person through tailored consultation, team training, and workshops that empower individuals and businesses.
               </motion.p>
-              <motion.p variants={itemVariants} className="text-[18px] md:text-[20px] lg:text-[18px] text-black/80 leading-relaxed font-medium mb-10 max-w-2xl">
+              <motion.p variants={itemVariants} className="text-[16px] md:text-[18px] text-[#14242D] leading-relaxed font-normal mb-10 max-w-2xl" style={{ letterSpacing: '-0.16px' }}>
                 With a deep understanding of the evolving AI landscape, we guide founders and teams on how to leverage AI tools in real workflows, moving beyond just experiments to create lasting value.
               </motion.p>
             </motion.div>
           </motion.div>
-          
+
           {/* Right Column - Large Portrait Image Placeholder */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
             viewport={{ once: true }}
-            className="w-full mx-auto aspect-[16/9] lg:aspect-[4/5] bg-black/5 relative overflow-hidden rounded-[2rem] shadow-2xl shadow-black/5 group mt-4 lg:mt-0"
+            className="w-full mx-auto aspect-[16/9] lg:aspect-[4/5] bg-[#14242D]/5 relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[#14242D]/5 group mt-4 lg:mt-0"
           >
-            <div className="absolute inset-0 flex items-center justify-center text-black/40 font-medium tracking-widest text-sm uppercase group-hover:scale-105 transition-transform duration-700">
-               [ Hero Image Placeholder ]
+            <div className="absolute inset-0 flex items-center justify-center text-[#14242D]/40 font-medium tracking-widest text-sm uppercase group-hover:scale-105 transition-transform duration-700">
+              [ Hero Image Placeholder ]
             </div>
           </motion.div>
 
         </div>
       </div>
 
-      {/* 2. Mission & Purpose Section: Interactive Expanding Split-Cards */}
-      <div className="w-full bg-[#ffb950] py-24 md:py-32 relative overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-12 relative z-10 flex flex-col items-center">
-          
-          <motion.div 
-            className="text-center mb-16"
+      {/* 2. Unified Mission & Purpose Section */}
+      <div className="w-full bg-[#ffb950] py-24 md:py-32 relative">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-12 relative z-10 flex flex-col gap-16 md:gap-24">
+
+          <motion.div
+            className="flex flex-col"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
           >
-             <h2 className="text-[14px] font-semibold tracking-wider text-black/50 uppercase mb-4">Core Values</h2>
-             <h3 className="text-[2.5rem] md:text-[3rem] lg:text-[4rem] font-semibold leading-[1.08] text-black tracking-tight">Our Driving Forces</h3>
+            <h2 className="text-[2.5rem] md:text-[3.5rem] lg:text-[70px] font-semibold tracking-tighter leading-[1.1] text-[#14242D]" style={{ letterSpacing: '-1.4px' }}>
+              Our Mission
+            </h2>
+            <h3 className="text-[1.5rem] md:text-[2rem] font-normal text-[#14242D]/70 mt-4 tracking-tight">
+              Our Purpose
+            </h3>
           </motion.div>
 
-          <motion.div 
-            className="w-full flex flex-col lg:flex-row gap-4 md:gap-8 lg:gap-6 lg:h-[70vh] lg:min-h-[500px]"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            
-            {/* Mission Card */}
-            <div className="relative flex-1 lg:hover:flex-[2.5] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] bg-white rounded-3xl overflow-hidden group shadow-[0_20px_60px_rgba(0,0,0,0.08)] cursor-pointer min-h-[350px] lg:min-h-0">
-              <div className="absolute inset-0 bg-black/5 mix-blend-multiply transition-opacity duration-700"></div>
-              <div className="absolute inset-0 flex items-center justify-center text-black/20 font-medium tracking-widest text-sm uppercase z-0 pointer-events-none group-hover:scale-105 transition-transform duration-1000">
-                [ Mission Image ]
-              </div>
-              
-              <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end bg-gradient-to-t from-white via-white/40 to-transparent">
-                 <h3 className="text-black text-[2.5rem] md:text-[4rem] font-bold tracking-tight leading-none mb-4 group-hover:-translate-y-2 transition-transform duration-700">
-                   Our Mission.
-                 </h3>
-                 <div className="grid grid-rows-[1fr] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]">
-                   <div className="overflow-hidden">
-                     <p className="text-black/70 text-[16px] md:text-[18px] leading-relaxed font-medium lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-700 delay-100 max-w-xl">
-                       Bringing clarity and actionable strategies to organizations trying to navigate the complex world of Artificial Intelligence. We believe that AI should be accessible, understandable, and immediately applicable to your daily workflows.
-                     </p>
-                   </div>
-                 </div>
-              </div>
-            </div>
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 lg:gap-24">
+            <motion.p
+              className="text-[16px] md:text-[18px] leading-relaxed font-normal text-[#14242D]" style={{ letterSpacing: '-0.16px' }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+            >
+              At Crosslinks AI, our mission is to simplify the complexities of artificial intelligence and deliver tailored solutions that enhance productivity and innovation. We aim to revolutionize how people perceive and utilize AI in their personal and professional lives.
+            </motion.p>
 
-            {/* Purpose Card */}
-            <div className="relative flex-1 lg:hover:flex-[2.5] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] bg-white rounded-3xl overflow-hidden group shadow-[0_20px_60px_rgba(0,0,0,0.08)] cursor-pointer min-h-[350px] lg:min-h-0">
-              <div className="absolute inset-0 bg-black/5 mix-blend-multiply transition-opacity duration-700"></div>
-              <div className="absolute inset-0 flex items-center justify-center text-black/20 font-medium tracking-widest text-sm uppercase z-0 pointer-events-none group-hover:scale-105 transition-transform duration-1000">
-                [ Purpose Image ]
-              </div>
-              
-              <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end bg-gradient-to-t from-white via-white/40 to-transparent">
-                 <h3 className="text-black text-[2.5rem] md:text-[4rem] font-bold tracking-tight leading-none mb-4 group-hover:-translate-y-2 transition-transform duration-700">
-                   Our Purpose.
-                 </h3>
-                 <div className="grid grid-rows-[1fr] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]">
-                   <div className="overflow-hidden">
-                     <p className="text-black/70 text-[16px] md:text-[18px] leading-relaxed font-medium lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-700 delay-100 max-w-xl">
-                       To build a bridge between cutting-edge AI technologies and practical business applications. We empower teams to confidently adopt AI, fostering innovation and driving significant growth without the confusion or overwhelm.
-                     </p>
-                   </div>
-                 </div>
-              </div>
-            </div>
+            <motion.p
+              className="text-[16px] md:text-[18px] leading-relaxed font-normal text-[#14242D]" style={{ letterSpacing: '-0.16px' }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1], delay: 0.15 }}
+            >
+              We are dedicated to creating an environment where AI knowledge is shared freely, enabling our clients to thrive in an increasingly digital world. Our goal is to equip individuals and teams with the skills necessary to succeed in AI-driven markets.
+            </motion.p>
+          </div>
 
-          </motion.div>
         </div>
       </div>
 
       {/* 3. Our Team Section */}
-      <div className="w-full bg-white py-24 border-b border-black/5">
+      <div className="w-full bg-white py-24 border-b border-[#14242D]/5">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
-          
-          <motion.div 
+
+          <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
           >
-             <h2 className="text-[14px] font-semibold tracking-wider text-black/50 uppercase mb-4">Meet Our Experts</h2>
-             <h3 className="text-[2.5rem] md:text-[3rem] lg:text-[4rem] font-semibold leading-[1.08] text-black tracking-tight">Our Team</h3>
+            <h2 className="text-[14px] font-semibold tracking-wider text-[#14242D]/50 uppercase mb-4">Meet Our Experts</h2>
+            <h3 className="text-[2.5rem] md:text-[3rem] lg:text-[70px] font-semibold leading-[1.1] text-[#14242D]" style={{ letterSpacing: '-1.4px' }}>Our Team</h3>
+            <p className="max-w-3xl mx-auto mt-6 md:mt-8 text-[16px] md:text-[18px] text-[#14242D] leading-relaxed font-normal" style={{ letterSpacing: '-0.16px' }}>
+              The Crosslinks AI team comprises seasoned professionals with diverse expertise in artificial intelligence and its applications. Each member is passionate about empowering others through education and training, ensuring that our clients receive the best guidance in their AI journey.
+            </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-             {teamMembers.map((member, index) => (
-                <motion.div 
-                  key={index} 
-                  variants={itemVariants}
-                  whileHover={{ y: -8 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="group cursor-pointer"
-                >
-                  {/* Large Vertical Image Card */}
-                  <div className="w-full aspect-[3/4] bg-black/5 relative overflow-hidden rounded-2xl mb-6 shadow-sm group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-shadow duration-300">
-                     <div className="absolute inset-0 flex items-center justify-center text-black/40 font-medium tracking-widest text-sm uppercase group-hover:scale-105 transition-transform duration-700">
-                        [ Team Member Image ]
-                     </div>
-                     {/* Text Overlay on image bottom (like Wix) */}
-                     <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                        <h4 className="text-[22px] font-semibold text-white mb-1 tracking-tight">{member.name}</h4>
-                        <p className="text-white/80 text-[15px] font-medium">{member.role}</p>
-                     </div>
+            {teamMembers.map((member, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{ y: -8 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="group cursor-pointer"
+              >
+                {/* Large Vertical Image Card */}
+                <div className="w-full aspect-[3/4] bg-[#14242D]/5 relative overflow-hidden mb-6 shadow-sm group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-shadow duration-300">
+                  <div className="absolute inset-0 flex items-center justify-center text-[#14242D]/40 font-medium tracking-widest text-sm uppercase group-hover:scale-105 transition-transform duration-700">
+                    [ Team Member Image ]
                   </div>
-                </motion.div>
-             ))}
+                  {/* Text Overlay on image bottom (like Wix) */}
+                  <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                    <h4 className="text-[22px] font-semibold text-white mb-1 tracking-tight">{member.name}</h4>
+                    <p className="text-white/80 text-[15px] font-normal">{member.role}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
 
         </div>

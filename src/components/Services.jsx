@@ -9,7 +9,7 @@ const Services = () => {
       id: "01",
       title: "AI Consultation",
       subtitle: "Customized Strategy",
-      description: "Our AI consultation services provide personalized solutions to help you integrate AI technologies into your business operations. We work closely with you to identify opportunities and streamline processes, making AI accessible and perfectly actionable for your exact use-case.",
+      description: "Our AI consultation services provide personalized solutions to help you integrate AI technologies into your business operations. We work closely with you to identify opportunities and streamline processes, making AI accessible and actionable.",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
       )
@@ -18,7 +18,7 @@ const Services = () => {
       id: "02",
       title: "Team Training",
       subtitle: "Building AI Competence",
-      description: "Our AI team training programs equip your staff with the necessary skills and knowledge to leverage AI tools effectively. We focus on entirely hands-on learning experiences to ensure your team is prepared to tackle real-world challenges immediately.",
+      description: "Our AI team training programs equip your staff with the necessary skills and knowledge to leverage AI tools effectively. We focus on hands-on learning experiences to ensure your team is prepared to tackle real-world challenges.",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
       )
@@ -38,68 +38,48 @@ const Services = () => {
     <section id="services" className="py-24 md:py-32 bg-[#ffb950] relative">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 relative z-10 w-full">
 
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-24 items-start relative w-full">
+        <div className="flex flex-col gap-12 md:gap-20 items-center relative w-full">
 
-          {/* Left Side: Sticky Information */}
-          <div className="w-full lg:w-5/12 lg:sticky lg:top-32 self-start flex flex-col gap-6 relative z-0">
+          {/* Top Section: Header Information */}
+          <div className="w-full max-w-4xl mx-auto flex flex-col items-center text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "0px" }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
             >
-              <h2 className="text-[14px] font-semibold tracking-wider text-black/60 uppercase mb-4">What We Do</h2>
-              <h3 className="text-[2.5rem] md:text-[3rem] lg:text-[4rem] font-semibold leading-[1.08] text-black mb-6 tracking-tight">Our Services</h3>
-              <p className="text-black/80 text-[18px] leading-relaxed font-medium mb-8">
-                We offer comprehensive solutions to help you integrate AI seamlessly into your organization. Stop working harder—let's build systems that work for you.
-              </p>
-
-              <div className="hidden lg:flex items-center gap-3 text-black/40 font-semibold tracking-wide uppercase text-sm">
-                <span>Scroll to explore</span>
-                <motion.svg
-                  animate={{ y: [0, 5, 0] }}
-                  transition={{ repeat: Infinity, duration: 1.5 }}
-                  className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </motion.svg>
-              </div>
+              <h2 className="text-[14px] font-semibold tracking-wider text-[#14242D]/60 uppercase mb-4">What We Do</h2>
+              <h3 className="text-[2.5rem] md:text-[3rem] lg:text-[70px] font-semibold leading-[1.1] text-[#14242D] mb-6" style={{ letterSpacing: '-1.4px' }}>Our Services</h3>
             </motion.div>
           </div>
 
-          {/* Right Side: Unique Sticky Cards (ALL Viewports) */}
-          {/* Cards are sticky and stack perfectly on Top of each other as the user scrolls. */}
-          <div className="w-full lg:w-7/12 flex flex-col gap-6 md:gap-12 relative pb-10 lg:pb-32">
+          {/* Bottom Section: 3 Cards Grid */}
+          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
             {servicesData.map((service, index) => {
               const isHovered = hoveredIndex === index;
-              
-              // Universal offsets for the sticky deck effect across all viewports
-              const topOffset = 120 + (index * 32);
-              const zIndex = 10 + index;
 
               return (
                 <motion.div
                   key={service.id}
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "0px" }}
-                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1], delay: index * 0.12 }}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  style={{ top: `${topOffset}px`, zIndex }}
-                  className="sticky group cursor-pointer w-full"
+                  className="relative group cursor-pointer w-full"
                 >
                   {/* Card Body */}
-                  <div className="bg-white rounded-[2rem] p-8 md:p-12 flex flex-col gap-8 relative shadow-[0_-10px_30px_rgba(0,0,0,0.06)] md:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)] transition-all duration-500 ease-out md:group-hover:-translate-x-2 overflow-hidden border border-black/5">
+                  <div className="bg-white rounded-[2rem] p-8 md:p-10 lg:p-12 flex flex-col gap-8 relative shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all duration-500 ease-out group-hover:-translate-y-2 overflow-hidden border border-[#14242D]/5 h-full">
 
                     {/* Glowing effect inside card */}
                     <div className="absolute inset-0 bg-gradient-to-br from-[#ffb950]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none" />
 
-                    <div className="flex flex-col gap-6 relative z-10 w-full mb-2 lg:mb-0">
-                      
+                    <div className="flex flex-col gap-6 relative z-10 w-full mb-2">
+
                       {/* Top Row: Number & Icon */}
                       <div className="flex flex-row justify-between items-center w-full">
-                        <div className="text-[1.25rem] md:text-[1.5rem] font-mono tracking-tight text-black/20 font-bold group-hover:text-black/40 transition-colors duration-500">
+                        <div className="text-[1.25rem] md:text-[1.5rem] font-mono tracking-tight text-[#14242D]/20 font-semibold group-hover:text-[#14242D]/40 transition-colors duration-500">
                           {service.id}
                         </div>
 
@@ -113,21 +93,21 @@ const Services = () => {
                             borderColor: isHovered ? '#ffb950' : 'rgba(0,0,0,0.05)'
                           }}
                           transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                          className="text-black p-3 md:p-4 rounded-full border shadow-[0_2px_10px_rgba(0,0,0,0.04)] flex-shrink-0 inline-flex bg-white z-10"
+                          className="text-[#14242D] p-3 md:p-4 rounded-full border shadow-[0_2px_10px_rgba(0,0,0,0.04)] flex-shrink-0 inline-flex bg-white z-10"
                         >
                           {service.icon}
                         </motion.div>
                       </div>
 
                       {/* Title Row */}
-                      <h4 className="text-[2rem] md:text-[2.5rem] font-semibold tracking-tighter leading-[1.05] text-black w-full pr-4">
+                      <h4 className="text-[24px] md:text-[26px] lg:text-[28px] font-semibold leading-[1.3] text-[#14242D] w-full" style={{ letterSpacing: '-0.84px' }}>
                         {service.title}
                       </h4>
-                      
+
                     </div>
 
-                    <div className="relative z-10 w-full">
-                      <p className="text-black/70 text-[15px] md:text-[18px] leading-relaxed font-medium max-w-xl">
+                    <div className="relative z-10 w-full mt-auto">
+                      <p className="text-[#14242D] text-[15px] lg:text-[16px] leading-relaxed font-normal" style={{ letterSpacing: '-0.16px' }}>
                         {service.description}
                       </p>
                     </div>
