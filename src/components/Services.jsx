@@ -67,14 +67,14 @@ const Services = () => {
             </motion.div>
           </div>
 
-          {/* Right Side: Unique Mobile Sticky Cards / Desktop Scroll */}
-          {/* We return to a flex-col layout. On mobile, cards are sticky and stack. On desktop, they scroll normally. */}
-          <div className="w-full lg:w-7/12 flex flex-col gap-6 md:gap-12 relative pb-10">
+          {/* Right Side: Unique Sticky Cards (ALL Viewports) */}
+          {/* Cards are sticky and stack perfectly on Top of each other as the user scrolls. */}
+          <div className="w-full lg:w-7/12 flex flex-col gap-6 md:gap-12 relative pb-10 lg:pb-32">
             {servicesData.map((service, index) => {
               const isHovered = hoveredIndex === index;
               
-              // Mobile offsets for the sticky deck effect (100px base + 24px per card)
-              const topOffsetMobile = 100 + (index * 24);
+              // Universal offsets for the sticky deck effect across all viewports
+              const topOffset = 120 + (index * 32);
               const zIndex = 10 + index;
 
               return (
@@ -86,8 +86,8 @@ const Services = () => {
                   transition={{ duration: 0.6 }}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  style={{ top: `${topOffsetMobile}px`, zIndex }}
-                  className="sticky lg:static group cursor-pointer w-full"
+                  style={{ top: `${topOffset}px`, zIndex }}
+                  className="sticky group cursor-pointer w-full"
                 >
                   {/* Card Body */}
                   <div className="bg-white rounded-[2rem] p-8 md:p-12 flex flex-col gap-8 relative shadow-[0_-10px_30px_rgba(0,0,0,0.06)] md:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)] transition-all duration-500 ease-out md:group-hover:-translate-x-2 overflow-hidden border border-black/5">
