@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;500;600;700;800&family=Wix+Madefor+Text:ital,wght@0,400..800;1,400..800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,16 +7,16 @@
 @layer base {
   body {
     @apply font-sans antialiased bg-white selection:bg-[#ffb950] selection:text-[#14242D];
-    font-family: 'Helvetica Neue', 'Helvetica', 'Inter', Arial, sans-serif;
+    font-family: 'Wix Madefor Text', 'Inter', Arial, sans-serif;
     color: #14242D;
-    letter-spacing: -0.01em;
+    /* letter-spacing: -0.01em; (Removed since Madefor handles its own spacing perfectly) */
     font-weight: 400;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Helvetica Neue', 'Helvetica', 'Inter', Arial, sans-serif;
+    font-family: 'Wix Madefor Display', 'Inter', Arial, sans-serif;
     color: #14242D;
-    letter-spacing: -0.02em;
-    font-weight: 700;
+    /* font-weight: 400 is the natural weight for Wix display headings */
+    font-weight: 400; 
   }
 }
 

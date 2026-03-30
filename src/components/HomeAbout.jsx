@@ -14,7 +14,7 @@ const HomeAbout = () => {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
           >
-            <h2 className="text-[2.5rem] md:text-[3.5rem] lg:text-[70px] font-semibold tracking-tighter leading-[1.1] text-[#14242D]" style={{ letterSpacing: '-1.4px' }}>
+            <h2 className="text-[2.5rem] md:text-[3.5rem] lg:text-[70px] font-normal tracking-tight leading-[1.1] text-[#14242D]" style={{ letterSpacing: '-0.02em' }}>
               About <br /> Crosslinks AI
             </h2>
           </motion.div>

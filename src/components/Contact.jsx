@@ -25,7 +25,7 @@ const Contact = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-            <motion.h2 variants={itemVariants} className="text-[2.5rem] sm:text-[3rem] md:text-[70px] font-semibold leading-[1.1] text-[#14242D] mb-8" style={{ letterSpacing: '-1.4px' }}>Get in Touch</motion.h2>
+            <motion.h2 variants={itemVariants} className="text-[2.5rem] sm:text-[3rem] md:text-[70px] font-normal leading-[1.1] text-[#14242D] mb-8" style={{ letterSpacing: '-0.02em' }}>Get in Touch</motion.h2>
             <motion.p variants={itemVariants} className="text-[#14242D] text-[16px] md:text-[18px] mb-12 max-w-md leading-relaxed font-normal" style={{ letterSpacing: '-0.16px' }}>
               Connect with us to explore how Crosslinks AI can enhance your AI capabilities. Whether you're looking for specific solutions or seeking expert insights, we are here to guide you on your journey to AI mastery.
             </motion.p>

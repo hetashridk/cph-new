@@ -36,7 +36,7 @@ const Hero = () => {
         </motion.p>
 
         {/* Massive Headline */}
-        <motion.h1 variants={itemVariants} className="text-[2.5rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[85px] font-semibold mb-8 md:mb-10 leading-[1] text-center text-[#14242D] px-4 lg:px-0" style={{ letterSpacing: '-1.7px' }}>
+        <motion.h1 variants={itemVariants} className="text-[2.5rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[85px] font-normal mb-8 md:mb-10 leading-[1] text-center text-[#14242D] px-4 lg:px-0" style={{ letterSpacing: '-0.02em' }}>
           Integrate AI Into Your <br className="hidden md:block" />
           Business the Right Way
         </motion.h1>
@@ -62,7 +62,7 @@ const Hero = () => {
           <div className="flex whitespace-nowrap animate-marquee items-center opacity-80">
             {/* Repeated text block for infinite scrolling effect */}
             <div className="flex items-center space-x-8 md:space-x-12 px-6 text-[11px] md:text-[13px] tracking-[0.2em] font-semibold text-[#14242D] uppercase">
-              <span>AI Consultion</span>
+              <span>AI Consultation</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
               <span>AI Team Training</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
@@ -73,7 +73,7 @@ const Hero = () => {
             </div>
             {/* Duplicate for seamless loop */}
             <div className="flex items-center space-x-8 md:space-x-12 px-6 text-[11px] md:text-[13px] tracking-[0.2em] font-semibold text-[#14242D] uppercase">
-              <span>AI Consultion</span>
+              <span>AI Consultation</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
               <span>AI Team Training</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>

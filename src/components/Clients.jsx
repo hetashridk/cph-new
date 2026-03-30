@@ -34,7 +34,7 @@ const Clients = () => {
           {/* Left Column - Heading */}
           <motion.div variants={itemVariants}>
             <h2 className="text-[14px] font-semibold tracking-wider text-[#14242D]/50 uppercase mb-4">Trusted By</h2>
-            <h3 className="text-[2.5rem] md:text-[3rem] lg:text-[70px] font-semibold leading-[1.1] text-[#14242D]" style={{ letterSpacing: '-1.4px' }}>
+            <h3 className="text-[2.5rem] md:text-[3rem] lg:text-[70px] font-normal leading-[1.1] text-[#14242D]" style={{ letterSpacing: '-0.02em' }}>
               Our Clients
             </h3>
           </motion.div>

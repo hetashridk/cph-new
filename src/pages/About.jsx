@@ -34,7 +34,7 @@ const About = () => {
             viewport={{ once: true, margin: "-100px" }}
           >
             <motion.h2 variants={itemVariants} className="text-[14px] font-semibold tracking-wider text-[#14242D]/50 uppercase mb-4">About Us</motion.h2>
-            <motion.h3 variants={itemVariants} className="text-[2.5rem] md:text-[3rem] lg:text-[70px] font-semibold leading-[1.1] text-[#14242D] mb-8" style={{ letterSpacing: '-1.4px' }}>
+            <motion.h3 variants={itemVariants} className="text-[2.5rem] md:text-[3rem] lg:text-[70px] font-normal leading-[1.1] text-[#14242D] mb-8" style={{ letterSpacing: '-0.02em' }}>
               Demystifying <br className="hidden lg:block" /> AI for Every <br className="hidden lg:block" /> Business
             </motion.h3>
             <motion.div variants={containerVariants} className="pt-4 md:pt-8 flex flex-col items-center lg:items-start">
@@ -67,41 +67,47 @@ const About = () => {
       <div className="w-full bg-[#ffb950] py-24 md:py-32 relative">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12 relative z-10 flex flex-col gap-16 md:gap-24">
 
-          <motion.div
-            className="flex flex-col"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-          >
-            <h2 className="text-[2.5rem] md:text-[3.5rem] lg:text-[70px] font-semibold tracking-tighter leading-[1.1] text-[#14242D]" style={{ letterSpacing: '-1.4px' }}>
-              Our Mission
-            </h2>
-            <h3 className="text-[1.5rem] md:text-[2rem] font-normal text-[#14242D]/70 mt-4 tracking-tight">
-              Our Purpose
-            </h3>
-          </motion.div>
-
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 lg:gap-24">
-            <motion.p
-              className="text-[16px] md:text-[18px] leading-relaxed font-normal text-[#14242D]" style={{ letterSpacing: '-0.16px' }}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-            >
-              At Crosslinks AI, our mission is to simplify the complexities of artificial intelligence and deliver tailored solutions that enhance productivity and innovation. We aim to revolutionize how people perceive and utilize AI in their personal and professional lives.
-            </motion.p>
+            {/* Left Column */}
+            <div className="flex flex-col">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+                className="mb-20 lg:mb-28"
+              >
+                <h2 className="text-[3rem] md:text-[4rem] lg:text-[60px] font-normal tracking-tight leading-[1.1] text-[#14242D]" style={{ letterSpacing: '-0.02em' }}>
+                  Our Mission
+                </h2>
+                <h3 className="text-[1.25rem] md:text-[1.5rem] lg:text-[22px] font-normal text-[#14242D]/70 mt-6 tracking-wide">
+                  Our Purpose
+                </h3>
+              </motion.div>
 
-            <motion.p
-              className="text-[16px] md:text-[18px] leading-relaxed font-normal text-[#14242D]" style={{ letterSpacing: '-0.16px' }}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1], delay: 0.15 }}
-            >
-              We are dedicated to creating an environment where AI knowledge is shared freely, enabling our clients to thrive in an increasingly digital world. Our goal is to equip individuals and teams with the skills necessary to succeed in AI-driven markets.
-            </motion.p>
+              <motion.p
+                className="text-[15px] md:text-[16px] leading-[1.8] font-normal text-[#14242D]"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+              >
+                At Crosslinks AI, our mission is to simplify the complexities of artificial intelligence and deliver tailored solutions that enhance productivity and innovation. We aim to revolutionize how people perceive and utilize AI in their personal and professional lives.
+              </motion.p>
+            </div>
+
+            {/* Right Column */}
+            <div className="flex flex-col justify-end">
+              <motion.p
+                className="text-[15px] md:text-[16px] leading-[1.8] font-normal text-[#14242D]"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1], delay: 0.15 }}
+              >
+                We are dedicated to creating an environment where AI knowledge is shared freely, enabling our clients to thrive in an increasingly digital world. Our goal is to equip individuals and teams with the skills necessary to succeed in AI-driven markets.
+              </motion.p>
+            </div>
           </div>
 
         </div>
@@ -119,7 +125,7 @@ const About = () => {
             transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
           >
             <h2 className="text-[14px] font-semibold tracking-wider text-[#14242D]/50 uppercase mb-4">Meet Our Experts</h2>
-            <h3 className="text-[2.5rem] md:text-[3rem] lg:text-[70px] font-semibold leading-[1.1] text-[#14242D]" style={{ letterSpacing: '-1.4px' }}>Our Team</h3>
+            <h3 className="text-[2.5rem] md:text-[3rem] lg:text-[70px] font-normal leading-[1.1] text-[#14242D]" style={{ letterSpacing: '-0.02em' }}>Our Team</h3>
             <p className="max-w-3xl mx-auto mt-6 md:mt-8 text-[16px] md:text-[18px] text-[#14242D] leading-relaxed font-normal" style={{ letterSpacing: '-0.16px' }}>
               The Crosslinks AI team comprises seasoned professionals with diverse expertise in artificial intelligence and its applications. Each member is passionate about empowering others through education and training, ensuring that our clients receive the best guidance in their AI journey.
             </p>

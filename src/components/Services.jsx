@@ -49,7 +49,7 @@ const Services = () => {
               transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
             >
               <h2 className="text-[14px] font-semibold tracking-wider text-[#14242D]/60 uppercase mb-4">What We Do</h2>
-              <h3 className="text-[2.5rem] md:text-[3rem] lg:text-[70px] font-semibold leading-[1.1] text-[#14242D] mb-6" style={{ letterSpacing: '-1.4px' }}>Our Services</h3>
+              <h3 className="text-[2.5rem] md:text-[3rem] lg:text-[70px] font-normal leading-[1.1] text-[#14242D] mb-6" style={{ letterSpacing: '-0.02em' }}>Our Services</h3>
             </motion.div>
           </div>
 
@@ -100,7 +100,7 @@ const Services = () => {
                       </div>
 
                       {/* Title Row */}
-                      <h4 className="text-[24px] md:text-[26px] lg:text-[28px] font-semibold leading-[1.3] text-[#14242D] w-full" style={{ letterSpacing: '-0.84px' }}>
+                      <h4 className="text-[24px] md:text-[26px] lg:text-[28px] font-normal leading-[1.3] text-[#14242D] w-full" style={{ letterSpacing: '-0.01em' }}>
                         {service.title}
                       </h4>
 
