@@ -23,25 +23,25 @@ const About = () => {
       
       {/* 1. About Hero Section */}
       <div className="py-24 max-w-[1400px] mx-auto px-6 sm:px-12 w-full">
-        <div className="grid md:grid-cols-[1fr_1.5fr] gap-12 md:gap-24 items-start">
+        <div className="flex flex-col lg:grid lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-24 items-center">
           
           {/* Left Column - Text */}
           <motion.div 
-            className="flex flex-col"
+            className="flex flex-col text-center lg:text-left items-center lg:items-start w-full max-w-3xl mx-auto lg:mx-0"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
             <motion.h2 variants={itemVariants} className="text-[14px] font-semibold tracking-wider text-black/50 uppercase mb-4">About Us</motion.h2>
-            <motion.h3 variants={itemVariants} className="text-[3rem] md:text-[4rem] font-semibold leading-[1.08] text-black tracking-tight mb-8">
-              Demystifying <br /> AI for Every <br /> Business
+            <motion.h3 variants={itemVariants} className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-semibold leading-[1.08] text-black tracking-tight mb-8">
+              Demystifying <br className="hidden lg:block" /> AI for Every <br className="hidden lg:block" /> Business
             </motion.h3>
-            <motion.div variants={containerVariants} className="pt-4 md:pt-8">
-              <motion.p variants={itemVariants} className="text-[18px] text-black/80 leading-relaxed font-medium mb-6 max-w-2xl">
+            <motion.div variants={containerVariants} className="pt-4 md:pt-8 flex flex-col items-center lg:items-start">
+              <motion.p variants={itemVariants} className="text-[18px] md:text-[20px] lg:text-[18px] text-black/80 leading-relaxed font-medium mb-6 max-w-2xl">
                 At Crosslinks AI, we strive to simplify artificial intelligence for everyone. Our mission is to simplify AI for a normal person through tailored consultation, team training, and workshops that empower individuals and businesses.
               </motion.p>
-              <motion.p variants={itemVariants} className="text-[18px] text-black/80 leading-relaxed font-medium mb-10 max-w-2xl">
+              <motion.p variants={itemVariants} className="text-[18px] md:text-[20px] lg:text-[18px] text-black/80 leading-relaxed font-medium mb-10 max-w-2xl">
                 With a deep understanding of the evolving AI landscape, we guide founders and teams on how to leverage AI tools in real workflows, moving beyond just experiments to create lasting value.
               </motion.p>
             </motion.div>
@@ -53,7 +53,7 @@ const About = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="w-full aspect-[4/5] bg-black/5 relative overflow-hidden rounded-2xl shadow-2xl shadow-black/5 group"
+            className="w-full mx-auto aspect-[16/9] lg:aspect-[4/5] bg-black/5 relative overflow-hidden rounded-[2rem] shadow-2xl shadow-black/5 group mt-4 lg:mt-0"
           >
             <div className="absolute inset-0 flex items-center justify-center text-black/40 font-medium tracking-widest text-sm uppercase group-hover:scale-105 transition-transform duration-700">
                [ Hero Image Placeholder ]
@@ -75,12 +75,11 @@ const About = () => {
             transition={{ duration: 0.8 }}
           >
              <h2 className="text-[14px] font-semibold tracking-wider text-black/50 uppercase mb-4">Core Values</h2>
-             <h3 className="text-[3rem] md:text-[4rem] font-semibold leading-[1.08] text-black tracking-tight">Our Driving Forces</h3>
+             <h3 className="text-[2.5rem] md:text-[3rem] lg:text-[4rem] font-semibold leading-[1.08] text-black tracking-tight">Our Driving Forces</h3>
           </motion.div>
 
-          {/* Expanding Flex Container */}
           <motion.div 
-            className="w-full h-[70vh] min-h-[500px] flex flex-col md:flex-row gap-4 md:gap-6"
+            className="w-full flex flex-col lg:flex-row gap-4 md:gap-8 lg:gap-6 lg:h-[70vh] lg:min-h-[500px]"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -88,7 +87,7 @@ const About = () => {
           >
             
             {/* Mission Card */}
-            <div className="relative flex-1 md:hover:flex-[2.5] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] bg-white rounded-3xl overflow-hidden group shadow-[0_20px_60px_rgba(0,0,0,0.08)] cursor-pointer">
+            <div className="relative flex-1 lg:hover:flex-[2.5] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] bg-white rounded-3xl overflow-hidden group shadow-[0_20px_60px_rgba(0,0,0,0.08)] cursor-pointer min-h-[350px] lg:min-h-0">
               <div className="absolute inset-0 bg-black/5 mix-blend-multiply transition-opacity duration-700"></div>
               <div className="absolute inset-0 flex items-center justify-center text-black/20 font-medium tracking-widest text-sm uppercase z-0 pointer-events-none group-hover:scale-105 transition-transform duration-1000">
                 [ Mission Image ]
@@ -98,9 +97,9 @@ const About = () => {
                  <h3 className="text-black text-[2.5rem] md:text-[4rem] font-bold tracking-tight leading-none mb-4 group-hover:-translate-y-2 transition-transform duration-700">
                    Our Mission.
                  </h3>
-                 <div className="grid grid-rows-[1fr] md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]">
+                 <div className="grid grid-rows-[1fr] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]">
                    <div className="overflow-hidden">
-                     <p className="text-black/70 text-[16px] md:text-[18px] leading-relaxed font-medium md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700 delay-100 max-w-xl">
+                     <p className="text-black/70 text-[16px] md:text-[18px] leading-relaxed font-medium lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-700 delay-100 max-w-xl">
                        Bringing clarity and actionable strategies to organizations trying to navigate the complex world of Artificial Intelligence. We believe that AI should be accessible, understandable, and immediately applicable to your daily workflows.
                      </p>
                    </div>
@@ -109,7 +108,7 @@ const About = () => {
             </div>
 
             {/* Purpose Card */}
-            <div className="relative flex-1 md:hover:flex-[2.5] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] bg-white rounded-3xl overflow-hidden group shadow-[0_20px_60px_rgba(0,0,0,0.08)] cursor-pointer">
+            <div className="relative flex-1 lg:hover:flex-[2.5] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] bg-white rounded-3xl overflow-hidden group shadow-[0_20px_60px_rgba(0,0,0,0.08)] cursor-pointer min-h-[350px] lg:min-h-0">
               <div className="absolute inset-0 bg-black/5 mix-blend-multiply transition-opacity duration-700"></div>
               <div className="absolute inset-0 flex items-center justify-center text-black/20 font-medium tracking-widest text-sm uppercase z-0 pointer-events-none group-hover:scale-105 transition-transform duration-1000">
                 [ Purpose Image ]
@@ -119,9 +118,9 @@ const About = () => {
                  <h3 className="text-black text-[2.5rem] md:text-[4rem] font-bold tracking-tight leading-none mb-4 group-hover:-translate-y-2 transition-transform duration-700">
                    Our Purpose.
                  </h3>
-                 <div className="grid grid-rows-[1fr] md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]">
+                 <div className="grid grid-rows-[1fr] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]">
                    <div className="overflow-hidden">
-                     <p className="text-black/70 text-[16px] md:text-[18px] leading-relaxed font-medium md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700 delay-100 max-w-xl">
+                     <p className="text-black/70 text-[16px] md:text-[18px] leading-relaxed font-medium lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-700 delay-100 max-w-xl">
                        To build a bridge between cutting-edge AI technologies and practical business applications. We empower teams to confidently adopt AI, fostering innovation and driving significant growth without the confusion or overwhelm.
                      </p>
                    </div>
@@ -145,11 +144,11 @@ const About = () => {
             transition={{ duration: 0.8 }}
           >
              <h2 className="text-[14px] font-semibold tracking-wider text-black/50 uppercase mb-4">Meet Our Experts</h2>
-             <h3 className="text-[3rem] md:text-[4rem] font-semibold leading-[1.08] text-black tracking-tight">Our Team</h3>
+             <h3 className="text-[2.5rem] md:text-[3rem] lg:text-[4rem] font-semibold leading-[1.08] text-black tracking-tight">Our Team</h3>
           </motion.div>
 
           <motion.div 
-            className="grid md:grid-cols-3 gap-8 md:gap-12"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"

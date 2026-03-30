@@ -22,26 +22,26 @@ const Clients = () => {
   };
 
   return (
-    <section id="clients" className="py-24 bg-black/[0.02] relative border-y border-black/5">
+    <section id="clients" className="py-24 bg-black/[0.02] relative border-y border-black/5 overflow-hidden">
       <motion.div 
         className="max-w-[1400px] mx-auto px-6 sm:px-12"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
       >
-        <div className="grid md:grid-cols-[1fr_2fr] gap-12 md:gap-24 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-[1fr_2fr] gap-8 lg:gap-24 lg:items-center">
           
           {/* Left Column - Heading */}
           <motion.div variants={itemVariants}>
             <h2 className="text-[14px] font-semibold tracking-wider text-black/50 uppercase mb-4">Trusted By</h2>
-            <h3 className="text-[3rem] md:text-[3.5rem] font-semibold leading-[1.08] text-black tracking-tight">
+            <h3 className="text-[2.5rem] md:text-[3.5rem] font-semibold leading-[1.08] text-black tracking-tight">
               Our Clients
             </h3>
           </motion.div>
           
-          {/* Right Column - Logos Grid */}
+          {/* Right Column - Logos Grid (Desktop only) */}
           <motion.div 
-            className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12"
+            className="hidden lg:grid grid-cols-3 gap-12"
             variants={containerVariants}
           >
             {clients.map((client, index) => (
@@ -60,6 +60,55 @@ const Clients = () => {
 
         </div>
       </motion.div>
+
+      {/* Mobile & Tablet Infinite Marquee */}
+      <motion.div 
+        className="lg:hidden w-full mt-10 md:mt-16 relative flex items-center overflow-hidden"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+      >
+        {/* Gradients for fading edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[rgba(250,250,250,1)] to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[rgba(250,250,250,1)] to-transparent z-10 pointer-events-none"></div>
+
+        <div className="flex whitespace-nowrap animate-marquee items-center gap-6">
+          {/* Original List */}
+          {clients.map((client, index) => (
+            <div 
+              key={`m1-${index}`}
+              className="flex items-center justify-center h-20 w-40 bg-white border border-black/5 rounded-2xl shrink-0 shadow-[0_2px_10px_rgba(0,0,0,0.02)]"
+            >
+              <span className="text-black/40 font-semibold tracking-wider text-xs uppercase">
+                {client.name}
+              </span>
+            </div>
+          ))}
+          {/* Cloned List for seamless looping */}
+          {clients.map((client, index) => (
+            <div 
+              key={`m2-${index}`}
+              className="flex items-center justify-center h-20 w-40 bg-white border border-black/5 rounded-2xl shrink-0 shadow-[0_2px_10px_rgba(0,0,0,0.02)]"
+            >
+              <span className="text-black/40 font-semibold tracking-wider text-xs uppercase">
+                {client.name}
+              </span>
+            </div>
+          ))}
+          {/* Second Clone to guarantee screen fill */}
+          {clients.map((client, index) => (
+            <div 
+              key={`m3-${index}`}
+              className="flex items-center justify-center h-20 w-40 bg-white border border-black/5 rounded-2xl shrink-0 shadow-[0_2px_10px_rgba(0,0,0,0.02)]"
+            >
+              <span className="text-black/40 font-semibold tracking-wider text-xs uppercase">
+                {client.name}
+              </span>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
     </section>
   );
 };

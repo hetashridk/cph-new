@@ -15,7 +15,7 @@ const Contact = () => {
   return (
     <footer id="contact" className="bg-white pt-24 pb-8 relative border-t border-black/5">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
-        <div className="grid md:grid-cols-2 gap-16 mb-24">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 mb-24">
           
           {/* Left Side text */}
           <motion.div 
@@ -25,7 +25,7 @@ const Contact = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-            <motion.h2 variants={itemVariants} className="text-[3rem] md:text-[4rem] font-semibold leading-[1.08] text-black mb-8 tracking-tight">Get in Touch</motion.h2>
+            <motion.h2 variants={itemVariants} className="text-[2.5rem] sm:text-[3rem] md:text-[4rem] font-semibold leading-[1.08] text-black mb-8 tracking-tight">Get in Touch</motion.h2>
             <motion.p variants={itemVariants} className="text-black/70 text-[18px] mb-12 max-w-md leading-relaxed font-medium">
               Connect with us to explore how Crosslinks AI can enhance your AI capabilities. Whether you're looking for specific solutions or seeking expert insights, we are here to guide you on your journey to AI mastery.
             </motion.p>
