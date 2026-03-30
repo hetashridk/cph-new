@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
   const containerVariants = {
@@ -17,34 +18,40 @@ const Contact = () => {
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 mb-24">
 
-          {/* Left Side text */}
-          <motion.div
-            className="flex flex-col"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <motion.h2 variants={itemVariants} className="text-[2.5rem] sm:text-[3rem] md:text-[70px] font-normal leading-[1.1] text-[#14242D] mb-8" style={{ letterSpacing: '-0.02em' }}>Get in Touch</motion.h2>
-            <motion.p variants={itemVariants} className="text-[#14242D] text-[16px] md:text-[18px] mb-12 max-w-md leading-relaxed font-normal" style={{ letterSpacing: '-0.16px' }}>
-              Connect with us to explore how Crosslinks AI can enhance your AI capabilities. Whether you're looking for specific solutions or seeking expert insights, we are here to guide you on your journey to AI mastery.
-            </motion.p>
+            <div className="flex flex-col">
+              <motion.h2 
+                variants={itemVariants} 
+                className="text-[40px] md:text-[55px] font-normal leading-none text-[#14242D] mb-10" 
+                style={{ fontFamily: "'Wix Madefor Display', sans-serif", letterSpacing: '-1.1px' }}
+              >
+                Crosslinks AI
+              </motion.h2>
+              
+              <div className="space-y-6 mb-12">
+                <motion.div variants={itemVariants} className="flex items-start text-[#14242D] w-fit text-[15px]">
+                  <span className="w-24 shrink-0 font-medium">Address</span>
+                  <span className="max-w-xs leading-relaxed">506, Royal Trade Center, Opp. Star Bazaar, Adajan, Surat, 395005.</span>
+                </motion.div>
+                <motion.div variants={itemVariants} className="flex items-center text-[#14242D] w-fit text-[15px]">
+                  <span className="w-24 font-medium">Phone</span>
+                  +91 84602 80468
+                </motion.div>
+                <motion.a variants={itemVariants} href="mailto:hello@crosslinks.ai" className="flex items-center text-[#14242D] hover:text-[#ffb950] transition-colors w-fit text-[15px]">
+                  <span className="w-24 font-medium">Email</span>
+                  hello@crosslinks.ai
+                </motion.a>
+              </div>
 
-            <div className="space-y-6">
-              <motion.a variants={itemVariants} href="mailto:hello@crosslinks.ai" className="flex items-center text-[#14242D]/80 hover:text-[#ffb950] transition-all duration-300 group w-fit text-[16px] transform hover:translate-x-1">
-                <span className="font-semibold w-24 text-[#14242D]">Email</span>
-                hello@crosslinks.ai
-              </motion.a>
-              <motion.div variants={itemVariants} className="flex items-center text-[#14242D]/80 w-fit text-[16px]">
-                <span className="font-semibold w-24 text-[#14242D]">Phone</span>
-                +91 84602 80468
-              </motion.div>
-              <motion.div variants={itemVariants} className="flex items-start text-[#14242D]/80 w-fit text-[16px]">
-                <span className="font-semibold w-24 shrink-0 text-[#14242D]">Address</span>
-                <span className="max-w-xs leading-relaxed">506, Royal Trade Center, Opp. Star Bazaar, Adajan, Surat, 395005.</span>
+              {/* Social Icons */}
+              <motion.div variants={itemVariants} className="flex gap-4">
+                <a href="#" className="w-8 h-8 rounded-full bg-[#14242D] flex items-center justify-center text-white hover:bg-[#ffb950] transition-colors">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                </a>
+                <a href="#" className="w-8 h-8 rounded-full bg-[#14242D] flex items-center justify-center text-white hover:bg-[#ffb950] transition-colors">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
               </motion.div>
             </div>
-          </motion.div>
 
           {/* Right Side form */}
           <motion.div
@@ -76,6 +83,14 @@ const Contact = () => {
               </motion.button>
             </motion.form>
           </motion.div>
+        </div>
+
+        <div className="mt-20 pt-8 border-t border-[#14242D]/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[14px] text-[#14242D]/60">
+          <div className="flex gap-6">
+            <Link to="/privacy-policy" onClick={() => window.scrollTo(0, 0)} className="hover:text-[#14242D] transition-colors">Privacy Policy</Link>
+            <Link to="/accessibility-statement" onClick={() => window.scrollTo(0, 0)} className="hover:text-[#14242D] transition-colors">Accessibility Statement</Link>
+          </div>
+          <p>© 2026 by Crosslinks AI.</p>
         </div>
       </div>
     </footer>

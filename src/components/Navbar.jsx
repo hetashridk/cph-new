@@ -32,7 +32,7 @@ const Navbar = () => {
           {/* LOGO (LEFT) */}
           <div className="flex-shrink-0 cursor-pointer z-50">
             <Link to="/" onClick={() => { window.scrollTo(0, 0); setMobileMenuOpen(false); }}>
-              <span className="text-[18px] font-semibold tracking-tight text-[#14242D]">Crosslinks <span className="text-[#ffb950]">AI</span></span>
+              <span className="text-[16px] font-normal text-[#14242D]" style={{ letterSpacing: '-0.16px' }}>Crosslinks AI</span>
             </Link>
           </div>
 
