@@ -3,6 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const testimonials = [
   {
+    name: "Chandresh vaghasiya",
+    role: "Manager - Sitaram Creation",
+    image: "/ChandreshVaghasiya.jpeg",
+    text: "Piyushbhai, owner of CPH Film, guided us thoroughly in AI and introduced us to its practical use. We had little knowledge initially, but after the course, our work became faster, simpler, and more cost-effective. He taught us how to use AI correctly and effectively in everyday business.",
+    rating: 5
+  },
+  {
     name: "Coach Hardik Lukhi",
     role: "Weight Loss & Wellness Coach",
     image: "/CoachHardikLukhi.jpeg",
@@ -14,13 +21,6 @@ const testimonials = [
     role: "Founder of Mosaic Moments, Quickybowl",
     image: "/NiravVachhani.jpeg",
     text: "I attended Piyush's AI workshop and was impressed by his deep knowledge and clear teaching style. He explains AI in a structured, practical way, making it easy for non-technical participants. The session offered valuable insights, tools, and strategies. Highly recommended.",
-    rating: 5
-  },
-  {
-    name: "Chandresh vaghasiya",
-    role: "Manager",
-    image: "/ChandreshVaghasiya.jpeg",
-    text: "Piyushbhai, owner of CPH Film, guided us thoroughly in AI and introduced us to its practical use. We had little knowledge initially, but after the course, our work became faster, simpler, and more cost-effective. He taught us how to use AI correctly and effectively in everyday business.",
     rating: 5
   },
   {
