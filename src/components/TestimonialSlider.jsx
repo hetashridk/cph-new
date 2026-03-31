@@ -112,10 +112,10 @@ const TestimonialSlider = forwardRef((_props, ref) => {
             dragElastic={0.6}
             onDragEnd={onDragEnd}
             transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
-            className="flex flex-col lg:flex-row items-center lg:items-stretch gap-10 lg:gap-16 cursor-grab active:cursor-grabbing w-full"
+            className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 cursor-grab active:cursor-grabbing w-full"
           >
-            {/* Image - height driven by text block via items-stretch, min-h-0 prevents intrinsic size inflation */}
-            <div className="shrink-0 w-44 md:w-52 lg:w-60 h-64 lg:h-auto lg:min-h-0 bg-white rounded-2xl overflow-hidden shadow-2xl border border-[#14242D]/5 pointer-events-none ring-1 ring-[#14242D]/5 mt-10 lg:mt-0">
+            {/* Image - fixed consistent height across all testimonials */}
+            <div className="shrink-0 w-44 md:w-52 lg:w-56 h-64 lg:h-56 bg-white rounded-2xl overflow-hidden shadow-2xl border border-[#14242D]/5 pointer-events-none ring-1 ring-[#14242D]/5 mt-10 lg:mt-0">
               <img
                 src={testimonials[index].image}
                 alt={testimonials[index].name}
