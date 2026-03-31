@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import TestimonialSlider from './TestimonialSlider';
 
 const Hero = () => {
+  const sliderRef = useRef(null);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -77,17 +79,41 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Hero Testimonial Slider Section - Replaced placeholder */}
-        <div className="w-full px-4 md:px-12 flex justify-center mt-8 md:mt-0">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-            className="w-full max-w-[1000px] min-h-[650px] md:min-h-[700px] lg:min-h-0 lg:aspect-[21/9] bg-[#F8F6F5]/50 relative overflow-hidden rounded-2xl border border-[#14242D]/5 shadow-2xl shadow-[#14242D]/5 mb-20 md:mb-10"
-          >
-            <TestimonialSlider />
-          </motion.div>
+        {/* Hero Testimonial Slider Section */}
+        <div className="w-full px-4 md:px-12 lg:px-24 flex justify-center mt-8 md:mt-0">
+          <div className="w-full max-w-[1000px] relative mb-20 md:mb-10">
+            {/* Desktop Left Arrow - outside the box */}
+            <motion.button
+              whileHover={{ scale: 1.1, x: -2 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => sliderRef.current?.prev()}
+              className="hidden lg:flex absolute -left-16 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white backdrop-blur-md border border-[#14242D]/10 items-center justify-center shadow-xl transition-all hover:bg-[#ffb950] hover:text-[#14242D] text-[#14242D] z-10"
+              aria-label="Previous testimonial"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+            </motion.button>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+              className="w-full min-h-[650px] md:min-h-[700px] lg:min-h-0 lg:aspect-[21/9] bg-[#F8F6F5]/50 relative overflow-hidden rounded-2xl border border-[#14242D]/5 shadow-2xl shadow-[#14242D]/5"
+            >
+              <TestimonialSlider ref={sliderRef} />
+            </motion.div>
+
+            {/* Desktop Right Arrow - outside the box */}
+            <motion.button
+              whileHover={{ scale: 1.1, x: 2 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => sliderRef.current?.next()}
+              className="hidden lg:flex absolute -right-16 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white backdrop-blur-md border border-[#14242D]/10 items-center justify-center shadow-xl transition-all hover:bg-[#ffb950] hover:text-[#14242D] text-[#14242D] z-10"
+              aria-label="Next testimonial"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </motion.button>
+          </div>
         </div>
 
       </motion.div>

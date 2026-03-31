@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const testimonials = [
@@ -6,14 +6,14 @@ const testimonials = [
     name: "Coach Hardik Lukhi",
     role: "Weight Loss & Wellness Coach",
     image: "/CoachHardikLukhi.jpeg",
-    text: "Thank you, Piyushbhai. Your AI video training helped me greatly. Even with limited computer knowledge, I can now create AI videos independently. Your guidance on content creation and social media sharing was especially valuable. I’m truly grateful for the practical and easy way you taught everything.",
+    text: "Thank you, Piyushbhai. Your AI video training helped me greatly. Even with limited computer knowledge, I can now create AI videos independently. Your guidance on content creation and social media sharing was especially valuable. I'm truly grateful for the practical and easy way you taught everything.",
     rating: 5
   },
   {
     name: "Nirav Vachhani",
     role: "Founder of Mosaic Moments, Quickybowl",
     image: "/NiravVachhani.jpeg",
-    text: "I attended Piyush’s AI workshop and was impressed by his deep knowledge and clear teaching style. He explains AI in a structured, practical way, making it easy for non-technical participants. The session offered valuable insights, tools, and strategies. Highly recommended.",
+    text: "I attended Piyush's AI workshop and was impressed by his deep knowledge and clear teaching style. He explains AI in a structured, practical way, making it easy for non-technical participants. The session offered valuable insights, tools, and strategies. Highly recommended.",
     rating: 5
   },
   {
@@ -27,14 +27,14 @@ const testimonials = [
     name: "Paricher Tavaria",
     role: "Creative Director",
     image: "/ParicherTavaria.jpeg",
-    text: "Piyush stays ahead with the latest AI tools, always finding smart solutions despite budget or time constraints. His teaching is relevant, easy to understand, and perfectly timed for today’s needs. Learning AI under his guidance helps you upgrade skills, excel at work, and deliver winning projects.",
+    text: "Piyush stays ahead with the latest AI tools, always finding smart solutions despite budget or time constraints. His teaching is relevant, easy to understand, and perfectly timed for today's needs. Learning AI under his guidance helps you upgrade skills, excel at work, and deliver winning projects.",
     rating: 5
   },
   {
     name: "Punyada Deshmukh",
     role: "Director, Co Founder, BringJal",
     image: "/PunyadaDeshmukh.jpeg",
-    text: "I attended Piyush Bharoliya’s AI workshop as a techie and still walked away impressed. His clarity makes even complex AI concepts simple and practical. The session was engaging, easy to follow, and deeply logical. If you want AI explained in a way that truly makes sense, it’s worth attending.",
+    text: "I attended Piyush Bharoliya's AI workshop as a techie and still walked away impressed. His clarity makes even complex AI concepts simple and practical. The session was engaging, easy to follow, and deeply logical. If you want AI explained in a way that truly makes sense, it's worth attending.",
     rating: 5
   },
   {
@@ -53,7 +53,7 @@ const testimonials = [
   },
 ];
 
-const TestimonialSlider = () => {
+const TestimonialSlider = forwardRef((_props, ref) => {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -68,9 +68,11 @@ const TestimonialSlider = () => {
     setIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
   };
 
+  useImperativeHandle(ref, () => ({ next: nextTestimonial, prev: prevTestimonial }));
+
   useEffect(() => {
     if (isHovered) return;
-    const timer = setInterval(nextTestimonial, 4000); // Snappy 4-second auto-scroll
+    const timer = setInterval(nextTestimonial, 4000);
     return () => clearInterval(timer);
   }, [index, isHovered]);
 
@@ -112,8 +114,8 @@ const TestimonialSlider = () => {
             transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
             className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 cursor-grab active:cursor-grabbing w-full"
           >
-            {/* Enlarged Aspect Ratio Image */}
-            <div className="shrink-0 w-56 md:w-72 lg:w-80 aspect-[4/5] bg-white rounded-2xl overflow-hidden shadow-2xl border border-[#14242D]/5 pointer-events-none self-center ring-1 ring-[#14242D]/5 mt-10 lg:mt-0">
+            {/* Image - reduced height */}
+            <div className="shrink-0 w-44 md:w-52 lg:w-60 aspect-[3/4] bg-white rounded-2xl overflow-hidden shadow-2xl border border-[#14242D]/5 pointer-events-none self-center ring-1 ring-[#14242D]/5 mt-10 lg:mt-0">
               <img
                 src={testimonials[index].image}
                 alt={testimonials[index].name}
@@ -145,28 +147,6 @@ const TestimonialSlider = () => {
             </div>
           </motion.div>
         </AnimatePresence>
-      </div>
-
-      {/* Navigation Arrows - Desktop Only */}
-      <div className="hidden lg:flex absolute inset-x-4 top-1/2 -translate-y-1/2 justify-between pointer-events-none z-20">
-        <motion.button
-          whileHover={{ scale: 1.1, x: -2 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={prevTestimonial}
-          className="w-14 h-14 rounded-full bg-white backdrop-blur-md border border-[#14242D]/10 flex items-center justify-center shadow-xl pointer-events-auto transition-all hover:bg-[#ffb950] hover:text-[#14242D] text-[#14242D]"
-          aria-label="Previous testimonial"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-        </motion.button>
-        <motion.button
-          whileHover={{ scale: 1.1, x: 2 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={nextTestimonial}
-          className="w-14 h-14 rounded-full bg-white backdrop-blur-md border border-[#14242D]/10 flex items-center justify-center shadow-xl pointer-events-auto transition-all hover:bg-[#ffb950] hover:text-[#14242D] text-[#14242D]"
-          aria-label="Next testimonial"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-        </motion.button>
       </div>
 
       {/* Pagination & Mobile/Tablet Arrows */}
@@ -203,6 +183,8 @@ const TestimonialSlider = () => {
       </div>
     </div>
   );
-};
+});
+
+TestimonialSlider.displayName = 'TestimonialSlider';
 
 export default TestimonialSlider;
