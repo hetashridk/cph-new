@@ -98,7 +98,7 @@ const TestimonialSlider = forwardRef((_props, ref) => {
       onPointerLeave={() => setIsHovered(false)}
       className="w-full h-full bg-[#F8F6F5]/50 flex flex-col items-center justify-center relative overflow-hidden pointer-events-auto"
     >
-      <div className="w-full max-w-5xl px-4 md:px-20 py-10 md:py-0 relative z-10">
+      <div className="w-full max-w-5xl px-4 md:px-20 py-10 lg:pt-14 lg:pb-10 relative z-10">
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.div
             key={index}
@@ -112,10 +112,10 @@ const TestimonialSlider = forwardRef((_props, ref) => {
             dragElastic={0.6}
             onDragEnd={onDragEnd}
             transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
-            className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 cursor-grab active:cursor-grabbing w-full"
+            className="flex flex-col lg:flex-row items-center lg:items-stretch gap-10 lg:gap-16 cursor-grab active:cursor-grabbing w-full"
           >
-            {/* Image - reduced height */}
-            <div className="shrink-0 w-44 md:w-52 lg:w-60 aspect-[3/4] bg-white rounded-2xl overflow-hidden shadow-2xl border border-[#14242D]/5 pointer-events-none self-center ring-1 ring-[#14242D]/5 mt-10 lg:mt-0">
+            {/* Image - height matches text block */}
+            <div className="shrink-0 w-44 md:w-52 lg:w-60 h-64 lg:h-auto bg-white rounded-2xl overflow-hidden shadow-2xl border border-[#14242D]/5 pointer-events-none ring-1 ring-[#14242D]/5 mt-10 lg:mt-0">
               <img
                 src={testimonials[index].image}
                 alt={testimonials[index].name}
@@ -135,9 +135,10 @@ const TestimonialSlider = forwardRef((_props, ref) => {
             </div>
 
             {/* Testimonial Text Content */}
-            <div className="flex flex-col text-center lg:text-left select-none flex-1 pb-28 lg:pb-0 px-6 lg:px-0">
-              <span className="text-[40px] md:text-[52px] text-[#ffb950] leading-none mb-2 font-serif opacity-80">"</span>
-              <p className="text-[14px] md:text-[18px] leading-[1.7] text-[#14242D] mb-6 font-normal italic md:-mt-4 max-w-2xl mx-auto md:mx-0" style={{ fontFamily: "'Wix Madefor Text', sans-serif" }}>
+            <div className="flex flex-col text-center lg:text-left select-none flex-1 pb-28 lg:pb-0 px-6 lg:px-0 relative">
+              {/* Quote mark: inline on mobile, floats above the text block on desktop */}
+              <span className="lg:absolute lg:-top-10 lg:left-0 text-[40px] md:text-[52px] text-[#ffb950] leading-none mb-2 lg:mb-0 font-serif opacity-80">"</span>
+              <p className="text-[14px] md:text-[18px] leading-[1.7] text-[#14242D] mb-6 font-normal italic md:-mt-4 lg:mt-0 max-w-2xl mx-auto lg:mx-0" style={{ fontFamily: "'Wix Madefor Text', sans-serif" }}>
                 {testimonials[index].text}
               </p>
               <div>
