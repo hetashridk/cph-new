@@ -56,6 +56,7 @@ const testimonials = [
 const TestimonialSlider = () => {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const nextTestimonial = () => {
     setDirection(1);
@@ -68,9 +69,10 @@ const TestimonialSlider = () => {
   };
 
   useEffect(() => {
-    const timer = setInterval(nextTestimonial, 8000);
+    if (isHovered) return;
+    const timer = setInterval(nextTestimonial, 4000); // Snappy 4-second auto-scroll
     return () => clearInterval(timer);
-  }, [index]);
+  }, [index, isHovered]);
 
   const variants = {
     enter: (direction) => ({ x: direction > 0 ? 100 : -100, opacity: 0 }),
@@ -89,8 +91,12 @@ const TestimonialSlider = () => {
   };
 
   return (
-    <div className="w-full h-full bg-[#F8F6F5]/50 flex flex-col items-center justify-center relative overflow-hidden">
-      <div className="w-full max-w-4xl px-4 md:px-12 py-10 md:py-0">
+    <div
+      onPointerEnter={() => setIsHovered(true)}
+      onPointerLeave={() => setIsHovered(false)}
+      className="w-full h-full bg-[#F8F6F5]/50 flex flex-col items-center justify-center relative overflow-hidden pointer-events-auto"
+    >
+      <div className="w-full max-w-5xl px-4 md:px-20 py-10 md:py-0 relative z-10">
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.div
             key={index}
@@ -104,21 +110,21 @@ const TestimonialSlider = () => {
             dragElastic={0.6}
             onDragEnd={onDragEnd}
             transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
-            className="flex flex-col md:flex-row items-center gap-6 md:gap-12 cursor-grab active:cursor-grabbing w-full"
+            className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 cursor-grab active:cursor-grabbing w-full"
           >
-            {/* Small Aspect Ratio Image */}
-            <div className="shrink-0 w-28 md:w-36 aspect-[4/5] bg-white rounded-xl overflow-hidden shadow-xl border border-[#14242D]/5 pointer-events-none self-center">
+            {/* Enlarged Aspect Ratio Image */}
+            <div className="shrink-0 w-56 md:w-72 lg:w-80 aspect-[4/5] bg-white rounded-2xl overflow-hidden shadow-2xl border border-[#14242D]/5 pointer-events-none self-center ring-1 ring-[#14242D]/5 mt-10 lg:mt-0">
               <img
                 src={testimonials[index].image}
                 alt={testimonials[index].name}
-                className="w-full h-full object-cover select-none"
+                className="w-full h-full object-cover select-none scale-[1.02]"
                 loading="lazy"
                 onError={(e) => {
                   e.target.style.display = 'none';
                   e.target.parentElement.classList.add('flex', 'items-center', 'justify-center');
                   if (!e.target.parentElement.querySelector('.no-image-text')) {
                     const p = document.createElement('span');
-                    p.className = 'no-image-text text-[8px] text-[#14242D]/30 uppercase text-center px-2';
+                    p.className = 'no-image-text text-[10px] text-[#14242D]/30 uppercase text-center px-4';
                     p.innerText = 'No Image';
                     e.target.parentElement.appendChild(p);
                   }
@@ -127,33 +133,73 @@ const TestimonialSlider = () => {
             </div>
 
             {/* Testimonial Text Content */}
-            <div className="flex flex-col text-center md:text-left pointer-events-none select-none flex-1 pb-12 md:pb-0">
-              <span className="text-[32px] md:text-[40px] text-[#ffb950] leading-none mb-1 font-serif">"</span>
-              <p className="text-[14px] md:text-[16px] leading-[1.6] text-[#14242D] mb-4 font-normal italic md:-mt-2 max-w-2xl mx-auto md:mx-0" style={{ fontFamily: "'Wix Madefor Text', sans-serif" }}>
+            <div className="flex flex-col text-center lg:text-left select-none flex-1 pb-28 lg:pb-0 px-6 lg:px-0">
+              <span className="text-[40px] md:text-[52px] text-[#ffb950] leading-none mb-2 font-serif opacity-80">"</span>
+              <p className="text-[14px] md:text-[18px] leading-[1.7] text-[#14242D] mb-6 font-normal italic md:-mt-4 max-w-2xl mx-auto md:mx-0" style={{ fontFamily: "'Wix Madefor Text', sans-serif" }}>
                 {testimonials[index].text}
               </p>
               <div>
-                <h4 className="text-[15px] md:text-[16px] font-semibold text-[#14242D]">{testimonials[index].name}</h4>
-                <p className="text-[11px] md:text-[12px] text-[#14242D]/50 font-normal uppercase tracking-widest leading-relaxed">{testimonials[index].role}</p>
+                <h4 className="text-[16px] md:text-[18px] font-semibold text-[#14242D] tracking-tight">{testimonials[index].name}</h4>
+                <p className="text-[11px] md:text-[13px] text-[#14242D]/50 font-normal uppercase tracking-[0.2em] mt-1">{testimonials[index].role}</p>
               </div>
             </div>
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Pagination Dots */}
-      <div className="absolute bottom-6 flex gap-2">
-        {testimonials.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => {
-              setDirection(i > index ? 1 : -1);
-              setIndex(i);
-            }}
-            className={`w-1 h-3 rounded-full transition-all duration-300 ${i === index ? 'bg-[#ffb950] h-6' : 'bg-[#14242D]/10 hover:bg-[#14242D]/30'}`}
-            aria-label={`Go to testimonial ${i + 1}`}
-          />
-        ))}
+      {/* Navigation Arrows - Desktop Only */}
+      <div className="hidden lg:flex absolute inset-x-4 top-1/2 -translate-y-1/2 justify-between pointer-events-none z-20">
+        <motion.button
+          whileHover={{ scale: 1.1, x: -2 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={prevTestimonial}
+          className="w-14 h-14 rounded-full bg-white backdrop-blur-md border border-[#14242D]/10 flex items-center justify-center shadow-xl pointer-events-auto transition-all hover:bg-[#ffb950] hover:text-[#14242D] text-[#14242D]"
+          aria-label="Previous testimonial"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.1, x: 2 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={nextTestimonial}
+          className="w-14 h-14 rounded-full bg-white backdrop-blur-md border border-[#14242D]/10 flex items-center justify-center shadow-xl pointer-events-auto transition-all hover:bg-[#ffb950] hover:text-[#14242D] text-[#14242D]"
+          aria-label="Next testimonial"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+        </motion.button>
+      </div>
+
+      {/* Pagination & Mobile/Tablet Arrows */}
+      <div className="absolute bottom-6 flex items-center gap-6 z-20">
+        {/* Mobile Left Arrow */}
+        <button
+          onClick={prevTestimonial}
+          className="lg:hidden w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-[#14242D] active:scale-95 transition-transform"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
+        </button>
+
+        <div className="flex gap-2">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                setDirection(i > index ? 1 : -1);
+                setIndex(i);
+              }}
+              className={`w-1 h-3 rounded-full transition-all duration-300 ${i === index ? 'bg-[#ffb950] h-6' : 'bg-[#14242D]/10 hover:bg-[#14242D]/30'}`}
+              aria-label={`Go to testimonial ${i + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Mobile Right Arrow */}
+        <button
+          onClick={nextTestimonial}
+          className="lg:hidden w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-[#14242D] active:scale-95 transition-transform"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+        </button>
       </div>
     </div>
   );

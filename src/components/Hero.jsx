@@ -61,27 +61,19 @@ const Hero = () => {
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
           <div className="flex whitespace-nowrap animate-marquee items-center opacity-80">
-            {/* Repeated text block for infinite scrolling effect */}
-            <div className="flex items-center space-x-8 md:space-x-12 px-6 text-[11px] md:text-[13px] tracking-[0.2em] font-semibold text-[#14242D] uppercase">
-              <span>AI Consultation</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
-              <span>AI Team Training</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
-              <span>1:1 AI Coaching</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
-              <span>GenAI Workshop</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
-            </div>
-            <div className="flex items-center space-x-8 md:space-x-12 px-6 text-[11px] md:text-[13px] tracking-[0.2em] font-semibold text-[#14242D] uppercase">
-              <span>AI Consultation</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
-              <span>AI Team Training</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
-              <span>1:1 AI Coaching</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
-              <span>GenAI Workshop</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
-            </div>
+            {/* Repeated text blocks for infinite scrolling effect - 4 blocks ensures no gaps on any screen size */}
+            {[...Array(4)].map((_, idx) => (
+              <div key={idx} className="flex items-center space-x-8 md:space-x-12 px-6 text-[11px] md:text-[13px] tracking-[0.2em] font-semibold text-[#14242D] uppercase">
+                <span>AI Consultation</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
+                <span>AI Team Training</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
+                <span>1:1 AI Coaching</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
+                <span>GenAI Workshop</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
+              </div>
+            ))}
           </div>
         </motion.div>
 
@@ -92,7 +84,7 @@ const Hero = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-            className="w-full max-w-[1000px] min-h-[520px] md:min-h-0 md:aspect-[21/9] bg-[#F8F6F5]/50 relative overflow-hidden rounded-2xl border border-[#14242D]/5 shadow-2xl shadow-[#14242D]/5 mb-20 md:mb-10"
+            className="w-full max-w-[1000px] min-h-[650px] md:min-h-[700px] lg:min-h-0 lg:aspect-[21/9] bg-[#F8F6F5]/50 relative overflow-hidden rounded-2xl border border-[#14242D]/5 shadow-2xl shadow-[#14242D]/5 mb-20 md:mb-10"
           >
             <TestimonialSlider />
           </motion.div>
