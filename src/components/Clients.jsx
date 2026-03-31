@@ -62,24 +62,39 @@ const Clients = () => {
     setIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
   };
 
+  const prevTestimonial = () => {
+    setDirection(-1);
+    setIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+  };
+
   useEffect(() => {
     const timer = setInterval(nextTestimonial, 8000);
     return () => clearInterval(timer);
   }, []);
 
   const clients = [
-    { name: "" },
-    { name: "" },
-    { name: "" },
-    { name: "" },
-    { name: "" },
-    { name: "" },
+    { name: "CPH Films" },
+    { name: "Mosiac Moments" },
+    { name: "BringJal" },
+    { name: "Quickybowl" },
+    { name: "Life of a Miracle" },
+    { name: "Constant Edits" },
   ];
 
   const variants = {
     enter: (direction) => ({ x: direction > 0 ? 50 : -50, opacity: 0 }),
     center: { x: 0, opacity: 1 },
     exit: (direction) => ({ x: direction < 0 ? 50 : -50, opacity: 0 })
+  };
+
+  const SWIPE_THRESHOLD = 50;
+  const onDragEnd = (e, info) => {
+    const offset = info.offset.x;
+    if (offset < -SWIPE_THRESHOLD) {
+      nextTestimonial();
+    } else if (offset > SWIPE_THRESHOLD) {
+      prevTestimonial();
+    }
   };
 
   return (
@@ -93,7 +108,7 @@ const Clients = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
               className="mb-8 md:mb-12"
             >
               <h2 className="text-[14px] font-semibold tracking-wider text-[#14242D]/50 uppercase mb-4">Trusted By</h2>
@@ -135,15 +150,19 @@ const Clients = () => {
                     initial="enter"
                     animate="center"
                     exit="exit"
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.6}
+                    onDragEnd={onDragEnd}
                     transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
-                    className="w-full flex flex-col md:flex-row gap-6 md:gap-10 items-center md:items-start lg:items-center"
+                    className="w-full flex flex-col md:flex-row gap-6 md:gap-10 items-center md:items-start lg:items-center cursor-grab active:cursor-grabbing"
                   >
                     {/* Small Rectangular Image */}
-                    <div className="shrink-0 w-32 md:w-40 aspect-[4/5] bg-white rounded-xl overflow-hidden shadow-lg border border-[#14242D]/10">
+                    <div className="shrink-0 w-32 md:w-40 aspect-[4/5] bg-white rounded-xl overflow-hidden shadow-lg border border-[#14242D]/10 pointer-events-none">
                       <img
                         src={testimonials[index].image}
                         alt={testimonials[index].name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover select-none"
                         loading="lazy"
                         onError={(e) => {
                           e.target.style.display = 'none';
@@ -159,7 +178,7 @@ const Clients = () => {
                     </div>
 
                     {/* Text Content */}
-                    <div className="flex flex-col text-center md:text-left">
+                    <div className="flex flex-col text-center md:text-left select-none pointer-events-none">
                       <span className="text-[40px] text-[#ffb950] leading-none mb-2 font-serif hidden md:block">"</span>
                       <p className="text-[15px] md:text-[17px] leading-[1.6] text-[#14242D] mb-6 font-normal italic md:-mt-4" style={{ fontFamily: "'Wix Madefor Text', sans-serif" }}>
                         {testimonials[index].text}
