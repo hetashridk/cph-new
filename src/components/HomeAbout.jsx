@@ -15,29 +15,44 @@ const HomeAbout = () => {
             transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
           >
             <h2 className="text-[2.5rem] md:text-[3.5rem] lg:text-[70px] font-normal tracking-tight leading-[1.1] text-[#14242D]" style={{ letterSpacing: '-0.02em' }}>
-              About <br /> Crosslinks AI
+              About the <br /> Founder
             </h2>
           </motion.div>
 
-          {/* Right Side: Paragraph and Button */}
+          {/* Right Side: Bio Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1], delay: 0.15 }}
-            className="flex flex-col items-start gap-8 mt-4 md:mt-0"
+            className="flex flex-col items-start gap-4 mt-4 md:mt-0"
           >
-            <p className="text-[16px] md:text-[18px] text-[#14242D] leading-relaxed font-normal max-w-lg" style={{ letterSpacing: '-0.16px' }}>
-              At Crosslinks AI, we strive to simplify artificial intelligence for everyone. Our mission is to simplify AI for a normal person through tailored consultation, team training, and workshops that empower individuals and businesses.
-            </p>
-            <motion.a
-              href="/about"
-              whileHover={{ y: -2, boxShadow: "0 10px 30px rgba(255,185,80,0.3)" }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 rounded-full bg-[#ffb950] text-[#14242D] font-normal text-[18px] border border-[#14242D]/20 shadow-sm transition-all"
-            >
-              Learn More
-            </motion.a>
+            <h3 className="text-[22px] md:text-[26px] text-[#14242D] font-medium leading-[1.3] mb-2" style={{ fontFamily: "'Wix Madefor Text', sans-serif" }}>
+              Hi! My name is <span className="text-[#ffb950]">Piyush.</span>
+            </h3>
+            
+            <div className="space-y-6 text-[#14242D]/80 text-[16px] md:text-[18px] leading-relaxed max-w-xl" style={{ letterSpacing: '-0.16px' }}>
+              <p>
+                For me, <span className="text-[#14242D] font-semibold">Automation</span> was the game changer, no exaggeration.
+              </p>
+              
+              <p>
+                It’s how I scaled my first agency, delivered thousands of creatives overnight, and was first recognized as an industry leader.
+              </p>
+              
+              <p>
+                These experiences led me to found my own AI studio and work with top D2C brands. Now, I’m here to help you do the same.
+              </p>
+            </div>
+
+            <div className="mt-8 pt-8 border-t border-[#14242D]/10 w-full">
+              <p className="text-[14px] md:text-[16px] font-semibold text-[#14242D]">
+                Piyush Bharoliya
+              </p>
+              <p className="text-[12px] md:text-[13px] text-[#14242D]/50 font-normal uppercase tracking-widest mt-1">
+                Founder of CPHfilms, Crosslinks.AI, AI Marketing Studio
+              </p>
+            </div>
           </motion.div>
 
         </div>

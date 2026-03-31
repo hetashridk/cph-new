@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import TestimonialSlider from './TestimonialSlider';
 
 const Hero = () => {
   const containerVariants = {
@@ -19,13 +20,13 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="w-full bg-white relative pt-24 md:pt-[120px] pb-10 flex flex-col items-center">
+    <section id="hero" className="w-full bg-white relative pt-12 md:pt-[120px] pb-10 flex flex-col items-center overflow-x-hidden">
       {/* Subtle Noise Texture Overlay */}
       <div className="absolute inset-0 z-0 opacity-[0.015] pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
 
       {/* Main Content Area */}
       <motion.div
-        className="relative z-10 w-full pt-16 md:pt-20 flex flex-col items-center justify-start md:justify-center min-h-screen md:min-h-[70vh]"
+        className="relative z-10 w-full pt-8 md:pt-16 flex flex-col items-center justify-start md:justify-center min-h-screen md:min-h-[70vh]"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -71,7 +72,6 @@ const Hero = () => {
               <span>GenAI Workshop</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
             </div>
-            {/* Duplicate for seamless loop */}
             <div className="flex items-center space-x-8 md:space-x-12 px-6 text-[11px] md:text-[13px] tracking-[0.2em] font-semibold text-[#14242D] uppercase">
               <span>AI Consultation</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
@@ -85,19 +85,16 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Hero Speaker Image Section - Floats continuously */}
-        <div className="w-full px-6 md:px-12 flex justify-center mt-8 md:mt-0">
+        {/* Hero Testimonial Slider Section - Replaced placeholder */}
+        <div className="w-full px-4 md:px-12 flex justify-center mt-8 md:mt-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-            className="w-full max-w-[1000px] aspect-[4/3] md:aspect-[21/9] bg-[#14242D]/5 relative overflow-hidden rounded-2xl shadow-2xl shadow-[#14242D]/5 mb-20 md:mb-10"
+            className="w-full max-w-[1000px] min-h-[520px] md:min-h-0 md:aspect-[21/9] bg-[#F8F6F5]/50 relative overflow-hidden rounded-2xl border border-[#14242D]/5 shadow-2xl shadow-[#14242D]/5 mb-20 md:mb-10"
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent mix-blend-overlay"></div>
-            <div className="absolute inset-0 flex items-center justify-center text-black/40 font-medium tracking-widest text-sm uppercase">
-              [ Media Object Placeholder ]
-            </div>
+            <TestimonialSlider />
           </motion.div>
         </div>
 
