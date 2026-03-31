@@ -114,8 +114,8 @@ const TestimonialSlider = forwardRef((_props, ref) => {
             transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
             className="flex flex-col lg:flex-row items-center lg:items-stretch gap-10 lg:gap-16 cursor-grab active:cursor-grabbing w-full"
           >
-            {/* Image - height matches text block */}
-            <div className="shrink-0 w-44 md:w-52 lg:w-60 h-64 lg:h-auto bg-white rounded-2xl overflow-hidden shadow-2xl border border-[#14242D]/5 pointer-events-none ring-1 ring-[#14242D]/5 mt-10 lg:mt-0">
+            {/* Image - height driven by text block via items-stretch, min-h-0 prevents intrinsic size inflation */}
+            <div className="shrink-0 w-44 md:w-52 lg:w-60 h-64 lg:h-auto lg:min-h-0 bg-white rounded-2xl overflow-hidden shadow-2xl border border-[#14242D]/5 pointer-events-none ring-1 ring-[#14242D]/5 mt-10 lg:mt-0">
               <img
                 src={testimonials[index].image}
                 alt={testimonials[index].name}
@@ -135,7 +135,7 @@ const TestimonialSlider = forwardRef((_props, ref) => {
             </div>
 
             {/* Testimonial Text Content */}
-            <div className="flex flex-col text-center lg:text-left select-none flex-1 pb-28 lg:pb-0 px-6 lg:px-0 relative">
+            <div className="flex flex-col justify-center text-center lg:text-left select-none flex-1 pb-28 lg:pb-0 px-6 lg:px-0 relative">
               {/* Quote mark: inline on mobile, floats above the text block on desktop */}
               <span className="lg:absolute lg:-top-10 lg:left-0 text-[40px] md:text-[52px] text-[#ffb950] leading-none mb-2 lg:mb-0 font-serif opacity-80">"</span>
               <p className="text-[14px] md:text-[18px] leading-[1.7] text-[#14242D] mb-6 font-normal italic md:-mt-4 lg:mt-0 max-w-2xl mx-auto lg:mx-0" style={{ fontFamily: "'Wix Madefor Text', sans-serif" }}>
