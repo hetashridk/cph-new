@@ -3,9 +3,10 @@ import { motion } from 'framer-motion';
 
 const About = () => {
   const teamMembers = [
-    { name: "Piyush Bharoliya", role: "Founder & CEO" },
-    { name: "John Doe", role: "AI Strategist" },
-    { name: "Jane Smith", role: "Lead Consultant" },
+    { name: "Piyush Bharoliya", role: "" },
+    { name: "Nikhil Bharoliya", role: "" },
+    { name: "Karisham Khubchandani", role: "" },
+    { name: "Hetashri Kansariwala", role: "" },
   ];
 
   const containerVariants = {
@@ -135,7 +136,7 @@ const About = () => {
           </motion.div>
 
           <motion.div
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12"
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
