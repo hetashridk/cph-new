@@ -9,7 +9,7 @@ const Services = () => {
       id: "01",
       title: "AI Consultation",
       subtitle: "Customized Strategy",
-      description: "Our AI consultation services provide personalized solutions to help you integrate AI technologies into your business operations. We work closely with you to identify opportunities and streamline processes, making AI accessible and actionable.",
+      description: "We look at how your business works and show you where AI can help. No guessing. No random tools. You get clear direction on what to use, how to use it, and how it can save time or reduce effort in your daily work.",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
       )
@@ -18,7 +18,7 @@ const Services = () => {
       id: "02",
       title: "Team Training",
       subtitle: "Building AI Competence",
-      description: "Our AI team training programs equip your staff with the necessary skills and knowledge to leverage AI tools effectively. We focus on hands-on learning experiences to ensure your team is prepared to tackle real-world challenges.",
+      description: "We train your team to actually use AI in their day-to-day work. Simple explanations. Real examples. Hands-on practice. Your team learns how to use AI tools with confidence, so work becomes faster and easier.",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
       )
@@ -27,7 +27,7 @@ const Services = () => {
       id: "03",
       title: "Generative Workflows",
       subtitle: "Process Automation",
-      description: "Stop repeating manual tasks. We audit your existing processes and seamlessly integrate cutting-edge LLMs and automation agents exactly where they provide the most leverage, saving hundreds of hours.",
+      description: "We help you stop repeating manual work. We study your current process and build simple AI workflows that handle repetitive tasks. Less manual effort. Faster output. More time to focus on what matters.",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
       )

@@ -35,14 +35,14 @@ const About = () => {
           >
             <motion.h2 variants={itemVariants} className="text-[14px] font-semibold tracking-wider text-[#14242D]/50 uppercase mb-4">About Us</motion.h2>
             <motion.h3 variants={itemVariants} className="text-[2.5rem] md:text-[3rem] lg:text-[70px] font-normal leading-[1.1] text-[#14242D] mb-8" style={{ letterSpacing: '-0.02em' }}>
-              Demystifying <br className="hidden lg:block" /> AI for Every <br className="hidden lg:block" /> Business
+              Using AI<br className="hidden lg:block" /> Should Feel Simple, <br className="hidden lg:block" /> Not Confusing
             </motion.h3>
             <motion.div variants={containerVariants} className="pt-4 md:pt-8 flex flex-col items-center lg:items-start">
               <motion.p variants={itemVariants} className="text-[16px] md:text-[18px] text-[#14242D] leading-relaxed font-normal mb-6 max-w-2xl" style={{ letterSpacing: '-0.16px' }}>
-                At Crosslinks AI, we strive to simplify artificial intelligence for everyone. Our mission is to simplify AI for a normal person through tailored consultation, team training, and workshops that empower individuals and businesses.
+                At Crosslinks AI, we help businesses understand where AI actually fits in their work. Most people know AI is useful, but they don’t know where to start or what to use. That’s where we help. We guide founders and teams step by step, what to use, how to use it, and how it can make everyday work faster and easier.
               </motion.p>
               <motion.p variants={itemVariants} className="text-[16px] md:text-[18px] text-[#14242D] leading-relaxed font-normal mb-10 max-w-2xl" style={{ letterSpacing: '-0.16px' }}>
-                With a deep understanding of the evolving AI landscape, we guide founders and teams on how to leverage AI tools in real workflows, moving beyond just experiments to create lasting value.
+                No complicated language. No overthinking. Just simple, practical use of AI.
               </motion.p>
             </motion.div>
           </motion.div>
@@ -81,7 +81,10 @@ const About = () => {
                   Our Mission
                 </h2>
                 <h3 className="text-[1.25rem] md:text-[1.5rem] lg:text-[22px] font-normal text-[#14242D]/70 mt-6 tracking-wide">
-                  Our Purpose
+                  We want to make AI easy for everyone to understand and use.
+                  Not just for tech people.
+                  Not just for big companies.
+                  For anyone who wants to save time, reduce effort, and work smarter.
                 </h3>
               </motion.div>
 
@@ -92,7 +95,7 @@ const About = () => {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
               >
-                At Crosslinks AI, our mission is to simplify the complexities of artificial intelligence and deliver tailored solutions that enhance productivity and innovation. We aim to revolutionize how people perceive and utilize AI in their personal and professional lives.
+                Many businesses struggle because they try to use AI without clarity. They try random tools, watch videos, and still feel confused. Our goal is to remove that confusion and give clear direction so people know exactly what to do.
               </motion.p>
             </div>
 
@@ -105,7 +108,7 @@ const About = () => {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1], delay: 0.15 }}
               >
-                We are dedicated to creating an environment where AI knowledge is shared freely, enabling our clients to thrive in an increasingly digital world. Our goal is to equip individuals and teams with the skills necessary to succeed in AI-driven markets.
+                We focus on real use. How AI can help in daily work. How it can save time. How it can reduce manual effort. We teach in a simple way so anyone can understand and start using AI with confidence.
               </motion.p>
             </div>
           </div>
@@ -124,11 +127,11 @@ const About = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
           >
-            <h2 className="text-[14px] font-semibold tracking-wider text-[#14242D]/50 uppercase mb-4">Meet Our Experts</h2>
+            {/* <h2 className="text-[14px] font-semibold tracking-wider text-[#14242D]/50 uppercase mb-4">Meet Our Experts</h2> */}
             <h3 className="text-[2.5rem] md:text-[3rem] lg:text-[70px] font-normal leading-[1.1] text-[#14242D]" style={{ letterSpacing: '-0.02em' }}>Our Team</h3>
-            <p className="max-w-3xl mx-auto mt-6 md:mt-8 text-[16px] md:text-[18px] text-[#14242D] leading-relaxed font-normal" style={{ letterSpacing: '-0.16px' }}>
+            {/* <p className="max-w-3xl mx-auto mt-6 md:mt-8 text-[16px] md:text-[18px] text-[#14242D] leading-relaxed font-normal" style={{ letterSpacing: '-0.16px' }}>
               The Crosslinks AI team comprises seasoned professionals with diverse expertise in artificial intelligence and its applications. Each member is passionate about empowering others through education and training, ensuring that our clients receive the best guidance in their AI journey.
-            </p>
+            </p> */}
           </motion.div>
 
           <motion.div

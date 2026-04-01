@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Contact from './components/Contact';
 import Home from './pages/Home';
 import About from './pages/About';
+import ServicesPage from './pages/ServicesPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import AccessibilityStatement from './pages/AccessibilityStatement';
 
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/services" element={<ServicesPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/accessibility-statement" element={<AccessibilityStatement />} />
           </Routes>

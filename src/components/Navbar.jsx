@@ -40,6 +40,7 @@ const Navbar = () => {
           <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center space-x-10">
             <Link to="/" onClick={() => window.scrollTo(0, 0)} className={`transition-colors duration-300 text-[16px] font-normal ${location.pathname === '/' ? 'text-[#14242D]' : 'text-[#14242D]/60 hover:text-[#14242D]'}`}>Home</Link>
             <Link to="/about" onClick={() => window.scrollTo(0, 0)} className={`transition-colors duration-300 text-[16px] font-normal ${location.pathname === '/about' ? 'text-[#14242D]' : 'text-[#14242D]/60 hover:text-[#14242D]'}`}>About</Link>
+            <Link to="/services" onClick={() => window.scrollTo(0, 0)} className={`transition-colors duration-300 text-[16px] font-normal ${location.pathname === '/services' ? 'text-[#14242D]' : 'text-[#14242D]/60 hover:text-[#14242D]'}`}>Services</Link>
           </div>
 
           {/* CTA (RIGHT - DESKTOP) */}
@@ -84,6 +85,7 @@ const Navbar = () => {
           >
             <Link to="/" onClick={() => { window.scrollTo(0, 0); setMobileMenuOpen(false); }} className={`text-[2rem] font-semibold tracking-tight ${location.pathname === '/' ? 'text-[#14242D]' : 'text-[#14242D]/50'}`}>Home</Link>
             <Link to="/about" onClick={() => { window.scrollTo(0, 0); setMobileMenuOpen(false); }} className={`text-[2rem] font-semibold tracking-tight ${location.pathname === '/about' ? 'text-[#14242D]' : 'text-[#14242D]/50'}`}>About</Link>
+            <Link to="/services" onClick={() => { window.scrollTo(0, 0); setMobileMenuOpen(false); }} className={`text-[2rem] font-semibold tracking-tight ${location.pathname === '/services' ? 'text-[#14242D]' : 'text-[#14242D]/50'}`}>Services</Link>
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
