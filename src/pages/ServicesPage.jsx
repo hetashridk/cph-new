@@ -83,7 +83,7 @@ const ServicesPage = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="max-w-4xl"
+            className="flex flex-col items-center text-center max-w-3xl mx-auto"
           >
             <motion.p variants={itemVariants} className="text-[14px] font-semibold text-[#14242D]/50 uppercase tracking-wider mb-6">
               What We Offer
@@ -93,9 +93,9 @@ const ServicesPage = () => {
               className="text-[2.8rem] md:text-[4rem] lg:text-[72px] font-normal leading-[1.05] text-[#14242D] mb-8"
               style={{ letterSpacing: '-0.02em', fontFamily: "'Wix Madefor Display', sans-serif" }}
             >
-              Simple AI Support<br /> for Your Business
+              Simple AI Support for Your Business
             </motion.h1>
-            <motion.p variants={itemVariants} className="text-[17px] md:text-[19px] text-[#14242D]/70 leading-relaxed max-w-2xl" style={{ letterSpacing: '-0.16px' }}>
+            <motion.p variants={itemVariants} className="text-[17px] md:text-[19px] text-[#14242D]/70 leading-relaxed" style={{ letterSpacing: '-0.16px' }}>
               We help you understand, use, and apply AI in your daily work. Whether you&apos;re starting from zero or already exploring AI, we guide you with clear steps and practical use.
             </motion.p>
           </motion.div>
@@ -202,7 +202,7 @@ const ServicesPage = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="flex flex-col items-start gap-8 max-w-2xl"
+            className="flex flex-col items-center text-center max-w-3xl mx-auto gap-8"
           >
             <motion.h2
               variants={itemVariants}
@@ -211,6 +211,9 @@ const ServicesPage = () => {
             >
               If you want to use AI in a simple and practical way, we can help.
             </motion.h2>
+            <motion.p variants={itemVariants} className="text-[16px] md:text-[18px] text-[#14242D]/70 leading-relaxed" style={{ letterSpacing: '-0.16px' }}>
+              No complex setup. No confusing tools. Just a clear conversation about your business and where AI can make your work easier.
+            </motion.p>
             <motion.div variants={itemVariants}>
               <Link to="/#contact">
                 <motion.button
