@@ -91,15 +91,27 @@ const Contact = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-
-              </motion.div>
+            <motion.h3 variants={itemVariants} className="text-[28px] md:text-[36px] font-normal text-[#14242D] mb-4" style={{ fontFamily: "'Wix Madefor Display', sans-serif", letterSpacing: '-0.8px' }}>
+              Stay in the loop
+            </motion.h3>
+            <motion.p variants={itemVariants} className="text-[15px] text-[#14242D]/70 mb-8 leading-relaxed">
+              Subscribe to our newsletter for the latest updates on AI automation and insights.
+            </motion.p>
+            <motion.form variants={itemVariants} onSubmit={handleNewsletterSubmit} className="flex flex-col gap-3">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Your email address"
+                required
+                className="w-full px-5 py-4 rounded-full border border-[#14242D]/20 bg-white text-[#14242D] placeholder-[#14242D]/40 text-[15px] focus:outline-none focus:border-[#14242D]/50"
+              />
               <motion.button
-                variants={itemVariants}
                 type="submit"
                 disabled={newsletterStatus === 'submitting'}
                 whileHover={{ y: -4, boxShadow: "0 10px 30px rgba(255,185,80,0.5)" }}
                 whileTap={{ scale: 0.95 }}
-                className="px-10 py-4 rounded-full bg-[#14242D] hover:bg-[#ffb950] text-[#F8F6F5] hover:text-[#14242D] font-normal transition-colors duration-300 shadow-[0_4px_14px_0_rgba(0,0,0,0.2)] flex items-center gap-2 group w-full justify-center mt-6"
+                className="px-10 py-4 rounded-full bg-[#14242D] hover:bg-[#ffb950] text-[#F8F6F5] hover:text-[#14242D] font-normal transition-colors duration-300 shadow-[0_4px_14px_0_rgba(0,0,0,0.2)] flex items-center gap-2 group w-full justify-center mt-2"
               >
                 Get Started
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
