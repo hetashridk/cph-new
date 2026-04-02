@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useModal } from '../context/ModalContext';
 
 const Services = () => {
+  const openModal = useModal();
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const servicesData = [
@@ -106,10 +108,17 @@ const Services = () => {
 
                     </div>
 
-                    <div className="relative z-10 w-full mt-auto">
+                    <div className="relative z-10 w-full mt-auto flex flex-col gap-6">
                       <p className="text-[#14242D] text-[15px] lg:text-[16px] leading-relaxed font-normal" style={{ letterSpacing: '-0.16px' }}>
                         {service.description}
                       </p>
+                      <button
+                        onClick={openModal}
+                        className="self-start flex items-center gap-2 text-[14px] font-medium text-[#14242D] group/btn hover:text-[#ffb950] transition-colors duration-300"
+                      >
+                        Get Started
+                        <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                      </button>
                     </div>
 
                   </div>

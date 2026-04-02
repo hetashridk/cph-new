@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import CTASection from './components/CTASection';
 import Contact from './components/Contact';
 import ContactModal from './components/ContactModal';
 import Home from './pages/Home';
@@ -29,6 +30,7 @@ function App() {
               <Route path="/accessibility-statement" element={<AccessibilityStatement />} />
             </Routes>
           </main>
+          <CTASection />
           <Contact />
         </div>
       </Router>

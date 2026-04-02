@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const HomeAbout = () => {
   return (
-    <section className="pt-24 md:pt-28 pb-12 bg-[#fafafa]">
+    <section className="py-24 md:py-32 bg-[#fafafa]">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 w-full">
 
         {/* Section Title */}

@@ -159,18 +159,27 @@ const ServicesPage = () => {
               </div>
 
               {/* Right — What you get */}
-              <div className="lg:pt-10">
-                <p className="text-[11px] font-semibold text-[#14242D]/35 uppercase tracking-[0.18em] mb-5">
-                  What you get
-                </p>
-                <ul className="space-y-3">
-                  {service.what.map((item, j) => (
-                    <li key={j} className="flex items-start gap-3">
-                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#ffb950] flex-shrink-0" />
-                      <span className="text-[#14242D]/75 text-[15px] leading-relaxed">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="lg:pt-10 flex flex-col gap-8">
+                <div>
+                  <p className="text-[11px] font-semibold text-[#14242D]/35 uppercase tracking-[0.18em] mb-5">
+                    What you get
+                  </p>
+                  <ul className="space-y-3">
+                    {service.what.map((item, j) => (
+                      <li key={j} className="flex items-start gap-3">
+                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#ffb950] flex-shrink-0" />
+                        <span className="text-[#14242D]/75 text-[15px] leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <button
+                  onClick={openModal}
+                  className="self-start flex items-center gap-2 text-[14px] font-medium text-[#14242D] group/btn hover:text-[#ffb950] transition-colors duration-300"
+                >
+                  Get Started
+                  <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                </button>
               </div>
             </motion.div>
           ))}
@@ -220,61 +229,6 @@ const ServicesPage = () => {
               </motion.div>
             ))}
           </motion.div>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="py-24 md:py-32 bg-white border-t border-[#14242D]/5">
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-12 w-full">
-          <div className="flex flex-col lg:grid lg:grid-cols-[1.5fr_1fr] gap-12 lg:gap-16 items-center">
-
-            {/* Left — Text */}
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
-              className="flex flex-col gap-6"
-            >
-              <motion.h2
-                variants={itemVariants}
-                className="text-[2.5rem] md:text-[3.5rem] lg:text-[60px] font-normal leading-[1.1] text-[#14242D]"
-                style={{ letterSpacing: '-0.02em', fontFamily: "'Wix Madefor Display', sans-serif" }}
-              >
-                If you want to use AI in a simple and practical way, we can help.
-              </motion.h2>
-              <motion.p variants={itemVariants} className="text-[16px] md:text-[18px] text-[#14242D]/70 leading-relaxed max-w-xl" style={{ letterSpacing: '-0.16px' }}>
-                No complex setup. No confusing tools. Just a clear conversation about your business and where AI can make your work easier.
-              </motion.p>
-              <motion.div variants={itemVariants}>
-                <motion.button
-                  onClick={openModal}
-                  whileHover={{ y: -4, boxShadow: '0 10px 30px rgba(255,185,80,0.5)' }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 rounded-full bg-[#14242D] hover:bg-[#ffb950] text-[#F8F6F5] hover:text-[#14242D] font-normal transition-colors duration-300 shadow-[0_4px_14px_0_rgba(0,0,0,0.2)] flex items-center gap-2 group w-max"
-                >
-                  Start a Conversation
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </motion.button>
-              </motion.div>
-            </motion.div>
-
-            {/* Right — Video placeholder */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1], delay: 0.15 }}
-              className="w-full aspect-video bg-[#14242D]/5 relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[#14242D]/5 group"
-            >
-              <div className="absolute inset-0 flex items-center justify-center text-[#14242D]/40 font-medium tracking-widest text-sm uppercase group-hover:scale-105 transition-transform duration-700">
-                [ Video Placeholder ]
-              </div>
-            </motion.div>
-
-          </div>
         </div>
       </section>
 
