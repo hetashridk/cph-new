@@ -9,6 +9,7 @@ const Clients = () => {
     { name: "Quickybowl" },
     { name: "Life of a Miracle" },
     { name: "Constant Edits" },
+    { name: "Magic Health Club" },
   ];
 
   return (

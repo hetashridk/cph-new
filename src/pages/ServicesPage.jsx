@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { useModal } from '../context/ModalContext';
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -73,82 +73,111 @@ const steps = [
 ];
 
 const ServicesPage = () => {
+  const openModal = useModal();
+
   return (
     <div className="flex flex-col w-full bg-white">
 
       {/* ── HERO ── */}
       <section className="pt-40 pb-24 md:pt-48 md:pb-32 bg-white border-b border-[#14242D]/5">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12 w-full">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-col items-center text-center max-w-3xl mx-auto"
-          >
-            <motion.p variants={itemVariants} className="text-[14px] font-semibold text-[#14242D]/50 uppercase tracking-wider mb-6">
-              What We Offer
-            </motion.p>
-            <motion.h1
-              variants={itemVariants}
-              className="text-[2.8rem] md:text-[4rem] lg:text-[72px] font-normal leading-[1.05] text-[#14242D] mb-8"
-              style={{ letterSpacing: '-0.02em', fontFamily: "'Wix Madefor Display', sans-serif" }}
+          <div className="flex flex-col lg:grid lg:grid-cols-[1.5fr_1fr] gap-12 lg:gap-16 items-center">
+
+            {/* Left — Text */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="flex flex-col"
             >
-              Simple AI Support for Your Business
-            </motion.h1>
-            <motion.p variants={itemVariants} className="text-[17px] md:text-[19px] text-[#14242D]/70 leading-relaxed" style={{ letterSpacing: '-0.16px' }}>
-              We help you understand, use, and apply AI in your daily work. Whether you&apos;re starting from zero or already exploring AI, we guide you with clear steps and practical use.
-            </motion.p>
-          </motion.div>
+              <motion.p variants={itemVariants} className="text-[14px] font-semibold text-[#14242D]/50 uppercase tracking-wider mb-6">
+                What We Offer
+              </motion.p>
+              <motion.h1
+                variants={itemVariants}
+                className="text-[2.8rem] md:text-[4rem] lg:text-[70px] font-normal leading-[1.05] text-[#14242D] mb-8"
+                style={{ letterSpacing: '-0.02em', fontFamily: "'Wix Madefor Display', sans-serif" }}
+              >
+                Simple AI Support<br />for Your Business
+              </motion.h1>
+              <motion.p variants={itemVariants} className="text-[16px] md:text-[18px] text-[#14242D]/70 leading-relaxed max-w-xl" style={{ letterSpacing: '-0.16px' }}>
+                We help you understand, use, and apply AI in your daily work. Whether you&apos;re starting from zero or already exploring AI, we guide you with clear steps and practical use.
+              </motion.p>
+            </motion.div>
+
+            {/* Right — Video placeholder */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1], delay: 0.15 }}
+              className="w-full aspect-video bg-[#14242D]/5 relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[#14242D]/5 group"
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-[#14242D]/40 font-medium tracking-widest text-sm uppercase group-hover:scale-105 transition-transform duration-700">
+                [ Video Placeholder ]
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
       {/* ── SERVICES ── */}
-      {services.map((service, i) => (
-        <section key={service.id} className={`py-20 md:py-28 ${service.bg} border-b border-[#14242D]/5`}>
-          <div className="max-w-[1400px] mx-auto px-6 sm:px-12 w-full">
+      <section className="bg-white">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-12 w-full">
+          {services.map((service, i) => (
             <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
-              className="grid md:grid-cols-2 gap-12 md:gap-24 items-start"
+              key={service.id}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.7, ease: [0.25, 0.4, 0.25, 1], delay: i * 0.08 }}
+              className="group border-t border-[#14242D]/8 py-12 md:py-16 grid grid-cols-1 lg:grid-cols-[80px_1fr_1fr] gap-8 lg:gap-12 items-start hover:bg-[#fafafa] -mx-6 sm:-mx-12 px-6 sm:px-12 transition-colors duration-300"
             >
-              {/* Left */}
+              {/* Number */}
+              <div className="flex items-start pt-1">
+                <span className="text-[13px] font-mono font-semibold text-[#14242D]/25 tracking-widest">
+                  {service.id}
+                </span>
+              </div>
+
+              {/* Left — Label + Title + Description */}
               <div>
-                <motion.div variants={itemVariants} className="flex items-center gap-4 mb-6">
-                  <span className="text-[13px] font-mono text-[#14242D]/30 font-semibold tracking-widest">{service.id}</span>
-                  <span className="text-[13px] font-semibold text-[#14242D]/50 uppercase tracking-wider">{service.label}</span>
-                </motion.div>
-                <motion.h2
-                  variants={itemVariants}
-                  className="text-[2rem] md:text-[2.6rem] lg:text-[3rem] font-normal leading-[1.1] text-[#14242D] mb-8"
+                <span className="inline-block text-[11px] font-semibold text-[#14242D] uppercase tracking-[0.18em] bg-[#ffb950]/20 px-3 py-1 rounded-full mb-5">
+                  {service.label}
+                </span>
+                <h2
+                  className="text-[1.9rem] md:text-[2.4rem] lg:text-[2.8rem] font-normal leading-[1.1] text-[#14242D] mb-6"
                   style={{ letterSpacing: '-0.02em', fontFamily: "'Wix Madefor Display', sans-serif" }}
                 >
                   {service.title}
-                </motion.h2>
-                <motion.div variants={itemVariants} className="space-y-4 text-[#14242D]/70 text-[16px] md:text-[17px] leading-relaxed" style={{ letterSpacing: '-0.16px' }}>
+                </h2>
+                <div className="space-y-3 text-[#14242D]/60 text-[15px] md:text-[16px] leading-relaxed" style={{ letterSpacing: '-0.1px' }}>
                   {service.description.split('\n').map((line, j) => (
                     <p key={j}>{line}</p>
                   ))}
-                </motion.div>
+                </div>
               </div>
 
               {/* Right — What you get */}
-              <motion.div variants={itemVariants} className="bg-[#14242D] rounded-[2rem] p-8 md:p-10">
-                <p className="text-[13px] font-semibold text-white/40 uppercase tracking-wider mb-6">What you get</p>
-                <ul className="space-y-4">
+              <div className="lg:pt-10">
+                <p className="text-[11px] font-semibold text-[#14242D]/35 uppercase tracking-[0.18em] mb-5">
+                  What you get
+                </p>
+                <ul className="space-y-3">
                   {service.what.map((item, j) => (
                     <li key={j} className="flex items-start gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#ffb950] flex-shrink-0" />
-                      <span className="text-white/90 text-[15px] md:text-[16px] leading-relaxed">{item}</span>
+                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#ffb950] flex-shrink-0" />
+                      <span className="text-[#14242D]/75 text-[15px] leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             </motion.div>
-          </div>
-        </section>
-      ))}
+          ))}
+          {/* Bottom border */}
+          <div className="border-t border-[#14242D]/8" />
+        </div>
+      </section>
 
       {/* ── HOW WE WORK ── */}
       <section className="py-20 md:py-28 bg-[#ffb950]">
@@ -195,40 +224,57 @@ const ServicesPage = () => {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 md:py-32 bg-white">
+      <section className="py-24 md:py-32 bg-white border-t border-[#14242D]/5">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12 w-full">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-            className="flex flex-col items-center text-center max-w-3xl mx-auto gap-8"
-          >
-            <motion.h2
-              variants={itemVariants}
-              className="text-[2.5rem] md:text-[3.5rem] lg:text-[60px] font-normal leading-[1.1] text-[#14242D]"
-              style={{ letterSpacing: '-0.02em', fontFamily: "'Wix Madefor Display', sans-serif" }}
+          <div className="flex flex-col lg:grid lg:grid-cols-[1.5fr_1fr] gap-12 lg:gap-16 items-center">
+
+            {/* Left — Text */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-80px' }}
+              className="flex flex-col gap-6"
             >
-              If you want to use AI in a simple and practical way, we can help.
-            </motion.h2>
-            <motion.p variants={itemVariants} className="text-[16px] md:text-[18px] text-[#14242D]/70 leading-relaxed" style={{ letterSpacing: '-0.16px' }}>
-              No complex setup. No confusing tools. Just a clear conversation about your business and where AI can make your work easier.
-            </motion.p>
-            <motion.div variants={itemVariants}>
-              <Link to="/#contact">
+              <motion.h2
+                variants={itemVariants}
+                className="text-[2.5rem] md:text-[3.5rem] lg:text-[60px] font-normal leading-[1.1] text-[#14242D]"
+                style={{ letterSpacing: '-0.02em', fontFamily: "'Wix Madefor Display', sans-serif" }}
+              >
+                If you want to use AI in a simple and practical way, we can help.
+              </motion.h2>
+              <motion.p variants={itemVariants} className="text-[16px] md:text-[18px] text-[#14242D]/70 leading-relaxed max-w-xl" style={{ letterSpacing: '-0.16px' }}>
+                No complex setup. No confusing tools. Just a clear conversation about your business and where AI can make your work easier.
+              </motion.p>
+              <motion.div variants={itemVariants}>
                 <motion.button
+                  onClick={openModal}
                   whileHover={{ y: -4, boxShadow: '0 10px 30px rgba(255,185,80,0.5)' }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 rounded-full bg-[#14242D] hover:bg-[#ffb950] text-[#F8F6F5] hover:text-[#14242D] font-normal transition-colors duration-300 shadow-[0_4px_14px_0_rgba(0,0,0,0.2)] flex items-center gap-2 group"
+                  className="px-10 py-4 rounded-full bg-[#14242D] hover:bg-[#ffb950] text-[#F8F6F5] hover:text-[#14242D] font-normal transition-colors duration-300 shadow-[0_4px_14px_0_rgba(0,0,0,0.2)] flex items-center gap-2 group w-max"
                 >
                   Start a Conversation
                   <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </motion.button>
-              </Link>
+              </motion.div>
             </motion.div>
-          </motion.div>
+
+            {/* Right — Video placeholder */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1], delay: 0.15 }}
+              className="w-full aspect-video bg-[#14242D]/5 relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[#14242D]/5 group"
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-[#14242D]/40 font-medium tracking-widest text-sm uppercase group-hover:scale-105 transition-transform duration-700">
+                [ Video Placeholder ]
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 

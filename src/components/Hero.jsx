@@ -1,9 +1,11 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import TestimonialSlider from './TestimonialSlider';
+import { useModal } from '../context/ModalContext';
 
 const Hero = () => {
   const sliderRef = useRef(null);
+  const openModal = useModal();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -46,15 +48,15 @@ const Hero = () => {
 
         {/* Pill CTA */}
         <motion.div variants={itemVariants} className="flex justify-center items-center mb-20">
-          <motion.a
-            href="#contact"
+          <motion.button
+            onClick={openModal}
             whileHover={{ y: -4, boxShadow: "0 10px 30px rgba(255,185,80,0.6)" }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 rounded-full bg-[#ffb950] text-[#14242D] font-normal text-[18px] shadow-[0_4px_14px_0_rgba(255,185,80,0.4)] flex items-center gap-2 group"
           >
             Get Started
             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-          </motion.a>
+          </motion.button>
         </motion.div>
 
         {/* Scrolling Text Bar (Marquee) */}

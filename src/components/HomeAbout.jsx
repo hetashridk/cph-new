@@ -12,7 +12,7 @@ const HomeAbout = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-          className="text-[2.5rem] md:text-[3.5rem] lg:text-[50px] font-normal tracking-tight leading-[1.1] text-[#14242D] mb-12 md:mb-16 flex justify-center items-center"
+          className="text-[2.5rem] md:text-[3.5rem] lg:text-[50px] font-normal tracking-tight leading-[1.1] text-[#14242D] mb-12 md:mb-16"
           style={{ letterSpacing: '-0.02em' }}
         >
           About the Founder
@@ -26,12 +26,13 @@ const HomeAbout = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-            className="w-full overflow-hidden rounded-3xl"
+            className="overflow-hidden rounded-3xl"
+            style={{ aspectRatio: '4/5', maxWidth: '480px' }}
           >
             <img
               src="/piyush.jpg"
               alt="Piyush Bharoliya"
-              className="w-full h-auto object-contain"
+              className="w-full h-full object-cover"
             />
           </motion.div>
 

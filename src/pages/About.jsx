@@ -24,7 +24,7 @@ const About = () => {
 
       {/* 1. About Hero Section */}
       <div className="py-24 max-w-[1400px] mx-auto px-6 sm:px-12 w-full">
-        <div className="flex flex-col lg:grid lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-24 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-[1.5fr_1fr] gap-12 lg:gap-16 items-center">
 
           {/* Left Column - Text */}
           <motion.div
@@ -36,7 +36,7 @@ const About = () => {
           >
             <motion.h2 variants={itemVariants} className="text-[14px] font-semibold tracking-wider text-[#14242D]/50 uppercase mb-4">About Us</motion.h2>
             <motion.h3 variants={itemVariants} className="text-[2.5rem] md:text-[3rem] lg:text-[70px] font-normal leading-[1.1] text-[#14242D] mb-8" style={{ letterSpacing: '-0.02em' }}>
-              Using AI<br className="hidden lg:block" /> Should Feel Simple, <br className="hidden lg:block" /> Not Confusing
+              Using AI Should<br /> Feel Simple,<br /> Not Confusing
             </motion.h3>
             <motion.div variants={containerVariants} className="pt-4 md:pt-8 flex flex-col items-center lg:items-start">
               <motion.p variants={itemVariants} className="text-[16px] md:text-[18px] text-[#14242D] leading-relaxed font-normal mb-6 max-w-2xl" style={{ letterSpacing: '-0.16px' }}>
