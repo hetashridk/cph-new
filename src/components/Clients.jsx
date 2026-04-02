@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Clients = () => {
   const clients = [
-    { name: "CPH Films" },
+    { name: "Sitaram Creation" },
     { name: "Mosiac Moments" },
     { name: "BringJal" },
     { name: "Quickybowl" },

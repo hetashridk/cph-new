@@ -61,7 +61,7 @@ const Contact = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-            <motion.h3 variants={itemVariants} className="text-[14px] font-semibold text-[#14242D]/60 mb-6 uppercase tracking-wider">Send a Message</motion.h3>
+            <motion.h3 variants={itemVariants} className="text-[14px] font-semibold text-[#14242D]/60 mb-6 uppercase tracking-wider">Let's make your business AI enabled</motion.h3>
             <motion.form variants={containerVariants} className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <motion.div variants={itemVariants} className="group relative">
                 <input type="text" placeholder="Name" className="w-full bg-white border-b-2 border-[#14242D]/10 text-[#14242D] px-0 py-3 focus:outline-none focus:border-[#ffb950] transition-colors duration-300 placeholder:text-[#14242D]/30 text-[16px] font-normal rounded-none" />
@@ -78,7 +78,7 @@ const Contact = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-10 py-4 rounded-full bg-[#14242D] hover:bg-[#ffb950] text-[#F8F6F5] hover:text-[#14242D] font-normal transition-colors duration-300 shadow-[0_4px_14px_0_rgba(0,0,0,0.2)] mt-6 flex items-center gap-2 group w-max"
               >
-                Submit
+                Get Started
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
               </motion.button>
             </motion.form>
