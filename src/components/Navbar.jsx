@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useModal } from '../context/ModalContext';
 
 const Navbar = () => {
+  const onContactClick = useModal();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -40,18 +42,19 @@ const Navbar = () => {
           <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center space-x-10">
             <Link to="/" onClick={() => window.scrollTo(0, 0)} className={`transition-colors duration-300 text-[16px] font-normal ${location.pathname === '/' ? 'text-[#14242D]' : 'text-[#14242D]/60 hover:text-[#14242D]'}`}>Home</Link>
             <Link to="/about" onClick={() => window.scrollTo(0, 0)} className={`transition-colors duration-300 text-[16px] font-normal ${location.pathname === '/about' ? 'text-[#14242D]' : 'text-[#14242D]/60 hover:text-[#14242D]'}`}>About</Link>
+            <Link to="/services" onClick={() => window.scrollTo(0, 0)} className={`transition-colors duration-300 text-[16px] font-normal ${location.pathname === '/services' ? 'text-[#14242D]' : 'text-[#14242D]/60 hover:text-[#14242D]'}`}>Services</Link>
           </div>
 
           {/* CTA (RIGHT - DESKTOP) */}
           <div className="hidden md:block">
-            <motion.a
-              href="#contact"
+            <motion.button
+              onClick={onContactClick}
               whileHover={{ y: -2, boxShadow: "0 6px 20px rgba(255,185,80,0.4)" }}
               whileTap={{ scale: 0.95 }}
               className="px-6 py-2.5 rounded-full bg-[#14242D] hover:bg-[#ffb950] text-[#F8F6F5] hover:text-[#14242D] text-[16px] font-normal border border-transparent transition-colors duration-300 shadow-[0_4px_14px_0_rgba(0,0,0,0.2)] block"
             >
               Contact Us
-            </motion.a>
+            </motion.button>
           </div>
 
           {/* MOBILE MENU TOGGLE */}
@@ -84,13 +87,13 @@ const Navbar = () => {
           >
             <Link to="/" onClick={() => { window.scrollTo(0, 0); setMobileMenuOpen(false); }} className={`text-[2rem] font-semibold tracking-tight ${location.pathname === '/' ? 'text-[#14242D]' : 'text-[#14242D]/50'}`}>Home</Link>
             <Link to="/about" onClick={() => { window.scrollTo(0, 0); setMobileMenuOpen(false); }} className={`text-[2rem] font-semibold tracking-tight ${location.pathname === '/about' ? 'text-[#14242D]' : 'text-[#14242D]/50'}`}>About</Link>
-            <a
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="mt-4 px-8 py-4 rounded-full bg-[#14242D] hover:bg-[#ffb950] text-[#F8F6F5] hover:text-[#14242D] transition-colors text-center text-[16px] font-normal"
+            <Link to="/services" onClick={() => { window.scrollTo(0, 0); setMobileMenuOpen(false); }} className={`text-[2rem] font-semibold tracking-tight ${location.pathname === '/services' ? 'text-[#14242D]' : 'text-[#14242D]/50'}`}>Services</Link>
+            <button
+              onClick={() => { setMobileMenuOpen(false); onContactClick(); }}
+              className="mt-4 px-8 py-4 rounded-full bg-[#14242D] hover:bg-[#ffb950] text-[#F8F6F5] hover:text-[#14242D] transition-colors text-center text-[16px] font-normal w-full"
             >
               Contact Us
-            </a>
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
