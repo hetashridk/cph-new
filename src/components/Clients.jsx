@@ -1,53 +1,80 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
+const clients = [
+  { name: "Sitaram Creation", category: "Textile" },
+  { name: "Mosaic Moments", category: "Events" },
+  { name: "BringJal", category: "Tech" },
+  { name: "Quicky Bowl", category: "F&B" },
+  { name: "Life of a Miracle", category: "Wellness" },
+  { name: "Constant Edits", category: "Video Production" },
+  { name: "Magic Health Club", category: "Health & Fitness" },
+];
+
 const Clients = () => {
-  const clients = [
-    { name: "Sitaram Creation" },
-    { name: "Mosiac Moments" },
-    { name: "BringJal" },
-    { name: "Quickybowl" },
-    { name: "Life of a Miracle" },
-    { name: "Constant Edits" },
-    { name: "Magic Health Club" },
-  ];
-
-  const doubled = [...clients, ...clients, ...clients, ...clients];
-
   return (
-    <section id="clients" className="py-24 bg-white relative border-t border-[#14242D]/5 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-12 mb-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-          className="text-center"
-        >
-          <h2 className="text-[14px] font-semibold tracking-wider text-[#14242D]/50 uppercase mb-4">Trusted By</h2>
-          <h3 className="text-[2.5rem] md:text-[3rem] lg:text-[50px] font-normal leading-[1.1] text-[#14242D]" style={{ letterSpacing: '-0.02em' }}>
-            Our Clients
-          </h3>
-        </motion.div>
-      </div>
+    <section id="clients" className="bg-white border-t border-[#14242D]/5 py-24 md:py-32">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
 
-      {/* Infinite marquee - all screen sizes */}
-      <div className="w-full relative">
-        {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+        <div className="grid lg:grid-cols-[1fr_1.6fr] gap-16 lg:gap-24">
 
-        <div className="flex whitespace-nowrap animate-marquee gap-6">
-          {doubled.map((client, i) => (
-            <div
-              key={i}
-              className="flex items-center justify-center h-20 w-44 bg-[#F8F6F5] border border-[#14242D]/5 rounded-2xl shrink-0 hover:border-[#ffb950]/50 hover:bg-[#ffb950]/5 transition-all duration-300 group"
+          {/* Left — sticky heading */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+            className="lg:sticky lg:top-32 self-start flex flex-col gap-6"
+          >
+            <p className="text-[13px] font-semibold tracking-[0.2em] text-[#14242D]/40 uppercase">Trusted By</p>
+            <h2
+              className="text-[2.8rem] md:text-[3.5rem] font-normal leading-[1.1] text-[#14242D]"
+              style={{ letterSpacing: '-0.02em' }}
             >
-              <span className="text-[11px] font-semibold text-[#14242D]/40 uppercase tracking-widest group-hover:text-[#14242D] transition-colors px-4 text-center leading-tight whitespace-normal">
-                {client.name}
+              Our<br />Clients
+            </h2>
+            <p className="text-[15px] text-[#14242D]/50 leading-relaxed max-w-xs">
+              Brands we've helped grow smarter and faster using AI.
+            </p>
+            <div className="mt-4 flex items-center gap-3">
+              <span className="text-[3rem] font-normal text-[#14242D]" style={{ letterSpacing: '-0.04em' }}>
+                {clients.length}
+              </span>
+              <span className="text-[13px] text-[#14242D]/40 uppercase tracking-widest leading-tight">
+                Brands<br />& Growing
               </span>
             </div>
-          ))}
+          </motion.div>
+
+          {/* Right — client list */}
+          <div className="flex flex-col">
+            {clients.map((client, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-30px' }}
+                transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1], delay: i * 0.07 }}
+                className="group flex items-center justify-between py-6 border-t border-[#14242D]/8 hover:-mx-6 hover:px-6 hover:bg-[#ffb950]/8 transition-all duration-300 cursor-default rounded-2xl"
+              >
+                <div className="flex items-center gap-5">
+                  <span className="text-[11px] font-mono text-[#14242D]/20 group-hover:text-[#14242D]/50 transition-colors duration-300 w-5 shrink-0">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span
+                    className="text-[1.4rem] md:text-[1.7rem] font-normal text-[#14242D] group-hover:translate-x-1 transition-transform duration-300 leading-none"
+                    style={{ letterSpacing: '-0.02em' }}
+                  >
+                    {client.name}
+                  </span>
+                </div>
+                <span className="text-[11px] font-semibold uppercase tracking-[0.15em] bg-[#ffb950]/20 text-[#14242D]/60 group-hover:bg-[#ffb950] group-hover:text-[#14242D] px-3 py-1.5 rounded-full transition-all duration-300 shrink-0 hidden sm:block">
+                  {client.category}
+                </span>
+              </motion.div>
+            ))}
+            <div className="border-t border-[#14242D]/8" />
+          </div>
+
         </div>
       </div>
     </section>
