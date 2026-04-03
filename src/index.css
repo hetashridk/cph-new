@@ -49,6 +49,18 @@ html {
   will-change: transform;
 }
 
+@media (max-width: 1024px) {
+  .animate-marquee {
+    animation-duration: 20s;
+  }
+}
+
+@media (max-width: 640px) {
+  .animate-marquee {
+    animation-duration: 2s;
+  }
+}
+
 .animate-marquee-reverse {
   animation: marquee-reverse 28s linear infinite;
   will-change: transform;
