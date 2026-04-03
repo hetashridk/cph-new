@@ -1,81 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-
-const heroImages = [
-  "/about-hero-1.png",
-  "/about-hero-2.png",
-  "/about-hero-3.png",
-  "/about-hero-4.png",
-  "/about-hero-5.png",
-];
-
-const HeroCarousel = () => {
-  const [index, setIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
-
-  const next = () => { setDirection(1); setIndex(i => (i + 1) % heroImages.length); };
-  const prev = () => { setDirection(-1); setIndex(i => (i - 1 + heroImages.length) % heroImages.length); };
-
-  useEffect(() => {
-    const t = setInterval(next, 4000);
-    return () => clearInterval(t);
-  }, [index]);
-
-  const variants = {
-    enter: d => ({ x: d > 0 ? '100%' : '-100%', opacity: 0 }),
-    center: { x: 0, opacity: 1 },
-    exit: d => ({ x: d < 0 ? '100%' : '-100%', opacity: 0 }),
-  };
-
-  return (
-    <div className="w-full h-full relative">
-
-      {/* Left Arrow — outside the image */}
-      <button
-        onClick={prev}
-        className="absolute -left-14 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white border border-[#14242D]/10 flex items-center justify-center shadow-xl text-[#14242D] hover:bg-[#ffb950] transition-colors z-10"
-      >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-      </button>
-
-      {/* Image container — relative so absolute children clip correctly */}
-      <div className="w-full h-full relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[#14242D]/5">
-        <AnimatePresence initial={false} custom={direction} mode="sync">
-          <motion.img
-            key={index}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
-            src={heroImages[index]}
-            alt={`About ${index + 1}`}
-            className="absolute inset-0 w-full h-full object-cover object-top"
-          />
-        </AnimatePresence>
-
-        {/* Dots — inside image at bottom */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-          {heroImages.map((_, i) => (
-            <button key={i} onClick={() => { setDirection(i > index ? 1 : -1); setIndex(i); }}
-              className={`rounded-full transition-all duration-300 ${i === index ? 'w-6 h-2 bg-[#ffb950]' : 'w-2 h-2 bg-white/60 hover:bg-white'}`}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Right Arrow — outside the image */}
-      <button
-        onClick={next}
-        className="absolute -right-14 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white border border-[#14242D]/10 flex items-center justify-center shadow-xl text-[#14242D] hover:bg-[#ffb950] transition-colors z-10"
-      >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-      </button>
-
-    </div>
-  );
-};
+import { motion } from 'framer-motion';
+import HeroCarousel from '../components/HeroCarousel';
 
 const About = () => {
   const teamMembers = [
@@ -116,7 +40,7 @@ const About = () => {
             </motion.h3>
             <motion.div variants={containerVariants} className="pt-4 md:pt-8 flex flex-col items-center lg:items-start">
               <motion.p variants={itemVariants} className="text-[16px] md:text-[18px] text-[#14242D] leading-relaxed font-normal mb-6 max-w-2xl" style={{ letterSpacing: '-0.16px' }}>
-                At Crosslinks AI, we help businesses understand where AI actually fits in their work. Most people know AI is useful, but they don’t know where to start or what to use. That’s where we help. We guide founders and teams step by step, what to use, how to use it, and how it can make everyday work faster and easier.
+                At Crosslinks AI, we help businesses understand where AI actually fits in their work. Most people know AI is useful, but they don't know where to start or what to use. That's where we help. We guide founders and teams step by step, what to use, how to use it, and how it can make everyday work faster and easier.
               </motion.p>
               <motion.p variants={itemVariants} className="text-[16px] md:text-[18px] text-[#14242D] leading-relaxed font-normal mb-10 max-w-2xl" style={{ letterSpacing: '-0.16px' }}>
                 No complicated language. No overthinking. Just simple, practical use of AI.
@@ -130,7 +54,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
             viewport={{ once: true }}
-            className="w-full mx-auto aspect-[16/9] lg:aspect-[4/5] mt-4 lg:mt-0 px-16"
+            className="w-full mx-auto aspect-[4/5] mt-4 lg:mt-0 lg:px-16"
           >
             <HeroCarousel />
           </motion.div>
@@ -202,11 +126,7 @@ const About = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
           >
-            {/* <h2 className="text-[14px] font-semibold tracking-wider text-[#14242D]/50 uppercase mb-4">Meet Our Experts</h2> */}
             <h3 className="text-[2.5rem] md:text-[3rem] lg:text-[70px] font-normal leading-[1.1] text-[#14242D]" style={{ letterSpacing: '-0.02em' }}>Our Team</h3>
-            {/* <p className="max-w-3xl mx-auto mt-6 md:mt-8 text-[16px] md:text-[18px] text-[#14242D] leading-relaxed font-normal" style={{ letterSpacing: '-0.16px' }}>
-              The Crosslinks AI team comprises seasoned professionals with diverse expertise in artificial intelligence and its applications. Each member is passionate about empowering others through education and training, ensuring that our clients receive the best guidance in their AI journey.
-            </p> */}
           </motion.div>
 
           <motion.div

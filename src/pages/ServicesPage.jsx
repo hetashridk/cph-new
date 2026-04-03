@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useModal } from '../context/ModalContext';
+import HeroCarousel from '../components/HeroCarousel';
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -105,16 +106,14 @@ const ServicesPage = () => {
               </motion.p>
             </motion.div>
 
-            {/* Right — Video placeholder */}
+            {/* Right — Hero Carousel */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1], delay: 0.15 }}
-              className="w-full aspect-video bg-[#14242D]/5 relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[#14242D]/5 group"
+              className="w-full aspect-[4/5] lg:px-16"
             >
-              <div className="absolute inset-0 flex items-center justify-center text-[#14242D]/40 font-medium tracking-widest text-sm uppercase group-hover:scale-105 transition-transform duration-700">
-                [ Video Placeholder ]
-              </div>
+              <HeroCarousel />
             </motion.div>
 
           </div>

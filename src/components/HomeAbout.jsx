@@ -6,7 +6,7 @@ const HomeAbout = () => {
     <section className="py-24 md:py-32 bg-[#fafafa]">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 w-full">
 
-        <div className="flex flex-col md:flex-row gap-12 md:gap-24">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
 
           {/* Left Side: Image — stretches to match right column height exactly */}
           <motion.div
@@ -14,7 +14,7 @@ const HomeAbout = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-            className="relative overflow-hidden rounded-3xl aspect-[4/5] md:aspect-auto md:flex-1 md:self-stretch"
+            className="relative overflow-hidden rounded-3xl aspect-[4/5] lg:aspect-auto lg:flex-1 lg:self-stretch"
           >
             <img
               src="/piyush.jpg"
@@ -29,7 +29,7 @@ const HomeAbout = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1], delay: 0.15 }}
-            className="flex flex-col items-start gap-4 md:flex-1"
+            className="flex flex-col items-start gap-4 lg:flex-1"
           >
             {/* Title moved to right column */}
             <h2
