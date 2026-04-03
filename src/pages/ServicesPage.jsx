@@ -173,13 +173,15 @@ const ServicesPage = () => {
                     ))}
                   </ul>
                 </div>
-                <button
+                <motion.button
                   onClick={openModal}
-                  className="self-start flex items-center gap-2 text-[14px] font-medium text-[#14242D] group/btn hover:text-[#ffb950] transition-colors duration-300"
+                  whileHover={{ y: -4, boxShadow: "0 10px 30px rgba(255,185,80,0.6)" }}
+                  whileTap={{ scale: 0.95 }}
+                  className="self-start px-8 py-4 rounded-full bg-[#ffb950] text-[#14242D] font-normal text-[18px] shadow-[0_4px_14px_0_rgba(255,185,80,0.4)] flex items-center gap-2 group/btn"
                 >
                   Get Started
                   <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                </button>
+                </motion.button>
               </div>
             </motion.div>
           ))}

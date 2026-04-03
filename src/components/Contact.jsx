@@ -131,7 +131,7 @@ const Contact = () => {
             <Link to="/privacy-policy" onClick={() => window.scrollTo(0, 0)} className="hover:text-[#14242D] transition-colors">Privacy Policy</Link>
             <Link to="/accessibility-statement" onClick={() => window.scrollTo(0, 0)} className="hover:text-[#14242D] transition-colors">Accessibility Statement</Link>
           </div>
-          <p>© 2026 by Crosslinks AI.</p>
+          <p>© {new Date().getFullYear()} by Crosslinks AI.</p>
         </div>
       </div>
     </footer>

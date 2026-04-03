@@ -1,12 +1,88 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const heroImages = [
+  "/about-hero-1.png",
+  "/about-hero-2.png",
+  "/about-hero-3.png",
+  "/about-hero-4.png",
+  "/about-hero-5.png",
+];
+
+const HeroCarousel = () => {
+  const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+
+  const next = () => { setDirection(1); setIndex(i => (i + 1) % heroImages.length); };
+  const prev = () => { setDirection(-1); setIndex(i => (i - 1 + heroImages.length) % heroImages.length); };
+
+  useEffect(() => {
+    const t = setInterval(next, 4000);
+    return () => clearInterval(t);
+  }, [index]);
+
+  const variants = {
+    enter: d => ({ x: d > 0 ? '100%' : '-100%', opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: d => ({ x: d < 0 ? '100%' : '-100%', opacity: 0 }),
+  };
+
+  return (
+    <div className="w-full h-full relative">
+
+      {/* Left Arrow — outside the image */}
+      <button
+        onClick={prev}
+        className="absolute -left-14 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white border border-[#14242D]/10 flex items-center justify-center shadow-xl text-[#14242D] hover:bg-[#ffb950] transition-colors z-10"
+      >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+      </button>
+
+      {/* Image container — relative so absolute children clip correctly */}
+      <div className="w-full h-full relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[#14242D]/5">
+        <AnimatePresence initial={false} custom={direction} mode="sync">
+          <motion.img
+            key={index}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
+            src={heroImages[index]}
+            alt={`About ${index + 1}`}
+            className="absolute inset-0 w-full h-full object-cover object-top"
+          />
+        </AnimatePresence>
+
+        {/* Dots — inside image at bottom */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+          {heroImages.map((_, i) => (
+            <button key={i} onClick={() => { setDirection(i > index ? 1 : -1); setIndex(i); }}
+              className={`rounded-full transition-all duration-300 ${i === index ? 'w-6 h-2 bg-[#ffb950]' : 'w-2 h-2 bg-white/60 hover:bg-white'}`}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Right Arrow — outside the image */}
+      <button
+        onClick={next}
+        className="absolute -right-14 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white border border-[#14242D]/10 flex items-center justify-center shadow-xl text-[#14242D] hover:bg-[#ffb950] transition-colors z-10"
+      >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+      </button>
+
+    </div>
+  );
+};
 
 const About = () => {
   const teamMembers = [
-    { name: "Piyush Bharoliya", role: "" },
-    { name: "Nikhil Bharoliya", role: "" },
-    { name: "Karisham Khubchandani", role: "" },
-    { name: "Hetashri Kansariwala", role: "" },
+    { name: "Piyush Bharoliya", role: "Founder", image: "/piyush.jpg", linkedin: "https://www.linkedin.com/in/piyushbharoliya/", objectPosition: "center 10%" },
+    { name: "Nikhil Bharoliya", role: "Co-Founder", image: "/Nikhil.jpeg", linkedin: "https://www.linkedin.com/in/nikhil-bharoliya/", objectPosition: "center 5%" },
+    { name: "Karishma Khubchandani", role: "Co-Founder", image: "/Karishma.jpeg", linkedin: "https://www.linkedin.com/in/karishmakhubchandani/", objectPosition: "center 20%" },
+    { name: "Hetashri Kansariwala", role: "AI & Full Stack Developer", image: "/HetashriKansariwala.jpg", linkedin: "https://www.linkedin.com/in/hetashrikansariwala", objectPosition: "center 8%" },
   ];
 
   const containerVariants = {
@@ -48,17 +124,15 @@ const About = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Large Portrait Image Placeholder */}
+          {/* Right Column - Carousel */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
             viewport={{ once: true }}
-            className="w-full mx-auto aspect-[16/9] lg:aspect-[4/5] bg-[#14242D]/5 relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[#14242D]/5 group mt-4 lg:mt-0"
+            className="w-full mx-auto aspect-[16/9] lg:aspect-[4/5] mt-4 lg:mt-0 px-16"
           >
-            <div className="absolute inset-0 flex items-center justify-center text-[#14242D]/40 font-medium tracking-widest text-sm uppercase group-hover:scale-105 transition-transform duration-700">
-              [ Hero Image Placeholder ]
-            </div>
+            <HeroCarousel />
           </motion.div>
 
         </div>
@@ -151,15 +225,30 @@ const About = () => {
                 className="group cursor-pointer"
               >
                 {/* Large Vertical Image Card */}
-                <div className="w-full aspect-[3/4] bg-[#14242D]/5 relative overflow-hidden mb-6 shadow-sm group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-shadow duration-300">
-                  <div className="absolute inset-0 flex items-center justify-center text-[#14242D]/40 font-medium tracking-widest text-sm uppercase group-hover:scale-105 transition-transform duration-700">
-                    [ Team Member Image ]
+                <div className="w-full aspect-[3/4] bg-[#14242D]/5 relative overflow-hidden mb-6 shadow-sm group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-shadow duration-300 rounded-[2rem]">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    style={{ objectPosition: member.objectPosition }}
+                  />
+                  {/* Text Overlay — visible only on hover */}
+                  <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400">
+                    <h4 className="text-[20px] font-semibold text-white mb-1 tracking-tight">{member.name}</h4>
+                    <p className="text-white/80 text-[14px] font-normal">{member.role}</p>
                   </div>
-                  {/* Text Overlay on image bottom (like Wix) */}
-                  <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                    <h4 className="text-[22px] font-semibold text-white mb-1 tracking-tight">{member.name}</h4>
-                    <p className="text-white/80 text-[15px] font-normal">{member.role}</p>
-                  </div>
+                  {/* LinkedIn hover overlay */}
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md hover:bg-[#ffb950]"
+                    onClick={e => e.stopPropagation()}
+                  >
+                    <svg className="w-5 h-5 text-[#14242D]" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                  </a>
                 </div>
               </motion.div>
             ))}

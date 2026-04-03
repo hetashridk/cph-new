@@ -31,7 +31,7 @@ const CTASection = () => {
               className="text-[1.6rem] md:text-[2rem] lg:text-[2.4rem] font-normal leading-[1.2] text-[#14242D]"
               style={{ letterSpacing: '-0.02em', fontFamily: "'Wix Madefor Display', sans-serif" }}
             >
-              If you want to use AI in a simple and practical way, we can help.
+              Use AI in your business with clarity
             </motion.h2>
             <motion.p variants={itemVariants} className="text-[15px] text-[#14242D]/60 leading-relaxed" style={{ letterSpacing: '-0.1px' }}>
               No complex setup. No confusing tools. Just a clear conversation about where AI fits your work.

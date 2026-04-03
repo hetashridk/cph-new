@@ -10,9 +10,29 @@ const SERVICES = [
   'Other',
 ];
 
+const validate = (form) => {
+  const errors = {};
+  if (!form.name.trim()) errors.name = 'Name is required.';
+  if (!form.email.trim()) {
+    errors.email = 'Email is required.';
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+    errors.email = 'Enter a valid email address.';
+  }
+  if (!form.phone.trim()) {
+    errors.phone = 'Phone number is required.';
+  } else if (!/^[+\d\s\-()]{7,15}$/.test(form.phone)) {
+    errors.phone = 'Enter a valid phone number.';
+  }
+  if (!form.company.trim()) errors.company = 'Company name is required.';
+  if (!form.service) errors.service = 'Please select a service.';
+  if (!form.message.trim()) errors.message = 'Message is required.';
+  return errors;
+};
+
 const ContactModal = ({ isOpen, onClose }) => {
   const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', service: '', message: '' });
   const [status, setStatus] = useState('idle');
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     if (isOpen) {
@@ -24,20 +44,28 @@ const ContactModal = ({ isOpen, onClose }) => {
   }, [isOpen]);
 
   const handleChange = (e) => {
-    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setForm(prev => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors(prev => ({ ...prev, [name]: undefined }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!form.email) return;
+    const validationErrors = validate(form);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
     setStatus('submitting');
     try {
       const formData = new FormData();
       Object.entries(form).forEach(([k, v]) => formData.append(k, v));
       formData.append('timestamp', new Date().toISOString());
+      formData.append('sendThankYouEmail', 'true');
       await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: formData });
       setStatus('success');
       setForm({ name: '', email: '', phone: '', company: '', service: '', message: '' });
+      setErrors({});
       setTimeout(() => { setStatus('idle'); onClose(); }, 3000);
     } catch {
       setStatus('error');
@@ -107,9 +135,10 @@ const ContactModal = ({ isOpen, onClose }) => {
                         name="name"
                         value={form.name}
                         onChange={handleChange}
-                        placeholder="Name"
-                        className="w-full bg-white border-b-2 border-[#14242D]/10 text-[#14242D] px-0 py-3 focus:outline-none focus:border-[#ffb950] transition-colors duration-300 placeholder:text-[#14242D]/30 text-[15px] rounded-none"
+                        placeholder="Name *"
+                        className={`w-full bg-white border-b-2 text-[#14242D] px-0 py-3 focus:outline-none transition-colors duration-300 placeholder:text-[#14242D]/30 text-[15px] rounded-none ${errors.name ? 'border-red-400 focus:border-red-400' : 'border-[#14242D]/10 focus:border-[#ffb950]'}`}
                       />
+                      {errors.name && <p className="text-[12px] text-red-500 mt-1">{errors.name}</p>}
                     </div>
                     <div className="group">
                       <input
@@ -118,9 +147,9 @@ const ContactModal = ({ isOpen, onClose }) => {
                         value={form.email}
                         onChange={handleChange}
                         placeholder="Email *"
-                        required
-                        className="w-full bg-white border-b-2 border-[#14242D]/10 text-[#14242D] px-0 py-3 focus:outline-none focus:border-[#ffb950] transition-colors duration-300 placeholder:text-[#14242D]/30 text-[15px] rounded-none"
+                        className={`w-full bg-white border-b-2 text-[#14242D] px-0 py-3 focus:outline-none transition-colors duration-300 placeholder:text-[#14242D]/30 text-[15px] rounded-none ${errors.email ? 'border-red-400 focus:border-red-400' : 'border-[#14242D]/10 focus:border-[#ffb950]'}`}
                       />
+                      {errors.email && <p className="text-[12px] text-red-500 mt-1">{errors.email}</p>}
                     </div>
                   </div>
 
@@ -131,9 +160,10 @@ const ContactModal = ({ isOpen, onClose }) => {
                         name="phone"
                         value={form.phone}
                         onChange={handleChange}
-                        placeholder="Phone Number"
-                        className="w-full bg-white border-b-2 border-[#14242D]/10 text-[#14242D] px-0 py-3 focus:outline-none focus:border-[#ffb950] transition-colors duration-300 placeholder:text-[#14242D]/30 text-[15px] rounded-none"
+                        placeholder="Phone Number *"
+                        className={`w-full bg-white border-b-2 text-[#14242D] px-0 py-3 focus:outline-none transition-colors duration-300 placeholder:text-[#14242D]/30 text-[15px] rounded-none ${errors.phone ? 'border-red-400 focus:border-red-400' : 'border-[#14242D]/10 focus:border-[#ffb950]'}`}
                       />
+                      {errors.phone && <p className="text-[12px] text-red-500 mt-1">{errors.phone}</p>}
                     </div>
                     <div className="group">
                       <input
@@ -141,9 +171,10 @@ const ContactModal = ({ isOpen, onClose }) => {
                         name="company"
                         value={form.company}
                         onChange={handleChange}
-                        placeholder="Company Name"
-                        className="w-full bg-white border-b-2 border-[#14242D]/10 text-[#14242D] px-0 py-3 focus:outline-none focus:border-[#ffb950] transition-colors duration-300 placeholder:text-[#14242D]/30 text-[15px] rounded-none"
+                        placeholder="Company Name *"
+                        className={`w-full bg-white border-b-2 text-[#14242D] px-0 py-3 focus:outline-none transition-colors duration-300 placeholder:text-[#14242D]/30 text-[15px] rounded-none ${errors.company ? 'border-red-400 focus:border-red-400' : 'border-[#14242D]/10 focus:border-[#ffb950]'}`}
                       />
+                      {errors.company && <p className="text-[12px] text-red-500 mt-1">{errors.company}</p>}
                     </div>
                   </div>
 
@@ -152,10 +183,10 @@ const ContactModal = ({ isOpen, onClose }) => {
                       name="service"
                       value={form.service}
                       onChange={handleChange}
-                      className="w-full bg-white border-b-2 border-[#14242D]/10 text-[#14242D] px-0 py-3 focus:outline-none focus:border-[#ffb950] transition-colors duration-300 text-[15px] rounded-none appearance-none cursor-pointer"
+                      className={`w-full bg-white border-b-2 text-[#14242D] px-0 py-3 focus:outline-none transition-colors duration-300 text-[15px] rounded-none appearance-none cursor-pointer ${errors.service ? 'border-red-400 focus:border-red-400' : 'border-[#14242D]/10 focus:border-[#ffb950]'}`}
                       style={{ color: form.service ? '#14242D' : 'rgba(20,36,45,0.3)' }}
                     >
-                      <option value="" disabled hidden>Service Interested In</option>
+                      <option value="" disabled hidden>Service Interested In *</option>
                       {SERVICES.map(s => (
                         <option key={s} value={s} style={{ color: '#14242D' }}>{s}</option>
                       ))}
@@ -163,6 +194,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                     <svg className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-[#14242D]/40 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
+                    {errors.service && <p className="text-[12px] text-red-500 mt-1">{errors.service}</p>}
                   </div>
 
                   <div className="group">
@@ -171,9 +203,10 @@ const ContactModal = ({ isOpen, onClose }) => {
                       value={form.message}
                       onChange={handleChange}
                       rows={3}
-                      placeholder="Message"
-                      className="w-full bg-white border-b-2 border-[#14242D]/10 text-[#14242D] px-0 py-3 focus:outline-none focus:border-[#ffb950] transition-colors duration-300 resize-none placeholder:text-[#14242D]/30 text-[15px] rounded-none"
+                      placeholder="Message *"
+                      className={`w-full bg-white border-b-2 text-[#14242D] px-0 py-3 focus:outline-none transition-colors duration-300 resize-none placeholder:text-[#14242D]/30 text-[15px] rounded-none ${errors.message ? 'border-red-400 focus:border-red-400' : 'border-[#14242D]/10 focus:border-[#ffb950]'}`}
                     />
+                    {errors.message && <p className="text-[12px] text-red-500 mt-1">{errors.message}</p>}
                   </div>
 
                   {status === 'error' && (

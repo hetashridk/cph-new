@@ -12,48 +12,42 @@ const Clients = () => {
     { name: "Magic Health Club" },
   ];
 
+  const doubled = [...clients, ...clients, ...clients, ...clients];
+
   return (
     <section id="clients" className="py-24 bg-white relative border-t border-[#14242D]/5 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-          
-          {/* Section Heading */}
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-            className="flex-shrink-0"
-          >
-            <h2 className="text-[14px] font-semibold tracking-wider text-[#14242D]/50 uppercase mb-4">Trusted By</h2>
-            <h3 className="text-[2.5rem] md:text-[3rem] lg:text-[50px] font-normal leading-[1.1] text-[#14242D]" style={{ letterSpacing: '-0.02em' }}>
-              Our Clients
-            </h3>
-          </motion.div>
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-12 mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+          className="text-center"
+        >
+          <h2 className="text-[14px] font-semibold tracking-wider text-[#14242D]/50 uppercase mb-4">Trusted By</h2>
+          <h3 className="text-[2.5rem] md:text-[3rem] lg:text-[50px] font-normal leading-[1.1] text-[#14242D]" style={{ letterSpacing: '-0.02em' }}>
+            Our Clients
+          </h3>
+        </motion.div>
+      </div>
 
-          {/* Logos Display */}
-          <div className="flex-1 w-full min-w-0">
-            {/* Desktop Grid */}
-            <div className="hidden lg:grid grid-cols-3 gap-6">
-              {clients.map((client, i) => (
-                <div key={i} className="flex items-center justify-center h-24 bg-[#F8F6F5] border border-[#14242D]/5 rounded-2xl grayscale hover:grayscale-0 transition-all duration-300 group">
-                  <span className="text-[12px] font-semibold text-[#14242D]/40 uppercase tracking-widest group-hover:text-[#14242D] transition-colors">{client.name}</span>
-                </div>
-              ))}
+      {/* Infinite marquee - all screen sizes */}
+      <div className="w-full relative">
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+        <div className="flex whitespace-nowrap animate-marquee gap-6">
+          {doubled.map((client, i) => (
+            <div
+              key={i}
+              className="flex items-center justify-center h-20 w-44 bg-[#F8F6F5] border border-[#14242D]/5 rounded-2xl shrink-0 hover:border-[#ffb950]/50 hover:bg-[#ffb950]/5 transition-all duration-300 group"
+            >
+              <span className="text-[11px] font-semibold text-[#14242D]/40 uppercase tracking-widest group-hover:text-[#14242D] transition-colors px-4 text-center leading-tight whitespace-normal">
+                {client.name}
+              </span>
             </div>
-
-            {/* Mobile/Tablet Marquee */}
-            <div className="lg:hidden w-full overflow-hidden relative py-4">
-              <div className="flex whitespace-nowrap animate-marquee gap-8">
-                {[...clients, ...clients].map((client, i) => (
-                  <div key={i} className="flex items-center justify-center h-16 w-36 bg-[#F8F6F5] border border-[#14242D]/5 rounded-xl shrink-0">
-                    <span className="text-[10px] font-semibold text-[#14242D]/30 uppercase tracking-widest">{client.name}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
+          ))}
         </div>
       </div>
     </section>
