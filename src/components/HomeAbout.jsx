@@ -8,6 +8,14 @@ const HomeAbout = () => {
 
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
 
+          {/* Title shown before image on mobile/tablet only */}
+          <h2
+            className="lg:hidden text-[2.5rem] md:text-[3.5rem] font-normal tracking-tight leading-[1.1] text-[#14242D]"
+            style={{ letterSpacing: '-0.02em' }}
+          >
+            About the Founder
+          </h2>
+
           {/* Left Side: Image — stretches to match right column height exactly */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -31,9 +39,9 @@ const HomeAbout = () => {
             transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1], delay: 0.15 }}
             className="flex flex-col items-start gap-4 lg:flex-1"
           >
-            {/* Title moved to right column */}
+            {/* Title shown only on desktop */}
             <h2
-              className="text-[2.5rem] md:text-[3.5rem] lg:text-[50px] font-normal tracking-tight leading-[1.1] text-[#14242D] mb-6"
+              className="hidden lg:block text-[2.5rem] md:text-[3.5rem] lg:text-[50px] font-normal tracking-tight leading-[1.1] text-[#14242D] mb-6"
               style={{ letterSpacing: '-0.02em' }}
             >
               About the Founder
