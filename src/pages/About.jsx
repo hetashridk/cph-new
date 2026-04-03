@@ -3,10 +3,10 @@ import HeroCarousel from '../components/HeroCarousel';
 
 const About = () => {
   const teamMembers = [
-    { name: "Piyush Bharoliya", role: "Founder", image: "/piyush.jpg", linkedin: "https://www.linkedin.com/in/piyushbharoliya/", objectPosition: "center 10%" },
-    { name: "Nikhil Bharoliya", role: "Co-Founder", image: "/Nikhil.jpeg", linkedin: "https://www.linkedin.com/in/nikhil-bharoliya/", objectPosition: "center 5%" },
-    { name: "Karishma Khubchandani", role: "Co-Founder", image: "/Karishma.jpeg", linkedin: "https://www.linkedin.com/in/karishmakhubchandani/", objectPosition: "center 20%" },
-    { name: "Hetashri Kansariwala", role: "AI & Full Stack Developer", image: "/HetashriKansariwala.jpg", linkedin: "https://www.linkedin.com/in/hetashrikansariwala", objectPosition: "center 8%" },
+    { name: "Piyush Bharoliya", role: "Founder", image: "/piyush.jpg", linkedin: "https://www.linkedin.com/in/piyushbharoliya/", objectPosition: "center 10%", scale: 1, transformOrigin: 'center 20%' },
+    { name: "Nikhil Bharoliya", role: "Co-Founder", image: "/Nikhil.jpeg", linkedin: "https://www.linkedin.com/in/nikhil-bharoliya/", objectPosition: "center 65%", scale: 1.9, transformOrigin: 'center 8%' },
+    { name: "Karishma Khubchandani", role: "Co-Founder", image: "/Karishma.jpeg", linkedin: "https://www.linkedin.com/in/karishmakhubchandani/", objectPosition: "center 100%", scale: 1.75, transformOrigin: 'center 10%' },
+    { name: "Hetashri Kansariwala", role: "AI & Full Stack Developer", image: "/HetashriKansariwala.jpg", linkedin: "https://www.linkedin.com/in/hetashrikansariwala", objectPosition: "center 20%", scale: 1, transformOrigin: 'center 20%' },
   ];
 
   const containerVariants = {
@@ -54,7 +54,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
             viewport={{ once: true }}
-            className="w-full mx-auto aspect-[4/5] mt-4 lg:mt-0 lg:px-16"
+            className="w-full mx-auto mt-4 lg:mt-0"
           >
             <HeroCarousel />
           </motion.div>
@@ -150,7 +150,7 @@ const About = () => {
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    style={{ objectPosition: member.objectPosition }}
+                    style={{ objectPosition: member.objectPosition, transform: `scale(${member.scale})`, transformOrigin: member.transformOrigin }}
                   />
                   {/* Text Overlay — visible only on hover */}
                   <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400">
