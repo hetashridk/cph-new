@@ -66,9 +66,9 @@ const Contact = () => {
                 <span className="w-24 font-medium">Phone</span>
                 +91 84602 80468
               </motion.div>
-              <motion.a variants={itemVariants} href="mailto:hello@crosslinks.ai" className="flex items-center text-[#14242D] hover:text-[#ffb950] transition-colors w-fit text-[15px]">
+              <motion.a variants={itemVariants} href="mailto:crosslinksai@gmail.com" className="flex items-center text-[#14242D] hover:text-[#ffb950] transition-colors w-fit text-[15px]">
                 <span className="w-24 font-medium">Email</span>
-                hello@crosslinks.ai
+                crosslinksai@gmail.com
               </motion.a>
             </div>
 
