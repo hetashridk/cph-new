@@ -3,9 +3,9 @@ import HeroCarousel from '../components/HeroCarousel';
 
 const About = () => {
   const teamMembers = [
-    { name: "Piyush Bharoliya", role: "Founder", image: "/piyush.jpg", linkedin: "https://www.linkedin.com/in/piyushbharoliya/", objectPosition: "center 10%", scale: 1, transformOrigin: 'center 20%' },
-    { name: "Nikhil Bharoliya", role: "Co-Founder", image: "/Nikhil.jpeg", linkedin: "https://www.linkedin.com/in/nikhil-bharoliya/", objectPosition: "center 65%", scale: 1.9, transformOrigin: 'center 8%' },
-    { name: "Karishma Khubchandani", role: "Co-Founder", image: "/Karishma.jpeg", linkedin: "https://www.linkedin.com/in/karishmakhubchandani/", objectPosition: "center 100%", scale: 1.75, transformOrigin: 'center 10%' },
+    { name: "Piyush Bharoliya", role: "Founder & Decision Maker", image: "/piyush.jpg", linkedin: "https://www.linkedin.com/in/piyushbharoliya/", objectPosition: "center 10%", scale: 1, transformOrigin: 'center 20%' },
+    { name: "Nikhil Bharoliya", role: "Marketing Executive", image: "/Nikhil.jpeg", linkedin: "https://www.linkedin.com/in/nikhil-bharoliya/", objectPosition: "center 65%", scale: 1.9, transformOrigin: 'center 8%' },
+    { name: "Karishma Khubchandani", role: "Investing Partner", image: "/Karishma.jpeg", linkedin: "https://www.linkedin.com/in/karishmakhubchandani/", objectPosition: "center 100%", scale: 1.75, transformOrigin: 'center 10%' },
     { name: "Hetashri Kansariwala", role: "AI & Full Stack Developer", image: "/HetashriKansariwala.jpg", linkedin: "https://www.linkedin.com/in/hetashrikansariwala", objectPosition: "center 20%", scale: 1, transformOrigin: 'center 20%' },
   ];
 
