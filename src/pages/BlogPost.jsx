@@ -38,28 +38,35 @@ function PostRenderer({ post }) {
       />
 
       {/* ── Hero ── */}
-      <div ref={heroRef} className="relative w-full aspect-video flex items-end overflow-hidden bg-[#14242D] mt-16 md:mt-0">
-        <motion.div className="absolute inset-0" style={{ y: heroY }}>
-          <img
-            src={post.coverImage}
-            alt={post.title}
-            className="w-full h-full object-cover object-center"
-          />
-        </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#14242D] via-[#14242D]/60 to-transparent" />
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-[#ffb950]/8 blur-[100px] pointer-events-none" />
+      {/* On mobile: stacked layout — image on top, text below on dark bg */}
+      {/* On desktop: classic aspect-video with overlay text */}
+      <div ref={heroRef} className="relative bg-[#14242D]">
 
+        {/* Image — aspect-video on all sizes */}
+        <div className="relative w-full aspect-video overflow-hidden">
+          <motion.div className="absolute inset-0" style={{ y: heroY }}>
+            <img
+              src={post.coverImage}
+              alt={post.title}
+              className="w-full h-full object-cover object-center opacity-60"
+            />
+          </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#14242D] via-[#14242D]/30 to-transparent" />
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-[#ffb950]/8 blur-[100px] pointer-events-none" />
+        </div>
+
+        {/* Text — sits below image on mobile, overlaid on desktop */}
         <motion.div
-          className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-12 pb-16"
+          className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-12 py-8 md:py-0 md:absolute md:bottom-0 md:left-1/2 md:-translate-x-1/2 md:pb-12"
           style={{ opacity: heroOpacity }}
         >
-          <div className="flex items-center gap-2 text-[12px] text-white/30 uppercase tracking-[0.15em] font-medium mb-8">
-            <Link to="/" className="hover:text-white/60 transition-colors">Home</Link>
+          <div className="flex items-center gap-2 text-[12px] text-white/40 uppercase tracking-[0.15em] font-medium mb-5">
+            <Link to="/" className="hover:text-white/70 transition-colors">Home</Link>
             <span>/</span>
-            <Link to="/blog" className="hover:text-white/60 transition-colors">Stories</Link>
+            <Link to="/blog" className="hover:text-white/70 transition-colors">Stories</Link>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 mb-6">
+          <div className="flex flex-wrap items-center gap-2 mb-5">
             <span className="px-3 py-1.5 rounded-full bg-[#ffb950] text-[#14242D] text-[11px] font-semibold uppercase tracking-[0.15em]">
               {post.category}
             </span>
@@ -71,7 +78,7 @@ function PostRenderer({ post }) {
           </div>
 
           <h1
-            className="text-[2rem] sm:text-[2.8rem] md:text-[3.5rem] font-normal text-white leading-[1.1] max-w-4xl"
+            className="text-[1.6rem] sm:text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] font-normal text-white leading-[1.15] max-w-4xl"
             style={{ letterSpacing: '-0.025em' }}
           >
             {post.title}
