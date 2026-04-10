@@ -14,8 +14,25 @@ const containerVariants = {
 };
 
 const services = [
+  // audit
+  // conus
+  // team
+  // 1:1
   {
     id: '01',
+    title: 'Know Exactly Where to Start with AI',
+    label: 'AI Audit',
+    description: 'Most businesses don\'t have an AI problem — they have a clarity problem.\nWe audit your workflows, spot the highest-leverage opportunities, and give you a prioritised roadmap.\nNo fluff. No guesswork. Just a clear plan.',
+    what: [
+      'Full review of your current workflows',
+      'Identification of highest-impact AI opportunities',
+      'Prioritised, actionable roadmap',
+      'Tool recommendations tailored to your setup',
+    ],
+    bg: 'bg-white',
+  },
+  {
+    id: '02',
     title: 'Understand Where AI Fits in Your Business',
     label: 'AI Consultation',
     description: 'Many businesses try AI without knowing where it actually helps.\nWe study how your business works and show you where AI can make a real difference.\nNo complex terms. No confusion. Just clear direction.',
@@ -28,7 +45,7 @@ const services = [
     bg: 'bg-white',
   },
   {
-    id: '02',
+    id: '03',
     title: 'Help Your Team Use AI with Confidence',
     label: 'Team Training',
     description: 'Learning AI is one thing. Using it daily is another.\nWe train your team in a simple and practical way so they can actually use AI in their work.\nNo technical background needed.',
@@ -39,19 +56,6 @@ const services = [
       'Clear ways to use AI in daily tasks',
     ],
     bg: 'bg-[#fafafa]',
-  },
-  {
-    id: '03',
-    title: 'Know Exactly Where to Start with AI',
-    label: 'AI Audit',
-    description: 'Most businesses don\'t have an AI problem — they have a clarity problem.\nWe audit your workflows, spot the highest-leverage opportunities, and give you a prioritised roadmap.\nNo fluff. No guesswork. Just a clear plan.',
-    what: [
-      'Full review of your current workflows',
-      'Identification of highest-impact AI opportunities',
-      'Prioritised, actionable roadmap',
-      'Tool recommendations tailored to your setup',
-    ],
-    bg: 'bg-white',
   },
   {
     id: '04',

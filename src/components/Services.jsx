@@ -9,6 +9,15 @@ const Services = () => {
   const servicesData = [
     {
       id: "01",
+      title: "AI Audit",
+      subtitle: "Clarity Before Action",
+      description: "Before you invest in any AI tool or training, you need to know exactly where to start. We audit your workflows, identify the highest-leverage opportunities, and give you a clear prioritised roadmap — no fluff, no guesswork.",
+      icon: (
+        <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+      )
+    },
+    {
+      id: "02",
       title: "AI Consultation",
       subtitle: "Customized Strategy",
       description: "We look at how your business works and show you where AI can help. No guessing. No random tools. You get clear direction on what to use, how to use it, and how it can save time or reduce effort in your daily work.",
@@ -17,21 +26,12 @@ const Services = () => {
       )
     },
     {
-      id: "02",
+      id: "03",
       title: "Team Training",
       subtitle: "Building AI Competence",
       description: "We train your team to actually use AI in their day-to-day work. Simple explanations. Real examples. Hands-on practice. Your team learns how to use AI tools with confidence, so work becomes faster and easier.",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
-      )
-    },
-    {
-      id: "03",
-      title: "AI Audit",
-      subtitle: "Clarity Before Action",
-      description: "Before you invest in any AI tool or training, you need to know exactly where to start. We audit your workflows, identify the highest-leverage opportunities, and give you a clear prioritised roadmap — no fluff, no guesswork.",
-      icon: (
-        <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
       )
     },
     {
