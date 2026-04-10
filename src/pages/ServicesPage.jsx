@@ -42,16 +42,29 @@ const services = [
   },
   {
     id: '03',
-    title: 'Reduce Manual Work with Simple AI Systems',
-    label: 'Generative AI Workflows',
-    description: 'Many tasks are repeated every day.\nWe help you replace that manual effort with simple AI workflows.\nThis makes your work faster and more efficient.',
+    title: 'Know Exactly Where to Start with AI',
+    label: 'AI Audit',
+    description: 'Most businesses don\'t have an AI problem — they have a clarity problem.\nWe audit your workflows, spot the highest-leverage opportunities, and give you a prioritised roadmap.\nNo fluff. No guesswork. Just a clear plan.',
     what: [
-      'Review of your current processes',
-      'Identification of repetitive tasks',
-      'AI workflow setup',
-      'Guidance on how to maintain and use it',
+      'Full review of your current workflows',
+      'Identification of highest-impact AI opportunities',
+      'Prioritised, actionable roadmap',
+      'Tool recommendations tailored to your setup',
     ],
     bg: 'bg-white',
+  },
+  {
+    id: '04',
+    title: 'One-on-One Guidance Built Around You',
+    label: '1:1 AI Coaching',
+    description: 'For founders and leaders who want focused, personal guidance.\nWe work directly with you — your tools, your role, your goals.\nEvery session ends with something you can use immediately.',
+    what: [
+      'Personalised AI tool selection for your role',
+      'Hands-on workflow building together',
+      'Ongoing accountability and follow-up',
+      'Direct access to expert guidance',
+    ],
+    bg: 'bg-[#fafafa]',
   },
 ];
 

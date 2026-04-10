@@ -17,7 +17,7 @@ export default function BlogList() {
   const rest = blogs.slice(1);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-[72px]">
 
       {/* ── Page Header ── */}
       <div className="bg-white border-b border-[#14242D]/5 pt-24 pb-16 md:pt-32 md:pb-20">

@@ -13,7 +13,7 @@ const Services = () => {
       subtitle: "Customized Strategy",
       description: "We look at how your business works and show you where AI can help. No guessing. No random tools. You get clear direction on what to use, how to use it, and how it can save time or reduce effort in your daily work.",
       icon: (
-        <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+        <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
       )
     },
     {
@@ -22,18 +22,27 @@ const Services = () => {
       subtitle: "Building AI Competence",
       description: "We train your team to actually use AI in their day-to-day work. Simple explanations. Real examples. Hands-on practice. Your team learns how to use AI tools with confidence, so work becomes faster and easier.",
       icon: (
-        <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+        <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
       )
     },
     {
       id: "03",
-      title: "Generative Workflows",
-      subtitle: "Process Automation",
-      description: "We help you stop repeating manual work. We study your current process and build simple AI workflows that handle repetitive tasks. Less manual effort. Faster output. More time to focus on what matters.",
+      title: "AI Audit",
+      subtitle: "Clarity Before Action",
+      description: "Before you invest in any AI tool or training, you need to know exactly where to start. We audit your workflows, identify the highest-leverage opportunities, and give you a clear prioritised roadmap — no fluff, no guesswork.",
       icon: (
-        <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+        <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
       )
-    }
+    },
+    {
+      id: "04",
+      title: "1:1 AI Coaching",
+      subtitle: "Personal Guidance",
+      description: "For founders and leaders who want focused, one-on-one guidance. We work directly with you to build your personal AI workflow and make sure you leave every session with something you can use immediately.",
+      icon: (
+        <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+      )
+    },
   ];
 
   return (
@@ -56,7 +65,7 @@ const Services = () => {
           </div>
 
           {/* Bottom Section: 3 Cards Grid */}
-          <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-10">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {servicesData.map((service, index) => {
               const isHovered = hoveredIndex === index;
 

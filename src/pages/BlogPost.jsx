@@ -29,7 +29,7 @@ function PostRenderer({ post }) {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-[72px]">
 
       {/* Reading progress bar */}
       <motion.div
@@ -43,7 +43,7 @@ function PostRenderer({ post }) {
           <img
             src={post.coverImage}
             alt={post.title}
-            className="w-full h-full object-cover object-center opacity-40"
+            className="w-full h-full object-cover object-center"
           />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#14242D] via-[#14242D]/60 to-transparent" />

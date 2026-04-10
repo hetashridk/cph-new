@@ -8,6 +8,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const isBlogPage = location.pathname.startsWith('/blog');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +29,7 @@ const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 50, damping: 15 }}
-        className={`fixed w-full z-50 transition-all duration-500 ${scrolled || mobileMenuOpen ? 'bg-white/95 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.03)] py-4' : 'bg-transparent py-4 md:py-6'}`}
+        className={`fixed w-full z-50 transition-all duration-500 ${scrolled || mobileMenuOpen || isBlogPage ? 'bg-white/95 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.03)] py-4' : 'bg-transparent py-4 md:py-6'}`}
       >
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12 flex justify-between items-center">
           {/* LOGO (LEFT) */}
