@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzPU0FQNN5hW6iUVMDsRTLK5c8xR8sX_QefohzS8QMCWjKLjheFe27EeVqycsuQU7vI6g/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx-DaBeNdi2lHqN0Ia3dau1Ut9pv_3hWBmOxySV18g5YJwEsrpysTNl7Heynrva_E5c/exec';
 
 const Contact = () => {
   const [email, setEmail] = useState('');
