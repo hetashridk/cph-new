@@ -2,30 +2,33 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta name="robots" content="noindex">
   <title>Redirecting...</title>
+  <style>
+    body { margin: 0; background: #f9fafb; display: flex; align-items: center;
+           justify-content: center; height: 100vh; font-family: Inter, Arial, sans-serif; }
+    p { color: #6b7280; font-size: 14px; }
+  </style>
 </head>
 <body>
+  <p>Redirecting...</p>
   <script>
     (function () {
-      const params = new URLSearchParams(window.location.search);
-      const destination = params.get('url') || 'https://www.crosslinks.ai/';
-      const trackUrl    = params.get('track');
+      const params      = new URLSearchParams(window.location.search);
+      const destination = params.get('url')   || 'https://www.crosslinks.ai/';
+      const trackUrl    = params.get('track')  || '';
 
-      // Ping Apps Script to log the click — fire and forget
+      // Ping Apps Script to log the click — fire and forget, no CORS issue
       if (trackUrl) {
-        try {
-          fetch(decodeURIComponent(trackUrl), { mode: 'no-cors' }).catch(function(){});
-        } catch(e) {}
+        var img = new Image();
+        img.src = decodeURIComponent(trackUrl);
       }
 
-      // Redirect instantly
-      window.location.replace(decodeURIComponent(destination));
+      // Redirect after tiny delay so ping fires first
+      setTimeout(function () {
+        window.location.replace(decodeURIComponent(destination));
+      }, 100);
     })();
   </script>
-
-  <!-- Fallback if JS is disabled -->
-  <noscript>
-    <meta http-equiv="refresh" content="0;url=https://www.crosslinks.ai/">
-  </noscript>
 </body>
 </html>
