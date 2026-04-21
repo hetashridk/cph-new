@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { blogs } from '../data/blogs';
 import { useModal } from '../context/ModalContext';
+
+const INITIAL_COUNT = 6;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -13,8 +16,11 @@ const fadeUp = {
 
 export default function BlogList() {
   const openModal = useModal();
+  const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
   const featured = blogs[0];
   const rest = blogs.slice(1);
+  const visibleRest = rest.slice(0, visibleCount - 1);
+  const hasMore = visibleCount - 1 < rest.length;
 
   return (
     <div className="min-h-screen bg-white pt-[72px]">
@@ -147,14 +153,36 @@ export default function BlogList() {
         )}
 
         {/* ── Rest of posts grid ── */}
-        {rest.length > 0 && (
+        {visibleRest.length > 0 && (
           <>
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[#14242D]/30 uppercase mb-8">More Stories</p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {rest.map((post, i) => (
+              {visibleRest.map((post, i) => (
                 <PostCard key={post.slug} post={post} index={i} />
               ))}
             </div>
+
+            {/* ── Load More ── */}
+            {hasMore && (
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mt-14 flex justify-center"
+              >
+                <motion.button
+                  onClick={() => setVisibleCount(c => c + 6)}
+                  whileHover={{ y: -3, boxShadow: '0 10px 30px rgba(255,185,80,0.4)' }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-3.5 rounded-full border border-[#14242D]/15 hover:border-[#ffb950] bg-white hover:bg-[#ffb950] text-[#14242D] font-medium text-[15px] transition-all duration-300 flex items-center gap-2.5 group"
+                >
+                  Load More
+                  <svg className="w-4 h-4 group-hover:translate-y-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </motion.button>
+              </motion.div>
+            )}
           </>
         )}
 
