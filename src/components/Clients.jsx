@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 
 const clients = [
+  { name: "Corporate Connections Surat", category: "Business Networking" },
+  { name: "Aditi Silk Mills", category: "Textile & Dyeing" },
   { name: "Sitaram Creation", category: "Textile" },
   { name: "Mosaic Moments", category: "Events" },
   { name: "BringJal", category: "Tech" },
@@ -57,9 +59,6 @@ const Clients = () => {
                 className="group flex items-center justify-between py-6 border-t border-[#14242D]/8 hover:-mx-6 hover:px-6 hover:bg-[#ffb950]/8 transition-all duration-300 cursor-default rounded-2xl"
               >
                 <div className="flex items-center gap-5">
-                  <span className="text-[11px] font-mono text-[#14242D]/20 group-hover:text-[#14242D]/50 transition-colors duration-300 w-5 shrink-0">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
                   <span
                     className="text-[1.4rem] md:text-[1.7rem] font-normal text-[#14242D] group-hover:translate-x-1 transition-transform duration-300 leading-none"
                     style={{ letterSpacing: '-0.02em' }}
