@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const testimonials = [
   {
     name: "Chandresh vaghasiya",
-    role: "Manager - Sitaram Creation",
+    role: "Manager, Sitaram Creation",
     image: "/ChandreshVaghasiya.jpeg",
     text: "Piyushbhai, owner of CPH Film, guided us thoroughly in AI and introduced us to its practical use. We had little knowledge initially, but after the course, our work became faster, simpler, and more cost-effective. He taught us how to use AI correctly and effectively in everyday business.",
     rating: 5
@@ -41,14 +41,14 @@ const testimonials = [
     name: "constant edits",
     role: "Creative director and Video editor",
     image: "/constantEdits.jpeg",
-    text: "Before learning from Piyush Bharoliya, I used AI as a tool. After learning from him, I use AI as a system. He taught strategic AI application in video editing, automation, and workflow optimization—making everything clearer, scalable, and future-ready for editors..",
+    text: "Before learning from Piyush Bharoliya, I used AI as a tool. After learning from him, I use AI as a system. He taught strategic AI application in video editing, automation, and workflow optimization, making everything clearer, scalable, and future-ready for editors.",
     rating: 5
   },
   {
     name: "Karishma Khubchandani",
-    role: "Founder - Life of a Miracle",
+    role: "Founder, Life of a Miracle",
     image: "/Karishma.jpeg",
-    text: "I thought I was using AI well until Piyush showed what was truly possible. Today, AI feels like a dedicated team for my Miracle brand—handling research, content, and sales in my voice. My focus has shifted from execution to growth, influence, and meaningful impact.",
+    text: "I thought I was using AI well until Piyush showed what was truly possible. Today, AI feels like a dedicated team for my Miracle brand, handling research, content, and sales in my voice. My focus has shifted from execution to growth, influence, and meaningful impact.",
     rating: 5
   },
 ];

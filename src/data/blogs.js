@@ -9,7 +9,7 @@ export const blogs = [
     slug: 'surat-saree-exporter-saved-8-lakh',
     title: 'A Surat Saree Exporter Saved ₹8 Lakh a Month Without Hiring a Single Tech Person',
     excerpt:
-      'Three sessions. No new software. No IT department. Just a team that understood the right tools, in the right sequence — and saved ₹8 lakh a month in the process.',
+      'Three sessions. No new software. No IT department. Just a team that understood the right tools, in the right sequenceand saved ₹8 lakh a month in the process.',
     coverImage: '/blogs/Sitaram Case Study.png',
     category: 'Client Story',
     tags: ['AI Team Training', 'Textile · Surat'],
@@ -38,18 +38,18 @@ export const blogs = [
     ],
     sections: [
       {
-        label: '01 — The Problem',
+        label: '01The Problem',
         blocks: [
-          { type: 'paragraph', text: "Surat's textile industry is one of the most orthodox business ecosystems in India. Founders fear that training their teams will make them more hireable — and more likely to leave. So they don't invest. Skills stagnate. Costs quietly pile up." },
-          { type: 'paragraph', text: 'Even product photography — something that directly drives sales — had become a commodity. The printer runs the shoot. Nobody pays for quality. Everyone pays for volume.' },
+          { type: 'paragraph', text: "Surat's textile industry is one of the most orthodox business ecosystems in India. Founders fear that training their teams will make them more hireableand more likely to leave. So they don't invest. Skills stagnate. Costs quietly pile up." },
+          { type: 'paragraph', text: 'Even product photographysomething that directly drives saleshad become a commodity. The printer runs the shoot. Nobody pays for quality. Everyone pays for volume.' },
           { type: 'paragraph', text: "Sitaram Creations was operating in this exact environment. A well-established saree exporter with buyers in Europe, the US, Australia, and the Middle East. Running on a lean team. Doing things the way they'd always been done." },
           { type: 'pullQuote', text: '"Skills stagnate. Costs quietly pile up. Nobody pays for quality. Everyone pays for volume."' },
         ],
       },
       {
-        label: '02 — What We Did',
+        label: '02What We Did',
         blocks: [
-          { type: 'paragraph', text: 'We ran a three-session AI Team Training program, structured deliberately — not dumped all at once.' },
+          { type: 'paragraph', text: 'We ran a three-session AI Team Training program, structured deliberatelynot dumped all at once.' },
           {
             type: 'steps',
             items: [
@@ -61,7 +61,7 @@ export const blogs = [
         ],
       },
       {
-        label: '03 — The Result',
+        label: '03The Result',
         blocks: [
           { type: 'paragraph', text: "By session three, the team had already stopped the manual labor they'd relied on for years. That saving didn't just sit in a ledger. It changed their pricing strategy. Lower costs meant they could offer real discounts to global buyers while still making strong margins." },
           {
@@ -72,27 +72,27 @@ export const blogs = [
               { v: '10x', l: 'growth within\nthe same month', c: '#f97316' },
             ],
           },
-          { type: 'pullQuote', text: '"One simple initiative of integrating AI the right way helped them do a lot — like grow 10x within the same month."', attribution: 'Crosslinks AI on Sitaram Creation' },
+          { type: 'pullQuote', text: '"One simple initiative of integrating AI the right way helped them do a lotlike grow 10x within the same month."', attribution: 'Crosslinks AI on Sitaram Creation' },
         ],
       },
       {
-        label: '04 — The Sharpest Insight',
+        label: '04The Sharpest Insight',
         blocks: [
           { type: 'paragraph', text: 'Their wholesale distributors are spread across very different regions: Europe, the Gulf, Australia. Once the team understood what AI could do, they started generating product photography styled for each specific market.' },
-          { type: 'paragraph', text: 'A saree shot for a Middle Eastern buyer looks different than one shot for a European boutique. That relevance became a conversion tool — a no-brainer choice for buyers who had previously just browsed.' },
+          { type: 'paragraph', text: 'A saree shot for a Middle Eastern buyer looks different than one shot for a European boutique. That relevance became a conversion toola no-brainer choice for buyers who had previously just browsed.' },
         ],
       },
       {
-        label: '05 — What This Actually Means',
+        label: '05What This Actually Means',
         blocks: [
           { type: 'paragraph', text: "This wasn't a tech overhaul. No new software subscriptions. No IT department. Just a small team that understood the right tools, in the right sequence, and ran with it." },
-          { type: 'paragraph', text: 'When your team understands how AI is built — how wrappers work, how APIs process, what to say and what not to say — they stop waiting for someone to hand them a use case. They start finding new ones themselves.' },
+          { type: 'paragraph', text: 'When your team understands how AI is builthow wrappers work, how APIs process, what to say and what not to saythey stop waiting for someone to hand them a use case. They start finding new ones themselves.' },
           { type: 'paragraph', text: "That's where the compounding begins." },
         ],
       },
     ],
     cta: {
-      heading: 'If your team is stuck in routine tasks that could be automated —',
+      heading: 'If your team is stuck in routine tasks that could be automated,',
       sub: "The first step is knowing exactly where to start. That's what an AI Audit is for.",
       button: 'Get Your AI Audit from Crosslinks AI',
     },
@@ -101,7 +101,7 @@ export const blogs = [
     slug: 'ai-audit-before-spending',
     title: 'Before You Spend a Rupee on AI, Do This First',
     excerpt:
-      'Most businesses jump into AI without clarity — wasting time and money. The real advantage comes from knowing exactly where to build, train, and automate before making a move.',
+      'Most businesses jump into AI without claritywasting time and money. The real advantage comes from knowing exactly where to build, train, and automate before making a move.',
     coverImage: '/blogs/AI Audit Cover.png',
     category: 'Strategy',
     tags: ['AI Audit', 'Business Strategy', 'Automation'],
@@ -132,11 +132,11 @@ export const blogs = [
 
     sections: [
       {
-        label: '01 — The Problem',
+        label: '01The Problem',
         blocks: [
           {
             type: 'paragraph',
-            text: 'Every business is being told to adopt AI. Almost none are being told where to start — and that gap is costing more than people realize.',
+            text: 'Every business is being told to adopt AI. Almost none are being told where to startand that gap is costing more than people realize.',
           },
           {
             type: 'paragraph',
@@ -148,13 +148,13 @@ export const blogs = [
           },
           {
             type: 'pullQuote',
-            text: '"The businesses winning with AI aren’t the fastest — they’re the clearest."',
+            text: '"The businesses winning with AI aren’t the fastestthey’re the clearest."',
           },
         ],
       },
 
       {
-        label: '02 — What an AI Audit Actually Is',
+        label: '02What an AI Audit Actually Is',
         blocks: [
           {
             type: 'paragraph',
@@ -184,7 +184,7 @@ export const blogs = [
       },
 
       {
-        label: '03 — Why Most Businesses Skip It',
+        label: '03Why Most Businesses Skip It',
         blocks: [
           {
             type: 'paragraph',
@@ -206,7 +206,7 @@ export const blogs = [
       },
 
       {
-        label: '04 — What Changes After an Audit',
+        label: '04What Changes After an Audit',
         blocks: [
           {
             type: 'paragraph',
@@ -224,7 +224,7 @@ export const blogs = [
       },
 
       {
-        label: '05 — What This Actually Means',
+        label: '05What This Actually Means',
         blocks: [
           {
             type: 'paragraph',
@@ -232,7 +232,7 @@ export const blogs = [
           },
           {
             type: 'paragraph',
-            text: 'Every decision — tools, training, automation — has a reason behind it.',
+            text: 'Every decisiontools, training, automationhas a reason behind it.',
           },
           {
             type: 'paragraph',
@@ -243,7 +243,7 @@ export const blogs = [
     ],
 
     cta: {
-      heading: 'Before you spend money on AI tools —',
+      heading: 'Before you spend money on AI tools,',
       sub: "Start with clarity. Know exactly where AI creates value in your business.",
       button: 'Get Your AI Audit from Crosslinks AI',
     },
@@ -252,7 +252,7 @@ export const blogs = [
     slug: 'hidden-cost-of-manual-work',
     title: 'Your Team Is Spending 60% of Their Day on Work AI Can Do in 60 Seconds',
     excerpt:
-      'The biggest invisible cost in your business isn’t tools or hiring — it’s manual work. And it’s quietly costing lakhs every year.',
+      'The biggest invisible cost in your business isn’t tools or hiringit’s manual work. And it’s quietly costing lakhs every year.',
     coverImage: '/blogs/Manual Work Cost.png',
     category: 'Strategy',
     tags: ['Automation', 'AI Audit', 'Productivity'],
@@ -283,7 +283,7 @@ export const blogs = [
 
     sections: [
       {
-        label: '01 — The Problem',
+        label: '01The Problem',
         blocks: [
           {
             type: 'paragraph',
@@ -299,13 +299,13 @@ export const blogs = [
           },
           {
             type: 'pullQuote',
-            text: '"Manual work doesn’t look expensive — until you add it up."',
+            text: '"Manual work doesn’t look expensiveuntil you add it up."',
           },
         ],
       },
 
       {
-        label: '02 — What Manual Work Actually Looks Like',
+        label: '02What Manual Work Actually Looks Like',
         blocks: [
           {
             type: 'paragraph',
@@ -325,7 +325,7 @@ export const blogs = [
       },
 
       {
-        label: '03 — Run the Numbers',
+        label: '03Run the Numbers',
         blocks: [
           {
             type: 'paragraph',
@@ -341,7 +341,7 @@ export const blogs = [
           },
           {
             type: 'paragraph',
-            text: 'And this only measures time — not errors, fatigue, or missed opportunities.',
+            text: 'And this only measures timenot errors, fatigue, or missed opportunities.',
           },
           {
             type: 'pullQuote',
@@ -351,7 +351,7 @@ export const blogs = [
       },
 
       {
-        label: '04 — Why Founders Miss This',
+        label: '04Why Founders Miss This',
         blocks: [
           {
             type: 'paragraph',
@@ -369,7 +369,7 @@ export const blogs = [
       },
 
       {
-        label: '05 — What Happens When You Fix It',
+        label: '05What Happens When You Fix It',
         blocks: [
           {
             type: 'steps',
@@ -400,7 +400,7 @@ export const blogs = [
       },
 
       {
-        label: '06 — The First Step',
+        label: '06The First Step',
         blocks: [
           {
             type: 'paragraph',
@@ -408,7 +408,7 @@ export const blogs = [
           },
           {
             type: 'paragraph',
-            text: 'That is what an AI Audit does — it shows where to automate, what to fix, and what to prioritize.',
+            text: 'That is what an AI Audit doesit shows where to automate, what to fix, and what to prioritize.',
           },
           {
             type: 'paragraph',
@@ -419,7 +419,7 @@ export const blogs = [
     ],
 
     cta: {
-      heading: 'If your team is stuck doing manual work —',
+      heading: 'If your team is stuck doing manual work,',
       sub: 'Find out exactly where your time and money are being wasted, and what to automate first.',
       button: 'Get Your AI Audit from Crosslinks AI',
     },
@@ -428,7 +428,7 @@ export const blogs = [
     slug: 'why-we-exist',
     title: 'Why We Started Crosslinks AI',
     excerpt:
-      'We watched smart people get buried in work that should never have reached them. The gap was not technology — it was translation. That is why Crosslinks AI exists.',
+      'We watched smart people get buried in work that should never have reached them. The gap was not technologyit was translation. That is why Crosslinks AI exists.',
     coverImage: '/blogs/Why we exist.png',
     category: 'About',
     tags: ['AI Strategy', 'Business Transformation'],
@@ -459,7 +459,7 @@ export const blogs = [
 
     sections: [
       {
-        label: '01 — The Problem We Kept Seeing',
+        label: '01The Problem We Kept Seeing',
         blocks: [
           {
             type: 'paragraph',
@@ -480,7 +480,7 @@ export const blogs = [
         ],
       },
       {
-        label: '02 — Why We Started Crosslinks AI',
+        label: '02Why We Started Crosslinks AI',
         blocks: [
           {
             type: 'paragraph',
@@ -493,7 +493,7 @@ export const blogs = [
         ],
       },
       {
-        label: '03 — Our Why',
+        label: '03Our Why',
         blocks: [
           {
             type: 'paragraph',
@@ -510,7 +510,7 @@ export const blogs = [
         ],
       },
       {
-        label: '04 — How We Do It',
+        label: '04How We Do It',
         blocks: [
           {
             type: 'steps',
@@ -537,7 +537,7 @@ export const blogs = [
     ],
 
     cta: {
-      heading: 'If any of this sounds familiar —',
+      heading: 'If any of this sounds familiar,',
       sub: "A conversation doesn't cost anything. Let us look at your business together and show you what is possible.",
       button: 'Talk to Crosslinks AI',
     },
@@ -577,7 +577,7 @@ export const blogs = [
 
     sections: [
       {
-        label: '01 — The Pattern We See Everywhere',
+        label: '01The Pattern We See Everywhere',
         blocks: [
           {
             type: 'paragraph',
@@ -598,7 +598,7 @@ export const blogs = [
         ],
       },
       {
-        label: '02 — What Separates the Winners',
+        label: '02What Separates the Winners',
         blocks: [
           {
             type: 'paragraph',
@@ -632,7 +632,7 @@ export const blogs = [
         ],
       },
       {
-        label: '03 — Execution Is the Real Differentiator',
+        label: '03Execution Is the Real Differentiator',
         blocks: [
           {
             type: 'paragraph',
@@ -651,7 +651,7 @@ export const blogs = [
     ],
 
     cta: {
-      heading: 'Crosslinks AI exists to make sure your AI adoption does not stall at intent —',
+      heading: 'Crosslinks AI exists to make sure your AI adoption does not stall at intent,',
       sub: 'We give you a clear starting point, a structured path, and the support to follow through on it.',
       button: 'Talk to Crosslinks AI',
     },
@@ -691,7 +691,7 @@ export const blogs = [
 
     sections: [
       {
-        label: '01 — What Operators Have Accepted as Normal',
+        label: '01What Operators Have Accepted as Normal',
         blocks: [
           {
             type: 'paragraph',
@@ -708,7 +708,7 @@ export const blogs = [
         ],
       },
       {
-        label: '02 — Where AI Makes the Biggest Difference',
+        label: '02Where AI Makes the Biggest Difference',
         blocks: [
           {
             type: 'steps',
@@ -738,7 +738,7 @@ export const blogs = [
         ],
       },
       {
-        label: '03 — The First Step',
+        label: '03The First Step',
         blocks: [
           {
             type: 'paragraph',
@@ -762,7 +762,7 @@ export const blogs = [
     slug: 'ai-in-hr-cv-screening',
     title: 'An HR Team Was Spending 11 Hours a Week on CV Screening. Here Is How That Came Down to 40 Minutes.',
     excerpt:
-      '572 hours lost per year on first-round screening alone. The right AI workflow changed that completely — and freed your team to do the work they were actually hired for.',
+      '572 hours lost per year on first-round screening alone. The right AI workflow changed that completelyand freed your team to do the work they were actually hired for.',
     coverImage: '/blogs/AI in HR.png',
     category: 'Strategy',
     tags: ['HR', 'Automation', 'Productivity'],
@@ -793,7 +793,7 @@ export const blogs = [
 
     sections: [
       {
-        label: '01 — The Cost Nobody Calculates',
+        label: '01The Cost Nobody Calculates',
         blocks: [
           {
             type: 'paragraph',
@@ -818,7 +818,7 @@ export const blogs = [
         ],
       },
       {
-        label: '02 — How the Workflow Changes',
+        label: '02How the Workflow Changes',
         blocks: [
           {
             type: 'steps',
@@ -848,7 +848,7 @@ export const blogs = [
         ],
       },
       {
-        label: '03 — What Your Team Does With the Time Back',
+        label: '03What Your Team Does With the Time Back',
         blocks: [
           {
             type: 'steps',
@@ -878,7 +878,7 @@ export const blogs = [
         ],
       },
       {
-        label: '04 — The Bigger Picture',
+        label: '04The Bigger Picture',
         blocks: [
           {
             type: 'paragraph',
@@ -893,7 +893,7 @@ export const blogs = [
     ],
 
     cta: {
-      heading: 'An AI Audit maps exactly where your team is losing time —',
+      heading: 'An AI Audit maps exactly where your team is losing time,',
       sub: 'And builds you a clear plan to take it back, starting with the highest-impact tasks first.',
       button: 'Get Your AI Audit from Crosslinks AI',
     },
@@ -933,7 +933,7 @@ export const blogs = [
 
     sections: [
       {
-        label: '01 — Where the Fear Actually Comes From',
+        label: '01Where the Fear Actually Comes From',
         blocks: [
           {
             type: 'paragraph',
@@ -950,7 +950,7 @@ export const blogs = [
         ],
       },
       {
-        label: '02 — The Reframe Your Team Needs to Hear',
+        label: '02The Reframe Your Team Needs to Hear',
         blocks: [
           {
             type: 'paragraph',
@@ -984,7 +984,7 @@ export const blogs = [
         ],
       },
       {
-        label: '03 — What Actually Happens When Teams Get Trained Properly',
+        label: '03What Actually Happens When Teams Get Trained Properly',
         blocks: [
           {
             type: 'paragraph',
@@ -1003,7 +1003,7 @@ export const blogs = [
     ],
 
     cta: {
-      heading: 'My AI Team Training is built to turn this exact fear into confidence —',
+      heading: 'My AI Team Training is built to turn this exact fear into confidence,',
       sub: 'We work with your team directly, in sessions built around their real workflows, until using AI feels less like a risk and more like a reflex.',
       button: 'Book an AI Training Session',
     },
@@ -1043,7 +1043,7 @@ export const blogs = [
 
     sections: [
       {
-        label: '01 — Why the First Experience Is Everything',
+        label: '01Why the First Experience Is Everything',
         blocks: [
           {
             type: 'paragraph',
@@ -1060,7 +1060,7 @@ export const blogs = [
         ],
       },
       {
-        label: '02 — What Actually Causes a Bad First Result',
+        label: '02What Actually Causes a Bad First Result',
         blocks: [
           {
             type: 'steps',
@@ -1090,7 +1090,7 @@ export const blogs = [
         ],
       },
       {
-        label: '03 — What Changes When Training Comes First',
+        label: '03What Changes When Training Comes First',
         blocks: [
           {
             type: 'paragraph',
@@ -1113,7 +1113,7 @@ export const blogs = [
     ],
 
     cta: {
-      heading: 'If your team has been given AI tools but adoption has stalled —',
+      heading: 'If your team has been given AI tools but adoption has stalled,',
       sub: 'The first session with Crosslinks AI will show you exactly why and exactly how to fix it.',
       button: 'Book an AI Training Session',
     },
@@ -1153,7 +1153,7 @@ export const blogs = [
 
     sections: [
       {
-        label: '01 — What a Mistake-Punishing Culture Actually Looks Like',
+        label: '01What a Mistake-Punishing Culture Actually Looks Like',
         blocks: [
           {
             type: 'paragraph',
@@ -1175,7 +1175,7 @@ export const blogs = [
         ],
       },
       {
-        label: '02 — Why AI Specifically Requires Experimentation',
+        label: '02Why AI Specifically Requires Experimentation',
         blocks: [
           {
             type: 'paragraph',
@@ -1188,7 +1188,7 @@ export const blogs = [
         ],
       },
       {
-        label: '03 — What Leaders Can Actually Do About It',
+        label: '03What Leaders Can Actually Do About It',
         blocks: [
           {
             type: 'steps',
@@ -1223,7 +1223,7 @@ export const blogs = [
     ],
 
     cta: {
-      heading: 'AI Team Training built to tackle culture, fear, and fluency — together —',
+      heading: 'AI Team Training built to tackle culture, fear, and fluency together,',
       sub: 'Sessions designed around your team and your business.',
       button: 'Book an AI Training Session',
     },

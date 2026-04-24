@@ -11,7 +11,7 @@ const Services = () => {
       id: "01",
       title: "AI Consultation",
       subtitle: "Strategy & AI Audit",
-      description: "Get expert AI consulting tailored to your business. We conduct a thorough AI audit of your workflows, identify the highest-impact opportunities, and deliver a clear, prioritised roadmap — so you know exactly where to start and what to invest in.",
+      description: "Get expert AI consulting tailored to your business. We conduct a thorough AI audit of your workflows, identify the highest-impact opportunities, and deliver a clear, prioritised roadmapso you know exactly where to start and what to invest in.",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
       )
@@ -20,7 +20,7 @@ const Services = () => {
       id: "02",
       title: "AI Training",
       subtitle: "1:1 & Team Training",
-      description: "Practical AI training for individuals and teams. From focused 1:1 coaching sessions for founders and leaders to hands-on team training programmes — we build real AI competence so your people use AI with confidence every day.",
+      description: "Practical AI training for individuals and teams. From focused 1:1 coaching sessions for founders and leaders to hands-on team training programmeswe build real AI competence so your people use AI with confidence every day.",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
       )
@@ -29,7 +29,7 @@ const Services = () => {
       id: "03",
       title: "Custom Integration",
       subtitle: "AI Automation & Build",
-      description: "We design and deploy custom AI automation solutions built around your specific workflows. From automating repetitive tasks to integrating AI tools directly into your systems — we make AI work seamlessly inside your business.",
+      description: "We design and deploy custom AI automation solutions built around your specific workflows. From automating repetitive tasks to integrating AI tools directly into your systemswe make AI work seamlessly inside your business.",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
       )

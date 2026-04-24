@@ -18,7 +18,7 @@ const services = [
     id: '01',
     title: 'AI Strategy & Business Audit for Smarter Growth',
     label: 'AI Consultation',
-    description: 'Most businesses don\'t have an AI problem — they have a clarity problem.\nOur AI consultation service starts with a deep AI audit of your workflows, teams, and tools. We identify exactly where AI can reduce costs, save time, and unlock growth — then hand you a prioritised, actionable roadmap.\nNo guesswork. No jargon. Just a clear plan built around your business.',
+    description: 'Most businesses don\'t have an AI problemthey have a clarity problem.\nOur AI consultation service starts with a deep AI audit of your workflows, teams, and tools. We identify exactly where AI can reduce costs, save time, and unlock growththen hand you a prioritised, actionable roadmap.\nNo guesswork. No jargon. Just a clear plan built around your business.',
     what: [
       'Comprehensive AI audit of your current workflows and operations',
       'Identification of highest-impact AI opportunities specific to your industry',
@@ -30,9 +30,9 @@ const services = [
   },
   {
     id: '02',
-    title: 'AI Training That Builds Real Skills — 1:1 & Team',
+    title: 'AI Training That Builds Real Skills1:1 & Team',
     label: 'AI Training',
-    description: 'Knowing AI exists is not enough. Your team needs to use it confidently every single day.\nWe offer both 1:1 AI coaching for founders, executives, and individuals who want personal, role-specific guidance — and structured team training programmes that upskill entire departments at once.\nPractical. Hands-on. Built around how your business actually works.',
+    description: 'Knowing AI exists is not enough. Your team needs to use it confidently every single day.\nWe offer both 1:1 AI coaching for founders, executives, and individuals who want personal, role-specific guidanceand structured team training programmes that upskill entire departments at once.\nPractical. Hands-on. Built around how your business actually works.',
     what: [
       '1:1 AI coaching sessions tailored to your role, goals, and tools',
       'Team training workshops with real examples from your industry',
@@ -46,12 +46,12 @@ const services = [
     id: '03',
     title: 'Custom AI Integration & Automation Built for Your Business',
     label: 'Custom Integration',
-    description: 'Off-the-shelf AI tools only get you so far. Real competitive advantage comes from AI that fits perfectly into how your business operates.\nWe design and build custom AI integrations and automation solutions — connecting your existing systems, eliminating manual tasks, and embedding AI directly into your core workflows.\nFrom intelligent process automation to fully bespoke AI builds, we make AI work seamlessly inside your operations.',
+    description: 'Off-the-shelf AI tools only get you so far. Real competitive advantage comes from AI that fits perfectly into how your business operates.\nWe design and build custom AI integrations and automation solutionsconnecting your existing systems, eliminating manual tasks, and embedding AI directly into your core workflows.\nFrom intelligent process automation to fully bespoke AI builds, we make AI work seamlessly inside your operations.',
     what: [
       'Custom AI automation that eliminates repetitive, time-consuming tasks',
       'Seamless integration with your existing tools, CRMs, and platforms',
       'Bespoke AI solutions designed around your unique business processes',
-      'End-to-end build, deployment, and testing — fully managed by us',
+      'End-to-end build, deployment, and testingfully managed by us',
       'Scalable architecture so your AI systems grow with your business',
     ],
     bg: 'bg-white',
@@ -87,7 +87,7 @@ const ServicesPage = () => {
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12 w-full">
           <div className="flex flex-col lg:grid lg:grid-cols-[1.5fr_1fr] gap-12 lg:gap-16 items-center">
 
-            {/* Left — Text */}
+            {/* LeftText */}
             <motion.div
               variants={containerVariants}
               initial="hidden"
@@ -105,11 +105,11 @@ const ServicesPage = () => {
                 AI Services Built<br />for Real Business
               </motion.h1>
               <motion.p variants={itemVariants} className="text-[16px] md:text-[18px] text-[#14242D]/70 leading-relaxed max-w-xl" style={{ letterSpacing: '-0.16px' }}>
-                From strategic AI consultation and hands-on training to fully custom AI integrations — we help businesses adopt AI with confidence, clarity, and measurable results.
+                From strategic AI consultation and hands-on training to fully custom AI integrationswe help businesses adopt AI with confidence, clarity, and measurable results.
               </motion.p>
             </motion.div>
 
-            {/* Right — Hero Carousel */}
+            {/* RightHero Carousel */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -142,7 +142,7 @@ const ServicesPage = () => {
                 </span>
               </div>
 
-              {/* Left — Label + Title + Description */}
+              {/* LeftLabel + Title + Description */}
               <div>
                 <span className="inline-block text-[11px] font-semibold text-[#14242D] uppercase tracking-[0.18em] bg-[#ffb950]/20 px-3 py-1 rounded-full mb-5">
                   {service.label}
@@ -160,7 +160,7 @@ const ServicesPage = () => {
                 </div>
               </div>
 
-              {/* Right — What you get */}
+              {/* RightWhat you get */}
               <div className="lg:pt-10 flex flex-col gap-8">
                 <div>
                   <p className="text-[11px] font-semibold text-[#14242D]/35 uppercase tracking-[0.18em] mb-5">

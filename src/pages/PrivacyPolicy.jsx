@@ -29,7 +29,7 @@ const PrivacyPolicy = () => {
             </div>
 
             <div>
-              <h2 className="text-[19px] font-bold mb-4">Privacy Policy - the basics</h2>
+              <h2 className="text-[19px] font-bold mb-4">Privacy Policy: the basics</h2>
               <p>
                 Having said that, a privacy policy is a statement that discloses some or all of the ways a website collects, uses, discloses, processes, and manages the data of its visitors and customers. It usually also includes a statement regarding the website’s commitment to protecting its visitors’ or customers’ privacy, and an explanation about the different mechanisms the website is implementing in order to protect privacy.
               </p>
