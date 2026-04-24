@@ -70,10 +70,14 @@ const Hero = () => {
               <div key={idx} className="flex items-center space-x-8 md:space-x-12 px-6 text-[11px] md:text-[13px] tracking-[0.2em] font-semibold text-[#14242D] uppercase">
                 <span>AI Consultation</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
-                <span>AI Team Training</span>
+                <span>AI Training</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
+                <span>Custom Integration</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
                 <span>1:1 AI Coaching</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
+                {/* <span>AI Training</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span> */}
                 <span>GenAI Workshop</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-[#ffb950]"></span>
               </div>

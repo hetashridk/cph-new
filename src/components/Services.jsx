@@ -9,38 +9,29 @@ const Services = () => {
   const servicesData = [
     {
       id: "01",
-      title: "AI Audit",
-      subtitle: "Clarity Before Action",
-      description: "Before you invest in any AI tool or training, you need to know exactly where to start. We audit your workflows, identify the highest-leverage opportunities, and give you a clear prioritised roadmap — no fluff, no guesswork.",
-      icon: (
-        <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
-      )
-    },
-    {
-      id: "02",
       title: "AI Consultation",
-      subtitle: "Customized Strategy",
-      description: "We look at how your business works and show you where AI can help. No guessing. No random tools. You get clear direction on what to use, how to use it, and how it can save time or reduce effort in your daily work.",
+      subtitle: "Strategy & AI Audit",
+      description: "Get expert AI consulting tailored to your business. We conduct a thorough AI audit of your workflows, identify the highest-impact opportunities, and deliver a clear, prioritised roadmap — so you know exactly where to start and what to invest in.",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
       )
     },
     {
-      id: "03",
-      title: "Team Training",
-      subtitle: "Building AI Competence",
-      description: "We train your team to actually use AI in their day-to-day work. Simple explanations. Real examples. Hands-on practice. Your team learns how to use AI tools with confidence, so work becomes faster and easier.",
+      id: "02",
+      title: "AI Training",
+      subtitle: "1:1 & Team Training",
+      description: "Practical AI training for individuals and teams. From focused 1:1 coaching sessions for founders and leaders to hands-on team training programmes — we build real AI competence so your people use AI with confidence every day.",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
       )
     },
     {
-      id: "04",
-      title: "1:1 AI Coaching",
-      subtitle: "Personal Guidance",
-      description: "For founders and leaders who want focused, one-on-one guidance. We work directly with you to build your personal AI workflow and make sure you leave every session with something you can use immediately.",
+      id: "03",
+      title: "Custom Integration",
+      subtitle: "AI Automation & Build",
+      description: "We design and deploy custom AI automation solutions built around your specific workflows. From automating repetitive tasks to integrating AI tools directly into your systems — we make AI work seamlessly inside your business.",
       icon: (
-        <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+        <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
       )
     },
   ];
@@ -65,7 +56,7 @@ const Services = () => {
           </div>
 
           {/* Bottom Section: 3 Cards Grid */}
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {servicesData.map((service, index) => {
               const isHovered = hoveredIndex === index;
 

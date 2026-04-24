@@ -14,61 +14,47 @@ const containerVariants = {
 };
 
 const services = [
-  // audit
-  // conus
-  // team
-  // 1:1
   {
     id: '01',
-    title: 'Know Exactly Where to Start with AI',
-    label: 'AI Audit',
-    description: 'Most businesses don\'t have an AI problem — they have a clarity problem.\nWe audit your workflows, spot the highest-leverage opportunities, and give you a prioritised roadmap.\nNo fluff. No guesswork. Just a clear plan.',
+    title: 'AI Strategy & Business Audit for Smarter Growth',
+    label: 'AI Consultation',
+    description: 'Most businesses don\'t have an AI problem — they have a clarity problem.\nOur AI consultation service starts with a deep AI audit of your workflows, teams, and tools. We identify exactly where AI can reduce costs, save time, and unlock growth — then hand you a prioritised, actionable roadmap.\nNo guesswork. No jargon. Just a clear plan built around your business.',
     what: [
-      'Full review of your current workflows',
-      'Identification of highest-impact AI opportunities',
-      'Prioritised, actionable roadmap',
-      'Tool recommendations tailored to your setup',
+      'Comprehensive AI audit of your current workflows and operations',
+      'Identification of highest-impact AI opportunities specific to your industry',
+      'Prioritised roadmap with clear next steps and ROI potential',
+      'Tool and vendor recommendations tailored to your budget and setup',
+      'Strategic guidance on AI adoption to stay ahead of competitors',
     ],
     bg: 'bg-white',
   },
   {
     id: '02',
-    title: 'Understand Where AI Fits in Your Business',
-    label: 'AI Consultation',
-    description: 'Many businesses try AI without knowing where it actually helps.\nWe study how your business works and show you where AI can make a real difference.\nNo complex terms. No confusion. Just clear direction.',
+    title: 'AI Training That Builds Real Skills — 1:1 & Team',
+    label: 'AI Training',
+    description: 'Knowing AI exists is not enough. Your team needs to use it confidently every single day.\nWe offer both 1:1 AI coaching for founders, executives, and individuals who want personal, role-specific guidance — and structured team training programmes that upskill entire departments at once.\nPractical. Hands-on. Built around how your business actually works.',
     what: [
-      'Understanding of your current workflow',
-      'Areas where AI can save time or reduce effort',
-      'Tool suggestions based on your needs',
-      'Simple action plan to get started',
+      '1:1 AI coaching sessions tailored to your role, goals, and tools',
+      'Team training workshops with real examples from your industry',
+      'Hands-on practice with the AI tools your team will actually use',
+      'Custom training curriculum aligned to your business workflows',
+      'Ongoing support and accountability to ensure lasting adoption',
     ],
-    bg: 'bg-white',
+    bg: 'bg-[#fafafa]',
   },
   {
     id: '03',
-    title: 'Help Your Team Use AI with Confidence',
-    label: 'Team Training',
-    description: 'Learning AI is one thing. Using it daily is another.\nWe train your team in a simple and practical way so they can actually use AI in their work.\nNo technical background needed.',
+    title: 'Custom AI Integration & Automation Built for Your Business',
+    label: 'Custom Integration',
+    description: 'Off-the-shelf AI tools only get you so far. Real competitive advantage comes from AI that fits perfectly into how your business operates.\nWe design and build custom AI integrations and automation solutions — connecting your existing systems, eliminating manual tasks, and embedding AI directly into your core workflows.\nFrom intelligent process automation to fully bespoke AI builds, we make AI work seamlessly inside your operations.',
     what: [
-      'Easy explanation of AI tools',
-      'Hands-on training sessions',
-      'Real examples based on your work',
-      'Clear ways to use AI in daily tasks',
+      'Custom AI automation that eliminates repetitive, time-consuming tasks',
+      'Seamless integration with your existing tools, CRMs, and platforms',
+      'Bespoke AI solutions designed around your unique business processes',
+      'End-to-end build, deployment, and testing — fully managed by us',
+      'Scalable architecture so your AI systems grow with your business',
     ],
-    bg: 'bg-[#fafafa]',
-  },
-  {
-    id: '04',
-    title: 'One-on-One Guidance Built Around You',
-    label: '1:1 AI Coaching',
-    description: 'For founders and leaders who want focused, personal guidance.\nWe work directly with you — your tools, your role, your goals.\nEvery session ends with something you can use immediately.',
-    what: [
-      'Personalised AI tool selection for your role',
-      'Hands-on workflow building together',
-      'Ongoing accountability and follow-up',
-      'Direct access to expert guidance',
-    ],
-    bg: 'bg-[#fafafa]',
+    bg: 'bg-white',
   },
 ];
 
@@ -116,10 +102,10 @@ const ServicesPage = () => {
                 className="text-[2.8rem] md:text-[4rem] lg:text-[70px] font-normal leading-[1.05] text-[#14242D] mb-8"
                 style={{ letterSpacing: '-0.02em', fontFamily: "'Wix Madefor Display', sans-serif" }}
               >
-                Simple AI Support<br />for Your Business
+                AI Services Built<br />for Real Business
               </motion.h1>
               <motion.p variants={itemVariants} className="text-[16px] md:text-[18px] text-[#14242D]/70 leading-relaxed max-w-xl" style={{ letterSpacing: '-0.16px' }}>
-                We help you understand, use, and apply AI in your daily work. Whether you&apos;re starting from zero or already exploring AI, we guide you with clear steps and practical use.
+                From strategic AI consultation and hands-on training to fully custom AI integrations — we help businesses adopt AI with confidence, clarity, and measurable results.
               </motion.p>
             </motion.div>
 
