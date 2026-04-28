@@ -17,6 +17,7 @@ export const blogs = [
     clientLogo: '/Sitaram Logo.jpg',
     clientLocation: 'Saree Exporter · Surat, Gujarat',
     publishedBy: 'Crosslinks AI',
+    audioUrl: '/ElevenLabs_2026-04-27T06_47_24_Roger - Laid-Back, Casual, Resonant_pre_sp100_s50_sb75_se0_b_m2.mp3',
     metrics: [
       { value: '₹8L', label: 'Saved Per Month', color: '#ffb950', sub: 'in manual work' },
       { value: '2', label: 'Sessions', color: '#7dd3fc', sub: 'before results showed up' },
