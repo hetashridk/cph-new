@@ -365,7 +365,7 @@ function ShareBar({ title }) {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.4 }}
-      className="sticky top-[72px] z-40 bg-white/90 backdrop-blur-md border-b border-[#14242D]/6"
+      className="sticky top-[72px] z-30 bg-white/90 backdrop-blur-md border-b border-[#14242D]/6"
     >
       <div className="max-w-[760px] mx-auto px-6 sm:px-12 py-3 flex items-center gap-3">
         <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#14242D]/35 mr-1 hidden sm:inline">Share</span>
