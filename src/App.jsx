@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import CTASection from './components/CTASection';
 import Contact from './components/Contact';
@@ -12,6 +13,7 @@ import AccessibilityStatement from './pages/AccessibilityStatement';
 import BlogPost from './pages/BlogPost';
 import BlogList from './pages/BlogList';
 import QRContact from './pages/QRContact';
+import Resources from './pages/Resources';
 import { ModalContext } from './context/ModalContext';
 
 function ScrollToTop() {
@@ -53,10 +55,12 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<ServicesPage />} />
+                <Route path="/resources" element={<Resources />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/accessibility-statement" element={<AccessibilityStatement />} />
                 <Route path="/blog" element={<BlogList />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </MainLayout>
           }
