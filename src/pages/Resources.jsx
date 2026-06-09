@@ -9,8 +9,8 @@ const RESOURCES = [
     title: 'AI Operation Strategy Masterclass',
     description: 'In this masterclass, we break down exactly how you can map out your repetitive processes, identify automation bottlenecks, and successfully roll out generative AI workflows to your team without resistance.',
     videoUrl: 'https://www.youtube.com/embed/JdE4NsTCUIk',
-    pdfPath: '/resources/crosslinks-ai-guide.pdf',
-    pdfFilename: 'crosslinks-ai-guide.pdf',
+    pdfPath: '/resources/Build-Systems-Save-Time-Grow-Faster.pdf',
+    pdfFilename: 'Build-Systems-Save-Time-Grow-Faster.pdf',
   },
 ];
 
