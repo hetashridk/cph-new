@@ -14,6 +14,7 @@ import BlogPost from './pages/BlogPost';
 import BlogList from './pages/BlogList';
 import QRContact from './pages/QRContact';
 import Resources from './pages/Resources';
+import Workshop from './pages/Workshop';
 import { ModalContext } from './context/ModalContext';
 
 function ScrollToTop() {
@@ -55,6 +56,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<ServicesPage />} />
+                <Route path="/workshop" element={<Workshop />} />
                 <Route path="/resources" element={<Resources />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/accessibility-statement" element={<AccessibilityStatement />} />
