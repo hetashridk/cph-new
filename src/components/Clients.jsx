@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 
 const clients = [
+  { name: "Smart Snap Digital", category: "Media Marketing" },
+  { name: "PBN Patel Business Network", category: "Business Networking Community" },
   { name: "Corporate Connections Surat", category: "Business Networking" },
   { name: "Aditi Silk Mills", category: "Textile & Dyeing" },
   { name: "Sitaram Creation", category: "Textile" },

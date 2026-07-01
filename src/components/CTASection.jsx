@@ -13,7 +13,7 @@ const itemVariants = {
 };
 
 const CTASection = () => {
-  const openModal = useModal();
+  const { openModal } = useModal();
 
   return (
     <section className="py-16 md:py-20 bg-white border-t border-[#14242D]/5">

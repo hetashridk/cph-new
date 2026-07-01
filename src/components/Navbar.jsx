@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useModal } from '../context/ModalContext';
 
 const Navbar = () => {
-  const onContactClick = useModal();
+  const { openModal: onContactClick } = useModal();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();

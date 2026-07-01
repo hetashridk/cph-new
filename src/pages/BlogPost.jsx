@@ -22,7 +22,7 @@ export default function BlogPost() {
 }
 
 function PostRenderer({ post }) {
-  const openModal = useModal();
+  const { openModal } = useModal();
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroY       = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);

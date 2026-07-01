@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useModal } from '../context/ModalContext';
 
 const Services = () => {
-  const openModal = useModal();
+  const { openModal } = useModal();
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const servicesData = [

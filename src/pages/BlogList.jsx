@@ -15,7 +15,7 @@ const fadeUp = {
 };
 
 export default function BlogList() {
-  const openModal = useModal();
+  const { openModal } = useModal();
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
   const featured = blogs[0];
   const rest = blogs.slice(1);

@@ -77,7 +77,7 @@ const steps = [
 ];
 
 const ServicesPage = () => {
-  const openModal = useModal();
+  const { openModal } = useModal();
 
   return (
     <div className="flex flex-col w-full bg-white">

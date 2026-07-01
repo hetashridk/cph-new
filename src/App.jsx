@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import CTASection from './components/CTASection';
 import Contact from './components/Contact';
 import ContactModal from './components/ContactModal';
+import WorkshopModal from './components/WorkshopModal';
 import Home from './pages/Home';
 import About from './pages/About';
 import ServicesPage from './pages/ServicesPage';
@@ -25,13 +26,21 @@ function ScrollToTop() {
 
 function MainLayout({ children }) {
   const [modalOpen, setModalOpen] = useState(false);
+  const [workshopModalOpen, setWorkshopModalOpen] = useState(false);
+  const [workshopTitle, setWorkshopTitle] = useState('AI Workshop');
+
   const openModal = () => setModalOpen(true);
+  const openWorkshopModal = (title = 'AI Workshop') => {
+    setWorkshopTitle(title);
+    setWorkshopModalOpen(true);
+  };
 
   return (
-    <ModalContext.Provider value={openModal}>
+    <ModalContext.Provider value={{ openModal, openWorkshopModal }}>
       <div className="min-h-screen bg-white text-black flex flex-col font-sans">
         <Navbar />
         <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+        <WorkshopModal isOpen={workshopModalOpen} onClose={() => setWorkshopModalOpen(false)} workshopTitle={workshopTitle} />
         <main className="flex-grow">
           {children}
         </main>
