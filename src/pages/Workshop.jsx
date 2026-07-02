@@ -7,6 +7,22 @@ const BASE_PRICE = 5000;
 const DISPLAY_PRICE = 3000;
 const FINAL_PRICE = 2500;
 
+const workshop = {
+  id: "01",
+  title: "AI Video Ads Masterclass",
+  date: "04 July 2026, 4pm - 6pm",
+  description: "Learn to create compelling AI-powered video ads. Master ad idea generation, storytelling frameworks, storyboarding, AI video creation, prompt writing, and proven ad frameworks.",
+  whatYouLearn: [
+    "Ad Idea Generation",
+    "Storytelling Frameworks",
+    "Storyboarding",
+    "AI Video Creation",
+    "Better Prompt Writing",
+    "Proven Ad Frameworks"
+  ],
+  for: "Business Owners, Marketers, Creators, Agencies, and Freelancers"
+};
+
 const validate = (form) => {
   const errors = {};
 
@@ -45,6 +61,7 @@ const Workshop = () => {
   const [status, setStatus] = useState('idle');
   const [errors, setErrors] = useState({});
   const [couponValid, setCouponValid] = useState(false);
+  const [hoveredWorkshop, setHoveredWorkshop] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -109,6 +126,7 @@ const Workshop = () => {
               formData.append('phone', form.phone);
               formData.append('coupon', couponValid ? form.coupon.toUpperCase() : '');
               formData.append('amount', currentPrice);
+              formData.append('workshop_date', workshop.date);
               formData.append('timestamp', new Date().toISOString());
 
               const googleScriptResponse = await fetch('https://script.google.com/macros/s/AKfycbx-DaBeNdi2lHqN0Ia3dau1Ut9pv_3hWBmOxySV18g5YJwEsrpysTNl7Heynrva_E5c/exec', {
@@ -154,25 +172,81 @@ const Workshop = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-32 pb-24">
-      <div className="max-w-md mx-auto px-6 sm:px-12">
+    <div className="min-h-screen bg-white pt-20 md:pt-32 pb-24">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="bg-white rounded-2xl shadow-lg p-8"
+          transition={{ duration: 0.8 }}
+          className="bg-white rounded-[2rem] shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all duration-500 ease-out overflow-hidden border border-[#14242D]/5"
         >
-          <p className="text-[13px] font-semibold text-[#14242D]/50 uppercase tracking-wider mb-2">
-            Book Now
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+            {/* Left Column - Workshop Card */}
+            <div
+              onMouseEnter={() => setHoveredWorkshop(true)}
+              onMouseLeave={() => setHoveredWorkshop(false)}
+              className="relative group cursor-default w-full p-6 sm:p-8 md:p-10 flex flex-col gap-6 md:gap-8"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-[#ffb950]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none" />
+
+              <div className="flex flex-row justify-between items-start gap-4 relative z-10 w-full">
+                <div className="flex-1">
+                  <h4 className="text-[24px] md:text-[26px] font-normal leading-[1.3] text-[#14242D]" style={{ letterSpacing: '-0.01em' }}>
+                    {workshop.title}
+                  </h4>
+                  <div className="relative z-10 w-full flex flex-col gap-3 sm:gap-4 text-[#14242D]/60 pb-4 sm:pb-6 pt-4">
+                    <div className="inline-flex pt-2 sm:pt-3">
+                      <span className="text-[11px] font-semibold text-[#ffb950] bg-[#ffb950]/10 px-3 py-1.5 rounded-full uppercase tracking-wider">
+                        Online Workshop
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="relative z-10 w-full flex flex-col gap-5 sm:gap-6">
+                    <p className="text-[#14242D] text-[13px] sm:text-[14px] md:text-[15px] leading-relaxed font-normal" style={{ letterSpacing: '-0.16px' }}>
+                      {workshop.description}
+                    </p>
+
+                    {workshop.whatYouLearn && (
+                      <div className="flex flex-col gap-3">
+                        <p className="text-[11px] font-semibold text-[#14242D]/35 uppercase tracking-[0.18em]">
+                          What You'll Learn
+                        </p>
+                        <ul className="space-y-2 sm:space-y-2.5">
+                          {workshop.whatYouLearn.map((item, j) => (
+                            <li key={j} className="flex items-start gap-2">
+                              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#ffb950] flex-shrink-0" />
+                              <span className="text-[#14242D]/70 text-[12px] sm:text-[13px] leading-relaxed">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {workshop.for && (
+                      <div className="flex flex-col gap-2">
+                        <p className="text-[11px] font-semibold text-[#14242D]/35 uppercase tracking-[0.18em]">
+                          For
+                        </p>
+                        <p className="text-[#14242D]/70 text-[12px] sm:text-[13px] leading-relaxed">{workshop.for}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Payment Form */}
+            <div className="p-8 flex flex-col border-l border-[#14242D]/5 lg:border-l">
+              <div>
           <h1
             className="text-[32px] font-normal leading-tight text-[#14242D] mb-2"
             style={{ fontFamily: "'Wix Madefor Display', sans-serif", letterSpacing: '-0.6px' }}
           >
-            AI Workshop
+            Register Now
           </h1>
           <p className="text-[14px] text-[#14242D]/60 mb-6">
-            Master AI automation and transform your business
+            04 July 2026, 4pm - 6pm
           </p>
 
           {status === 'success' ? (
@@ -301,6 +375,9 @@ const Workshop = () => {
               </p>
             </>
           )}
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </div>
