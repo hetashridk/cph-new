@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const VALID_COUPONS = ['FIRST50', 'SMARTSNAP'];
+const VALID_COUPONS = ['FIRST50', 'SMARTSNAP', 'PBNEP'];
 const COUPON_DISCOUNT = 500; // Discount amount for coupon
 const BASE_PRICE = 5000;
 const DISPLAY_PRICE = 3000;
