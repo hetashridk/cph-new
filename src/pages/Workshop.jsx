@@ -10,7 +10,7 @@ const FINAL_PRICE = 2500;
 const workshop = {
   id: "01",
   title: "AI Video Ads Masterclass",
-  date: "04 July 2026, 4pm - 6pm",
+  date: "11 July 2026, 4pm - 6pm",
   description: "Learn to create compelling AI-powered video ads. Master ad idea generation, storytelling frameworks, storyboarding, AI video creation, prompt writing, and proven ad frameworks.",
   whatYouLearn: [
     "Ad Idea Generation",
@@ -174,13 +174,14 @@ const Workshop = () => {
   return (
     <div className="min-h-screen bg-white pt-20 md:pt-32 pb-24">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="bg-white rounded-[2rem] shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all duration-500 ease-out overflow-hidden border border-[#14242D]/5"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2">
+        <div className="flex justify-center mb-32">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="bg-white rounded-[2rem] shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all duration-500 ease-out overflow-hidden border border-[#14242D]/5 w-full lg:max-w-3xl"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2">
             {/* Left Column - Workshop Card */}
             <div
               onMouseEnter={() => setHoveredWorkshop(true)}
@@ -246,7 +247,7 @@ const Workshop = () => {
             Register Now
           </h1>
           <p className="text-[14px] text-[#14242D]/60 mb-6">
-            04 July 2026, 4pm - 6pm
+            11  July 2026, 4pm - 6pm
           </p>
 
           {status === 'success' ? (
@@ -379,6 +380,7 @@ const Workshop = () => {
             </div>
           </div>
         </motion.div>
+        </div>
       </div>
     </div>
   );

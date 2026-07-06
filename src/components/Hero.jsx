@@ -12,21 +12,6 @@ const Hero = () => {
     {
       id: "01",
       title: "AI Video Ads Masterclass",
-      date: "04 July 2026, 4pm - 6pm",
-      description: "Learn to create compelling AI-powered video ads. Master ad idea generation, storytelling frameworks, storyboarding, AI video creation, prompt writing, and proven ad frameworks.",
-      whatYouLearn: [
-        "Ad Idea Generation",
-        "Storytelling Frameworks",
-        "Storyboarding",
-        "AI Video Creation",
-        "Better Prompt Writing",
-        "Proven Ad Frameworks"
-      ],
-      for: "Business Owners, Marketers, Creators, Agencies, and Freelancers"
-    },
-    {
-      id: "02",
-      title: "AI Video Ads Masterclass",
       date: "11 July 2026, 4pm - 6pm",
       description: "Learn to create compelling AI-powered video ads. Master ad idea generation, storytelling frameworks, storyboarding, AI video creation, prompt writing, and proven ad frameworks.",
       whatYouLearn: [
@@ -134,7 +119,13 @@ const Hero = () => {
               </motion.div>
             </div>
 
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
+            <div
+              className={`w-full ${workshopsData.length === 1
+                ? "flex justify-center"
+                : "grid grid-cols-1 md:grid-cols-2"
+                } gap-6 md:gap-8 lg:gap-10`}
+
+            >
               {workshopsData.map((workshop, index) => {
                 const isHovered = hoveredWorkshopIndex === index;
 
@@ -144,10 +135,17 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1], delay: index * 0.12 }}
+                    transition={{
+                      duration: 0.8,
+                      ease: [0.25, 0.4, 0.25, 1],
+                      delay: index * 0.12
+                    }}
                     onMouseEnter={() => setHoveredWorkshopIndex(index)}
                     onMouseLeave={() => setHoveredWorkshopIndex(null)}
-                    className="relative group cursor-pointer w-full"
+                    className={`relative group cursor-pointer w-full ${workshopsData.length === 1
+                        ? "max-w-[650px]"
+                        : ""
+                      }`}
                   >
                     {/* Card Body */}
                     <div className="bg-white rounded-[2rem] p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col gap-6 md:gap-8 lg:gap-10 relative shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all duration-500 ease-out group-hover:-translate-y-2 overflow-hidden border border-[#14242D]/5 h-full">
@@ -245,7 +243,7 @@ const Hero = () => {
         </div>
 
         {/* Hero Testimonial Slider Section */}
-        <div className="w-full px-4 md:px-12 lg:px-24 flex justify-center mt-8 md:mt-0">
+        <div className="w-full px-4 md:px-12 lg:px-24 flex justify-center mt-10">
           <div className="w-full max-w-[1000px] relative mb-20 md:mb-10">
             {/* Desktop Left Arrow - outside the box */}
             <motion.button
