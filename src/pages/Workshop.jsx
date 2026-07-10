@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const VALID_COUPONS = ['FIRST50', 'SMARTSNAP', 'PBNEP'];
+const VALID_COUPONS = ['JULY500'];
 const COUPON_DISCOUNT = 500;
 const BASE_PRICE = 5000;
 const DISPLAY_PRICE = 3000;
@@ -10,7 +10,7 @@ const FINAL_PRICE = 2500;
 const workshop = {
   id: "01",
   title: "AI Video Ads Masterclass",
-  date: "11 July 2026, 4pm - 6pm",
+  date: "25 July 2026, 4pm - 7pm",
   description: "Learn to create compelling AI-powered video ads. Master ad idea generation, storytelling frameworks, storyboarding, AI video creation, prompt writing, and proven ad frameworks.",
   whatYouLearn: [
     "Ad Idea Generation",
@@ -134,7 +134,11 @@ const Workshop = () => {
                 body: formData,
               });
 
+            
+
               const responseText = await googleScriptResponse.text();
+              console.log(formData);
+              
               console.log('Google Script Response:', responseText);
 
               try {
@@ -247,7 +251,7 @@ const Workshop = () => {
             Register Now
           </h1>
           <p className="text-[14px] text-[#14242D]/60 mb-6">
-            11  July 2026, 4pm - 6pm
+            25 July 2026, 4pm - 7pm
           </p>
 
           {status === 'success' ? (

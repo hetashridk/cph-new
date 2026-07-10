@@ -16,6 +16,7 @@ import BlogList from './pages/BlogList';
 import QRContact from './pages/QRContact';
 import Resources from './pages/Resources';
 import Workshop from './pages/Workshop';
+import AIVideoAdsMasterclass from './pages/AIVideoAdsMasterclass';
 import { ModalContext } from './context/ModalContext';
 
 function ScrollToTop() {
@@ -25,9 +26,11 @@ function ScrollToTop() {
 }
 
 function MainLayout({ children }) {
+  const { pathname } = useLocation();
   const [modalOpen, setModalOpen] = useState(false);
   const [workshopModalOpen, setWorkshopModalOpen] = useState(false);
   const [workshopTitle, setWorkshopTitle] = useState('AI Workshop');
+  const isMasterclassPage = pathname.includes('/masterclass');
 
   const openModal = () => setModalOpen(true);
   const openWorkshopModal = (title = 'AI Workshop') => {
@@ -44,7 +47,7 @@ function MainLayout({ children }) {
         <main className="flex-grow">
           {children}
         </main>
-        <CTASection />
+        {!isMasterclassPage && <CTASection />}
         <Contact />
       </div>
     </ModalContext.Provider>
@@ -66,6 +69,7 @@ function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<ServicesPage />} />
                 <Route path="/workshop" element={<Workshop />} />
+                <Route path="/workshop/:workshopId/masterclass" element={<AIVideoAdsMasterclass />} />
                 <Route path="/resources" element={<Resources />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/accessibility-statement" element={<AccessibilityStatement />} />

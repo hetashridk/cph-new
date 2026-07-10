@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const VALID_COUPONS = ['FIRST50', 'SMARTSNAP', 'PBNEP'];
+const VALID_COUPONS = ['JULY500'];
 const COUPON_DISCOUNT = 500; // Discount amount for coupon
 const BASE_PRICE = 5000;
 const DISPLAY_PRICE = 3000;
@@ -95,6 +95,7 @@ const PaymentModal = ({ isOpen, onClose }) => {
               formData.append('phone', form.phone);
               formData.append('coupon', couponValid ? form.coupon.toUpperCase() : '');
               formData.append('amount', currentPrice);
+              formData.append('workshop_date', '25 July 2026, 4pm - 7pm');
               formData.append('timestamp', new Date().toISOString());
 
               await fetch('https://script.google.com/macros/s/AKfycbx-DaBeNdi2lHqN0Ia3dau1Ut9pv_3hWBmOxySV18g5YJwEsrpysTNl7Heynrva_E5c/exec', {
@@ -102,7 +103,7 @@ const PaymentModal = ({ isOpen, onClose }) => {
                 mode: 'no-cors',
                 body: formData,
               });
-
+              console.log('Payment details sent to Google Sheet successfully.' + formData);
               setStatus('success');
               setForm({ name: '', email: '', phone: '', coupon: '' });
               setCouponValid(false);

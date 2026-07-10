@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const VALID_COUPONS = ['FIRST50', 'SMARTSNAP', 'PBNEP'];
+const VALID_COUPONS = ['JULY500'];
 const COUPON_DISCOUNT = 500;
 const BASE_PRICE = 5000;
 const DISPLAY_PRICE = 3000;
@@ -114,6 +114,7 @@ const WorkshopModal = ({ isOpen, onClose, workshopTitle = 'AI Workshop' }) => {
               formData.append('coupon', couponValid ? form.coupon.toUpperCase() : '');
               formData.append('amount', currentPrice);
               formData.append('workshop_type', workshopTitle);
+              formData.append('workshop_date', '25 July 2026, 4pm - 7pm');
               formData.append('timestamp', new Date().toISOString());
 
               const googleScriptResponse = await fetch('https://script.google.com/macros/s/AKfycbx-DaBeNdi2lHqN0Ia3dau1Ut9pv_3hWBmOxySV18g5YJwEsrpysTNl7Heynrva_E5c/exec', {
@@ -122,6 +123,8 @@ const WorkshopModal = ({ isOpen, onClose, workshopTitle = 'AI Workshop' }) => {
               });
 
               const responseText = await googleScriptResponse.text();
+              console.log(formData);
+
               console.log('Google Script Response:', responseText);
 
               try {

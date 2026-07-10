@@ -12,7 +12,7 @@ const Hero = () => {
     {
       id: "01",
       title: "AI Video Ads Masterclass",
-      date: "11 July 2026, 4pm - 6pm",
+      date: "25 july 2026, 4pm - 7pm",
       description: "Learn to create compelling AI-powered video ads. Master ad idea generation, storytelling frameworks, storyboarding, AI video creation, prompt writing, and proven ad frameworks.",
       whatYouLearn: [
         "Ad Idea Generation",

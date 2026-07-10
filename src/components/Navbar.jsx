@@ -3,12 +3,18 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useModal } from '../context/ModalContext';
 
+const WORKSHOPS = [
+  { id: 'ai-video-ads-masterclass', name: 'AI Video Ads Masterclass', masterclassPath: '/workshop/ai-video-ads-masterclass/masterclass' }
+];
+
 const Navbar = () => {
   const { openModal: onContactClick } = useModal();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [workshopDropdownOpen, setWorkshopDropdownOpen] = useState(false);
   const location = useLocation();
   const isBlogPage = location.pathname.startsWith('/blog');
+  const isWorkshopPage = location.pathname.startsWith('/workshop');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,6 +50,41 @@ const Navbar = () => {
             <Link to="/" onClick={() => window.scrollTo(0, 0)} className={`transition-colors duration-300 text-[16px] font-normal ${location.pathname === '/' ? 'text-[#14242D]' : 'text-[#14242D]/60 hover:text-[#14242D]'}`}>Home</Link>
             <Link to="/about" onClick={() => window.scrollTo(0, 0)} className={`transition-colors duration-300 text-[16px] font-normal ${location.pathname === '/about' ? 'text-[#14242D]' : 'text-[#14242D]/60 hover:text-[#14242D]'}`}>About</Link>
             <Link to="/services" onClick={() => window.scrollTo(0, 0)} className={`transition-colors duration-300 text-[16px] font-normal ${location.pathname === '/services' ? 'text-[#14242D]' : 'text-[#14242D]/60 hover:text-[#14242D]'}`}>Services</Link>
+
+            {/* Workshop Dropdown */}
+            <div className="relative group">
+              <button className={`transition-colors duration-300 text-[16px] font-normal flex items-center gap-1 ${isWorkshopPage ? 'text-[#14242D]' : 'text-[#14242D]/60 hover:text-[#14242D]'}`}>
+                Workshop
+                <svg className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </button>
+              <AnimatePresence>
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-[#14242D]/10 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+                >
+                  <Link to="/workshop" onClick={() => window.scrollTo(0, 0)} className="block px-4 py-2 text-[14px] text-[#14242D]/60 hover:text-[#14242D] hover:bg-[#ffb950]/10 transition-colors">
+                    Register for Workshop
+                  </Link>
+                  <div className="border-t border-[#14242D]/10 my-2" />
+                  {WORKSHOPS.map((ws) => (
+                    <Link
+                      key={ws.id}
+                      to={ws.masterclassPath || `/workshop/${ws.id}`}
+                      onClick={() => window.scrollTo(0, 0)}
+                      className="block px-4 py-2 text-[14px] text-[#14242D]/60 hover:text-[#14242D] hover:bg-[#ffb950]/10 transition-colors"
+                    >
+                      {ws.name}
+                    </Link>
+                  ))}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
             <Link to="/blog" onClick={() => window.scrollTo(0, 0)} className={`transition-colors duration-300 text-[16px] font-normal ${location.pathname.startsWith('/blog') ? 'text-[#14242D]' : 'text-[#14242D]/60 hover:text-[#14242D]'}`}>Blog</Link>
             <Link to="/resources" onClick={() => window.scrollTo(0, 0)} className={`transition-colors duration-300 text-[16px] font-normal ${location.pathname.startsWith('/resources') ? 'text-[#14242D]' : 'text-[#14242D]/60 hover:text-[#14242D]'}`}>Resources</Link>
           </div>
@@ -86,11 +127,51 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-white pt-24 px-6 flex flex-col gap-8 md:hidden shadow-xl"
+            className="fixed inset-0 z-40 bg-white pt-24 px-6 flex flex-col gap-8 md:hidden shadow-xl overflow-y-auto"
           >
             <Link to="/" onClick={() => { window.scrollTo(0, 0); setMobileMenuOpen(false); }} className={`text-[2rem] font-semibold tracking-tight ${location.pathname === '/' ? 'text-[#14242D]' : 'text-[#14242D]/50'}`}>Home</Link>
             <Link to="/about" onClick={() => { window.scrollTo(0, 0); setMobileMenuOpen(false); }} className={`text-[2rem] font-semibold tracking-tight ${location.pathname === '/about' ? 'text-[#14242D]' : 'text-[#14242D]/50'}`}>About</Link>
             <Link to="/services" onClick={() => { window.scrollTo(0, 0); setMobileMenuOpen(false); }} className={`text-[2rem] font-semibold tracking-tight ${location.pathname === '/services' ? 'text-[#14242D]' : 'text-[#14242D]/50'}`}>Services</Link>
+
+            {/* Mobile Workshop Menu */}
+            <div>
+              <button
+                onClick={() => setWorkshopDropdownOpen(!workshopDropdownOpen)}
+                className={`text-[2rem] font-semibold tracking-tight flex items-center gap-2 ${isWorkshopPage ? 'text-[#14242D]' : 'text-[#14242D]/50'}`}
+              >
+                Workshop
+                <svg className={`w-6 h-6 transition-transform duration-300 ${workshopDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </button>
+              <AnimatePresence>
+                {workshopDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="ml-4 mt-4 space-y-3"
+                  >
+                    <Link to="/workshop" onClick={() => { window.scrollTo(0, 0); setMobileMenuOpen(false); setWorkshopDropdownOpen(false); }} className="text-[1.2rem] font-normal text-[#14242D]/60">
+                      Register for Workshop
+                    </Link>
+                    <div className="border-t border-[#14242D]/10" />
+                    {WORKSHOPS.map((ws) => (
+                      <Link
+                        key={ws.id}
+                        to={ws.masterclassPath || `/workshop/${ws.id}`}
+                        onClick={() => { window.scrollTo(0, 0); setMobileMenuOpen(false); setWorkshopDropdownOpen(false); }}
+                        className="block text-[1.2rem] font-normal text-[#14242D]/60"
+                      >
+                        {ws.name}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             <Link to="/blog" onClick={() => { window.scrollTo(0, 0); setMobileMenuOpen(false); }} className={`text-[2rem] font-semibold tracking-tight ${location.pathname.startsWith('/blog') ? 'text-[#14242D]' : 'text-[#14242D]/50'}`}>Blog</Link>
             <Link to="/resources" onClick={() => { window.scrollTo(0, 0); setMobileMenuOpen(false); }} className={`text-[2rem] font-semibold tracking-tight ${location.pathname.startsWith('/resources') ? 'text-[#14242D]' : 'text-[#14242D]/50'}`}>Resources</Link>
             <button
